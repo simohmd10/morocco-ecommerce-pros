@@ -1,44 +1,44 @@
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { motion } from 'framer-motion';
-import { ExternalLink, X, Eye } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ExternalLink, Eye, Store as StoreIcon, ArrowRight } from 'lucide-react';
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 import storeCosmetics from '@/assets/store-cosmetics.jpg';
 import storeFashion from '@/assets/store-fashion.jpg';
 import storeElectronics from '@/assets/store-electronics.jpg';
 
-interface Store {
+const PREVIEW_URL = 'https://es-d-5183352620260309-019cc6aa-1b20-7fe1-9816-30c5a687a999.codepen.dev/';
+const REAL_STORE_URL = 'https://shoopexpress.base44.app';
+
+interface StoreItem {
   titleKey: string;
   descKey: string;
   image: string;
-  url: string;
   gradient: string;
 }
 
 const Portfolio = () => {
   const { t } = useLanguage();
-  const [selectedStore, setSelectedStore] = useState<Store | null>(null);
+  const [selectedStore, setSelectedStore] = useState<StoreItem | null>(null);
+  const [showIframe, setShowIframe] = useState(false);
 
-  const stores: Store[] = [
+  const stores: StoreItem[] = [
     {
       titleKey: 'portfolio.cosmetics',
       descKey: 'portfolio.cosmetics.desc',
       image: storeCosmetics,
-      url: 'https://demo.storemaroc.ma/cosmetics',
       gradient: 'from-pink-500/20 to-rose-500/20',
     },
     {
       titleKey: 'portfolio.fashion',
       descKey: 'portfolio.fashion.desc',
       image: storeFashion,
-      url: 'https://demo.storemaroc.ma/fashion',
       gradient: 'from-amber-500/20 to-orange-500/20',
     },
     {
       titleKey: 'portfolio.electronics',
       descKey: 'portfolio.electronics.desc',
       image: storeElectronics,
-      url: 'https://demo.storemaroc.ma/electronics',
       gradient: 'from-blue-500/20 to-cyan-500/20',
     },
   ];
@@ -46,6 +46,15 @@ const Portfolio = () => {
   const scrollToContact = () => {
     const el = document.getElementById('contact');
     if (el) el.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const handleCloseModal = () => {
+    setSelectedStore(null);
+    setShowIframe(false);
+  };
+
+  const handleEnterStore = () => {
+    window.open(REAL_STORE_URL, '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -70,7 +79,7 @@ const Portfolio = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.15 }}
-                onClick={() => setSelectedStore(store)}
+                onClick={() => { setSelectedStore(store); setShowIframe(false); }}
                 className="group cursor-pointer rounded-2xl overflow-hidden border border-border card-shadow bg-card hover:border-primary/40 transition-all duration-300 hover:-translate-y-2"
               >
                 <div className="relative h-52 overflow-hidden">
@@ -118,39 +127,95 @@ const Portfolio = () => {
       </section>
 
       {/* Preview Modal */}
-      <Dialog open={!!selectedStore} onOpenChange={() => setSelectedStore(null)}>
+      <Dialog open={!!selectedStore} onOpenChange={handleCloseModal}>
         <DialogContent className="max-w-4xl w-[95vw] h-[85vh] p-0 overflow-hidden bg-card border-border">
           <DialogTitle className="sr-only">
             {selectedStore ? t(selectedStore.titleKey) : ''}
           </DialogTitle>
           {selectedStore && (
             <div className="flex flex-col h-full">
-              {/* Header */}
-              <div className="flex items-center justify-between p-4 border-b border-border">
-                <div>
-                  <h3 className="font-bold text-lg">{t(selectedStore.titleKey)}</h3>
-                  <p className="text-sm text-muted-foreground">{t(selectedStore.descKey)}</p>
-                </div>
-                <a
-                  href={selectedStore.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 gold-gradient text-primary-foreground px-5 py-2.5 rounded-full text-sm font-bold hover:scale-105 transition-transform"
+              {!showIframe ? (
+                /* Landing Preview Page */
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.3 }}
+                  className="flex flex-col h-full"
                 >
-                  <ExternalLink className="w-4 h-4" />
-                  {t('portfolio.visit')}
-                </a>
-              </div>
+                  {/* Store Screenshot */}
+                  <div className="relative flex-1 overflow-hidden">
+                    <img
+                      src={selectedStore.image}
+                      alt={t(selectedStore.titleKey)}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
-              {/* Iframe */}
-              <div className="flex-1 bg-muted">
-                <iframe
-                  src={selectedStore.url}
-                  title={t(selectedStore.titleKey)}
-                  className="w-full h-full border-0"
-                  sandbox="allow-scripts allow-same-origin"
-                />
-              </div>
+                    {/* Overlay Content */}
+                    <div className="absolute bottom-0 inset-x-0 p-6 md:p-10 text-white">
+                      <div className="flex items-center gap-3 mb-3">
+                        <div className="w-10 h-10 rounded-xl gold-gradient flex items-center justify-center">
+                          <StoreIcon className="w-5 h-5 text-primary-foreground" />
+                        </div>
+                        <span className="text-xs uppercase tracking-widest text-primary font-bold">StoreMaroc</span>
+                      </div>
+                      <h3 className="text-2xl md:text-3xl font-bold font-display mb-2">
+                        {t(selectedStore.titleKey)}
+                      </h3>
+                      <p className="text-white/70 text-sm md:text-base mb-6 max-w-lg">
+                        {t(selectedStore.descKey)}
+                      </p>
+
+                      <div className="flex flex-col sm:flex-row gap-3">
+                        <button
+                          onClick={() => setShowIframe(true)}
+                          className="inline-flex items-center justify-center gap-2 gold-gradient text-primary-foreground px-8 py-3.5 rounded-full text-base font-bold hover:scale-105 transition-transform shadow-lg"
+                        >
+                          {t('portfolio.visit')}
+                          <ExternalLink className="w-4 h-4" />
+                        </button>
+                        <button
+                          onClick={handleEnterStore}
+                          className="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 text-white px-8 py-3.5 rounded-full text-base font-bold hover:bg-white/20 transition-all"
+                        >
+                          {t('portfolio.enter_store')}
+                          <ArrowRight className="w-4 h-4" />
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ) : (
+                /* Iframe Preview */
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.3 }}
+                  className="flex flex-col h-full"
+                >
+                  <div className="flex items-center justify-between p-4 border-b border-border">
+                    <div>
+                      <h3 className="font-bold text-lg">{t(selectedStore.titleKey)}</h3>
+                      <p className="text-sm text-muted-foreground">{t(selectedStore.descKey)}</p>
+                    </div>
+                    <button
+                      onClick={handleEnterStore}
+                      className="inline-flex items-center gap-2 gold-gradient text-primary-foreground px-5 py-2.5 rounded-full text-sm font-bold hover:scale-105 transition-transform"
+                    >
+                      {t('portfolio.enter_store')}
+                      <ArrowRight className="w-4 h-4" />
+                    </button>
+                  </div>
+                  <div className="flex-1 bg-muted">
+                    <iframe
+                      src={PREVIEW_URL}
+                      title={t(selectedStore.titleKey)}
+                      className="w-full h-full border-0"
+                      sandbox="allow-scripts allow-same-origin"
+                    />
+                  </div>
+                </motion.div>
+              )}
             </div>
           )}
         </DialogContent>
