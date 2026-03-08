@@ -300,6 +300,7 @@ const translations: Record<Language, Record<string, string>> = {
     'portfolio.electronics': 'Electronics Store',
     'portfolio.electronics.desc': 'A professional electronics store for selling smartphones, laptops and smart devices',
     'portfolio.visit': 'Visit Full Store',
+    'portfolio.enter_store': 'Enter Store',
     'portfolio.preview': 'Store Preview',
     'portfolio.cta.title': 'Want a store like these?',
     'portfolio.cta.button': 'Order Your Store Now',
