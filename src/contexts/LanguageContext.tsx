@@ -93,6 +93,7 @@ const translations: Record<Language, Record<string, string>> = {
     'portfolio.electronics': 'متجر إلكترونيات',
     'portfolio.electronics.desc': 'متجر إلكترونيات احترافي لبيع الهواتف والحواسيب والأجهزة الذكية',
     'portfolio.visit': 'زيارة المتجر الكامل',
+    'portfolio.enter_store': 'دخول المتجر',
     'portfolio.preview': 'معاينة المتجر',
     'portfolio.cta.title': 'هل تريد متجرًا مثل هذه المتاجر؟',
     'portfolio.cta.button': 'اطلب متجرك الآن',
