@@ -198,6 +198,7 @@ const translations: Record<Language, Record<string, string>> = {
     'portfolio.electronics': 'Boutique Électronique',
     'portfolio.electronics.desc': 'Boutique professionnelle pour vendre smartphones, ordinateurs et appareils intelligents',
     'portfolio.visit': 'Visiter la boutique complète',
+    'portfolio.enter_store': 'Entrer dans la boutique',
     'portfolio.preview': 'Aperçu de la boutique',
     'portfolio.cta.title': 'Vous voulez une boutique comme celles-ci ?',
     'portfolio.cta.button': 'Commandez votre boutique',
