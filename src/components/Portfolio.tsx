@@ -1,17 +1,19 @@
 import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { motion } from 'framer-motion';
-import { ExternalLink, X, Eye } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ExternalLink, Eye, Store as StoreIcon, ArrowRight } from 'lucide-react';
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui/dialog';
 import storeCosmetics from '@/assets/store-cosmetics.jpg';
 import storeFashion from '@/assets/store-fashion.jpg';
 import storeElectronics from '@/assets/store-electronics.jpg';
 
-interface Store {
+const PREVIEW_URL = 'https://es-d-5183352620260309-019cc6aa-1b20-7fe1-9816-30c5a687a999.codepen.dev/';
+const REAL_STORE_URL = 'https://shoopexpress.base44.app';
+
+interface StoreItem {
   titleKey: string;
   descKey: string;
   image: string;
-  url: string;
   gradient: string;
 }
 
