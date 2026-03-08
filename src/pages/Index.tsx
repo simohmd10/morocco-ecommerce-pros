@@ -1,5 +1,6 @@
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
+import TrustSection from '@/components/TrustSection';
 import WhyEcommerce from '@/components/WhyEcommerce';
 import Benefits from '@/components/Benefits';
 import HowItWorks from '@/components/HowItWorks';
@@ -16,6 +17,7 @@ const Index = () => {
       <Navbar />
       <main>
         <Hero />
+        <TrustSection />
         <WhyEcommerce />
         <Benefits />
         <HowItWorks />
