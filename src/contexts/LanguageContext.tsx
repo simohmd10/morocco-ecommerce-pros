@@ -97,6 +97,14 @@ const translations: Record<Language, Record<string, string>> = {
     'portfolio.preview': 'معاينة المتجر',
     'portfolio.cta.title': 'هل تريد متجرًا مثل هذه المتاجر؟',
     'portfolio.cta.button': 'اطلب متجرك الآن',
+    'portfolio.cta.want_store': 'أريد متجر مثل هذا',
+    'portfolio.whatsapp_message': 'مرحباً، أريد إنشاء متجر إلكتروني مثل النماذج المعروضة في موقعكم',
+    // Trust
+    'trust.title': 'لماذا StoreMaroc؟',
+    'trust.1': 'متجر جاهز خلال 48 ساعة',
+    'trust.2': 'تصميم احترافي متوافق مع الهاتف',
+    'trust.3': 'ربط الدفع والتوصيل في المغرب',
+    'trust.4': 'دعم تقني بعد إطلاق المتجر',
     // FAQ
     'faq.title': 'أسئلة شائعة',
     'faq.q1': 'كم يستغرق إنشاء المتجر؟',
