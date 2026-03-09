@@ -13,7 +13,7 @@ const TrustSection = () => {
   ];
 
   return (
-    <section className="section-padding bg-secondary/50">
+    <section className="section-padding bg-secondary/50" id="trust" aria-label="Why Storekom">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -36,7 +36,7 @@ const TrustSection = () => {
               transition={{ delay: i * 0.1 }}
               className="flex flex-col items-center text-center p-6 rounded-2xl bg-background border border-border card-shadow hover:border-primary/40 transition-all duration-300"
             >
-              <div className="w-14 h-14 rounded-xl gold-gradient flex items-center justify-center mb-4">
+              <div className="w-14 h-14 rounded-xl gold-gradient flex items-center justify-center mb-4" aria-hidden="true">
                 <point.icon className="w-7 h-7 text-primary-foreground" />
               </div>
               <p className="font-bold text-sm md:text-base">{t(point.key)}</p>

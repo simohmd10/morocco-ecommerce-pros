@@ -16,7 +16,7 @@ const Services = () => {
   ];
 
   return (
-    <section id="services" className="section-padding bg-background">
+    <section id="services" className="section-padding bg-background" aria-label="Services">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -38,12 +38,19 @@ const Services = () => {
               transition={{ delay: i * 0.05 }}
               className="flex items-center gap-3 p-4 rounded-xl bg-card border border-border hover:border-gold/30 transition-colors card-shadow"
             >
-              <div className="w-10 h-10 rounded-lg gold-gradient flex items-center justify-center flex-shrink-0">
+              <div className="w-10 h-10 rounded-lg gold-gradient flex items-center justify-center flex-shrink-0" aria-hidden="true">
                 <service.icon className="w-5 h-5 text-primary" />
               </div>
               <span className="font-medium text-sm">{t(service.key)}</span>
             </motion.div>
           ))}
+        </div>
+
+        {/* Internal link for SEO */}
+        <div className="text-center mt-10">
+          <a href="#contact" className="text-gold hover:text-gold-light text-sm font-medium transition-colors underline underline-offset-4">
+            {t('hero.cta')} →
+          </a>
         </div>
       </div>
     </section>
