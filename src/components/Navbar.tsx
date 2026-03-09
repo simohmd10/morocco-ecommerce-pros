@@ -11,7 +11,7 @@ const Navbar = () => {
   const links = [
     { key: 'nav.home', href: '#home' },
     { key: 'nav.services', href: '#services' },
-    { key: 'nav.pricing', href: '#pricing' },
+    
     { key: 'nav.portfolio', href: '#portfolio' },
     { key: 'nav.faq', href: '#faq' },
     { key: 'nav.contact', href: '#contact' },
