@@ -321,7 +321,7 @@ const translations: Record<Language, Record<string, string>> = {
     'portfolio.cta.button': 'Order Your Store Now',
     'portfolio.cta.want_store': 'I want a store like this',
     'portfolio.whatsapp_message': 'Hello, I want to create an online store like the examples on your website',
-    'trust.title': 'Why StoreMaroc?',
+    'trust.title': 'Why Storekom?',
     'trust.1': 'Store ready in 48 hours',
     'trust.2': 'Professional mobile-friendly design',
     'trust.3': 'Payment & delivery integration in Morocco',
