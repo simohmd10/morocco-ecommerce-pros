@@ -32,8 +32,8 @@ const Footer = () => {
           </div>
           <div>
             <h4 className="font-bold mb-3 text-white/80">{t('nav.contact')}</h4>
-            <p className="text-sm text-white/40">contact@storemaroc.ma</p>
-            <p className="text-sm text-white/40 mt-1">+212 600 000 000</p>
+            <p className="text-sm text-white/40">storekom.support@gmail.com</p>
+            <p className="text-sm text-white/40 mt-1">+212 691 553 120</p>
           </div>
         </div>
         <div className="border-t border-white/10 pt-6 text-center text-xs text-white/30">
