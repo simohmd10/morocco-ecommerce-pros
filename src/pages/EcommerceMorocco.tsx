@@ -1,7 +1,7 @@
 import SeoPageLayout from '@/components/SeoPageLayout';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { TrendingUp, Users, ShoppingBag, CreditCard, Truck, Globe, BarChart3, Smartphone, Check, MessageCircle } from 'lucide-react';
+import { TrendingUp, Users, ShoppingBag, CreditCard, Truck, Globe, BarChart3, Smartphone, DollarSign, Check, MessageCircle } from 'lucide-react';
 
 const fadeUp = { initial: { opacity: 0, y: 20 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
 
