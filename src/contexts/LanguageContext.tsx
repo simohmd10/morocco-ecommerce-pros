@@ -100,7 +100,7 @@ const translations: Record<Language, Record<string, string>> = {
     'portfolio.cta.want_store': 'أريد متجر مثل هذا',
     'portfolio.whatsapp_message': 'مرحباً، أريد إنشاء متجر إلكتروني مثل النماذج المعروضة في موقعكم',
     // Trust
-    'trust.title': 'لماذا StoreMaroc؟',
+    'trust.title': 'لماذا Storekom؟',
     'trust.1': 'متجر جاهز خلال 48 ساعة',
     'trust.2': 'تصميم احترافي متوافق مع الهاتف',
     'trust.3': 'ربط الدفع والتوصيل في المغرب',
