@@ -212,7 +212,7 @@ const translations: Record<Language, Record<string, string>> = {
     'portfolio.cta.button': 'Commandez votre boutique',
     'portfolio.cta.want_store': 'Je veux une boutique comme celle-ci',
     'portfolio.whatsapp_message': 'Bonjour, je souhaite créer une boutique en ligne comme les exemples sur votre site',
-    'trust.title': 'Pourquoi StoreMaroc ?',
+    'trust.title': 'Pourquoi Storekom ?',
     'trust.1': 'Boutique prête en 48 heures',
     'trust.2': 'Design professionnel compatible mobile',
     'trust.3': 'Paiement et livraison intégrés au Maroc',
