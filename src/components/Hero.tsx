@@ -6,7 +6,7 @@ const Hero = () => {
   const { t } = useLanguage();
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center dark-section overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center dark-section overflow-hidden" aria-label="Hero">
       {/* Background pattern */}
       <div className="absolute inset-0 opacity-[0.03]" style={{
         backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
@@ -24,7 +24,7 @@ const Hero = () => {
           transition={{ duration: 0.8 }}
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/30 bg-gold/5 mb-8">
-            <ShoppingBag className="w-4 h-4 text-gold" />
+            <ShoppingBag className="w-4 h-4 text-gold" aria-hidden="true" />
             <span className="text-sm text-gold-light">E-Commerce Morocco</span>
           </div>
 
@@ -40,12 +40,14 @@ const Hero = () => {
             <a
               href="#contact"
               className="gold-gradient px-8 py-4 rounded-xl text-primary font-bold text-lg gold-shadow hover:scale-105 transition-transform inline-block"
+              aria-label={t('hero.cta')}
             >
               {t('hero.cta')}
             </a>
             <a
               href="#services"
               className="px-8 py-4 rounded-xl border border-white/20 text-white/80 hover:bg-white/5 transition-colors inline-block"
+              aria-label={t('hero.secondary')}
             >
               {t('hero.secondary')}
             </a>
@@ -58,7 +60,7 @@ const Hero = () => {
           transition={{ delay: 1.2, duration: 0.6 }}
           className="absolute bottom-8 left-1/2 -translate-x-1/2"
         >
-          <ArrowDown className="w-5 h-5 text-white/30 animate-bounce" />
+          <ArrowDown className="w-5 h-5 text-white/30 animate-bounce" aria-hidden="true" />
         </motion.div>
       </div>
     </section>

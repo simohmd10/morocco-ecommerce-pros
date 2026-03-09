@@ -13,7 +13,7 @@ const Benefits = () => {
   ];
 
   return (
-    <section className="section-padding bg-secondary/50">
+    <section className="section-padding bg-secondary/50" id="benefits" aria-label="Benefits">
       <div className="container mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -34,7 +34,7 @@ const Benefits = () => {
               transition={{ delay: i * 0.1 }}
               className="p-6 rounded-2xl bg-background card-shadow border border-border group hover:border-gold/30 transition-colors"
             >
-              <div className="w-12 h-12 rounded-xl gold-gradient flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+              <div className="w-12 h-12 rounded-xl gold-gradient flex items-center justify-center mb-4 group-hover:scale-110 transition-transform" aria-hidden="true">
                 <item.icon className="w-6 h-6 text-primary" />
               </div>
               <h3 className="text-lg font-bold mb-2">{t(item.title)}</h3>

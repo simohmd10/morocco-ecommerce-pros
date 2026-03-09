@@ -12,7 +12,7 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section className="section-padding dark-section" id="how">
+    <section className="section-padding dark-section" id="how" aria-label="How it works">
       <div className="container mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -33,8 +33,8 @@ const HowItWorks = () => {
               transition={{ delay: i * 0.15 }}
               className="text-center relative"
             >
-              <div className="text-6xl font-bold text-gold/10 font-display mb-4">{step.num}</div>
-              <div className="w-16 h-16 rounded-2xl gold-gradient flex items-center justify-center mx-auto mb-4">
+              <div className="text-6xl font-bold text-gold/10 font-display mb-4" aria-hidden="true">{step.num}</div>
+              <div className="w-16 h-16 rounded-2xl gold-gradient flex items-center justify-center mx-auto mb-4" aria-hidden="true">
                 <step.icon className="w-7 h-7 text-primary" />
               </div>
               <h3 className="text-xl font-bold mb-2">{t(step.title)}</h3>

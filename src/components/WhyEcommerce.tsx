@@ -13,7 +13,7 @@ const WhyEcommerce = () => {
   ];
 
   return (
-    <section className="section-padding bg-background">
+    <section className="section-padding bg-background" id="why-ecommerce" aria-label="Why E-Commerce">
       <div className="container mx-auto">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
@@ -34,7 +34,7 @@ const WhyEcommerce = () => {
               transition={{ delay: i * 0.1 }}
               className="text-center p-6 rounded-2xl bg-card card-shadow border border-border"
             >
-              <item.icon className="w-8 h-8 text-gold mx-auto mb-4" />
+              <item.icon className="w-8 h-8 text-gold mx-auto mb-4" aria-hidden="true" />
               <div className="text-3xl md:text-4xl font-bold gold-text mb-2">{t(item.stat)}</div>
               <p className="text-sm text-muted-foreground">{t(item.desc)}</p>
             </motion.div>

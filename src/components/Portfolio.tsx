@@ -16,16 +16,19 @@ const Portfolio = () => {
       titleKey: 'portfolio.cosmetics',
       descKey: 'portfolio.cosmetics.desc',
       image: storeCosmetics,
+      alt: 'متجر إلكتروني لمستحضرات التجميل في المغرب - تصميم Storekom',
     },
     {
       titleKey: 'portfolio.fashion',
       descKey: 'portfolio.fashion.desc',
       image: storeFashion,
+      alt: 'متجر أزياء نسائية إلكتروني في المغرب - تصميم Storekom',
     },
     {
       titleKey: 'portfolio.electronics',
       descKey: 'portfolio.electronics.desc',
       image: storeElectronics,
+      alt: 'متجر إلكترونيات أونلاين في المغرب - تصميم Storekom',
     },
   ];
 
@@ -39,7 +42,7 @@ const Portfolio = () => {
   };
 
   return (
-    <section id="portfolio" className="section-padding bg-background">
+    <section id="portfolio" className="section-padding bg-background" aria-label="Portfolio">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -53,7 +56,7 @@ const Portfolio = () => {
 
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {stores.map((store, i) => (
-            <motion.div
+            <motion.article
               key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -64,7 +67,10 @@ const Portfolio = () => {
               <div className="relative h-52 overflow-hidden cursor-pointer" onClick={handleVisitStore}>
                 <img
                   src={store.image}
-                  alt={t(store.titleKey)}
+                  alt={store.alt}
+                  loading="lazy"
+                  width={400}
+                  height={208}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-all duration-300 flex items-center justify-center">
@@ -89,7 +95,7 @@ const Portfolio = () => {
                   {t('portfolio.visit')}
                 </button>
               </div>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
 
