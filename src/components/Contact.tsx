@@ -14,7 +14,7 @@ const Contact = () => {
     setForm({ name: '', email: '', phone: '', message: '' });
   };
 
-  const whatsappUrl = `https://wa.me/212600000000?text=${encodeURIComponent('مرحباً، أريد إنشاء متجر إلكتروني')}`;
+  const whatsappUrl = `https://wa.me/212691553120?text=${encodeURIComponent('مرحباً، أريد إنشاء متجر إلكتروني')}`;
 
   return (
     <section id="contact" className="section-padding bg-background">
