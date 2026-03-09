@@ -37,7 +37,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="border-t border-white/10 pt-6 text-center text-xs text-white/30">
-          © 2026 StoreMaroc. {t('footer.rights')}.
+          © 2026 Storekom. {t('footer.rights')}.
         </div>
       </div>
     </footer>
