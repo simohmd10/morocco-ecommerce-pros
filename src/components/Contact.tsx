@@ -10,6 +10,10 @@ const Contact = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    const text = encodeURIComponent(
+      `📩 طلب جديد من الموقع\n\n👤 الاسم: ${form.name}\n📧 الإيميل: ${form.email}\n📞 الهاتف: ${form.phone}\n💬 الرسالة: ${form.message}`
+    );
+    window.open(`https://wa.me/212691553120?text=${text}`, '_blank');
     toast.success(t('contact.send') + ' ✓');
     setForm({ name: '', email: '', phone: '', message: '' });
   };
