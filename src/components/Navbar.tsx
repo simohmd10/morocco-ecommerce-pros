@@ -44,19 +44,19 @@ const Navbar = () => {
             {/* Overlay */}
             <motion.div
               className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"
-              initial={{opacity:0}}
-              animate={{opacity:1}}
-              exit={{opacity:0}}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               onClick={() => setOpen(false)}
             />
 
-            {/* Sidebar panel */}
+            {/* Sidebar */}
             <motion.div
               className="fixed top-0 left-0 h-full w-72 bg-background z-50 shadow-xl p-6 flex flex-col"
-              initial={{x:"-100%"}}
-              animate={{x:0}}
-              exit={{x:"-100%"}}
-              transition={{type:"spring", stiffness:260, damping:25}}
+              initial={{ x: "-100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "-100%" }}
+              transition={{ type: "spring", stiffness: 260, damping: 25 }}
             >
 
               {/* Header */}
@@ -68,7 +68,7 @@ const Navbar = () => {
                 </button>
               </div>
 
-              {/* Navigation links */}
+              {/* Links */}
               <div className="flex flex-col gap-6">
 
                 {links.map((link) => (
@@ -91,11 +91,14 @@ const Navbar = () => {
                   Language
                 </p>
 
-                <div className="flex flex-col gap-3">
+                <div className="flex flex-col gap-4">
 
                   <button
                     onClick={() => setLang("ar")}
-                    className="flex justify-between items-center hover:text-foreground"
+                    className={`flex justify-between items-center transition
+                    ${lang === "ar"
+                      ? "text-yellow-500 font-semibold"
+                      : "hover:text-foreground"}`}
                   >
                     العربية
                     {lang === "ar" && <span>✓</span>}
@@ -103,7 +106,10 @@ const Navbar = () => {
 
                   <button
                     onClick={() => setLang("fr")}
-                    className="flex justify-between items-center hover:text-foreground"
+                    className={`flex justify-between items-center transition
+                    ${lang === "fr"
+                      ? "text-yellow-500 font-semibold"
+                      : "hover:text-foreground"}`}
                   >
                     Français
                     {lang === "fr" && <span>✓</span>}
@@ -111,7 +117,10 @@ const Navbar = () => {
 
                   <button
                     onClick={() => setLang("en")}
-                    className="flex justify-between items-center hover:text-foreground"
+                    className={`flex justify-between items-center transition
+                    ${lang === "en"
+                      ? "text-yellow-500 font-semibold"
+                      : "hover:text-foreground"}`}
                   >
                     English
                     {lang === "en" && <span>✓</span>}
