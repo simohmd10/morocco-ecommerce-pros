@@ -5,7 +5,9 @@ import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const { t, lang, setLang } = useLanguage();
+
   const [open, setOpen] = useState(false);
+  const [langOpen, setLangOpen] = useState(false);
 
   const links = [
     { key: "nav.home", href: "#home" },
@@ -15,11 +17,11 @@ const Navbar = () => {
     { key: "nav.contact", href: "#contact" },
   ];
 
-  const changeLanguage = () => {
-    if (lang === "ar") setLang("fr");
-    else if (lang === "fr") setLang("en");
-    else setLang("ar");
-  };
+  const languages = [
+    { code: "ar", label: "العربية" },
+    { code: "fr", label: "Français" },
+    { code: "en", label: "English" },
+  ];
 
   return (
     <>
@@ -33,22 +35,49 @@ const Navbar = () => {
           {/* Left side */}
           <div className="flex items-center gap-4">
 
-            {/* Menu button */}
-            <button
-              onClick={() => setOpen(true)}
-              className="p-1"
-            >
-              <Menu className="w-6 h-6" />
+            {/* Menu */}
+            <button onClick={() => setOpen(true)}>
+              <Menu className="w-6 h-6"/>
             </button>
 
             {/* Language */}
-            <button
-              onClick={changeLanguage}
-              className="flex items-center gap-1 text-sm"
-            >
-              <Globe className="w-5 h-5" />
-              {lang.toUpperCase()}
-            </button>
+            <div className="relative">
+
+              <button
+                onClick={() => setLangOpen(!langOpen)}
+                className="flex items-center gap-1 text-sm"
+              >
+                <Globe className="w-5 h-5"/>
+                {lang.toUpperCase()}
+              </button>
+
+              <AnimatePresence>
+                {langOpen && (
+                  <motion.div
+                    initial={{opacity:0, y:-5}}
+                    animate={{opacity:1, y:0}}
+                    exit={{opacity:0, y:-5}}
+                    className="absolute mt-2 w-32 bg-background border border-border rounded-lg shadow-lg"
+                  >
+
+                    {languages.map((l) => (
+                      <button
+                        key={l.code}
+                        onClick={() => {
+                          setLang(l.code as any);
+                          setLangOpen(false);
+                        }}
+                        className="block w-full text-left px-3 py-2 hover:bg-muted"
+                      >
+                        {l.label}
+                      </button>
+                    ))}
+
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
+            </div>
 
           </div>
 
@@ -60,45 +89,41 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Overlay + Sidebar */}
+      {/* Sidebar */}
       <AnimatePresence>
         {open && (
           <>
-            {/* Overlay */}
             <motion.div
               className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+              initial={{opacity:0}}
+              animate={{opacity:1}}
+              exit={{opacity:0}}
               onClick={() => setOpen(false)}
             />
 
-            {/* Sidebar */}
             <motion.div
               className="fixed top-0 left-0 h-full w-72 bg-background z-50 shadow-xl p-6"
-              initial={{ x: "-100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "-100%" }}
-              transition={{ type: "spring", stiffness: 260, damping: 25 }}
+              initial={{x:"-100%"}}
+              animate={{x:0}}
+              exit={{x:"-100%"}}
+              transition={{type:"spring", stiffness:260, damping:25}}
             >
 
-              {/* Close */}
               <div className="flex justify-between items-center mb-8">
                 <span className="text-lg font-semibold">Menu</span>
 
                 <button onClick={() => setOpen(false)}>
-                  <X className="w-6 h-6" />
+                  <X className="w-6 h-6"/>
                 </button>
               </div>
 
-              {/* Links */}
               <div className="flex flex-col gap-5">
                 {links.map((link) => (
                   <a
                     key={link.key}
                     href={link.href}
                     onClick={() => setOpen(false)}
-                    className="text-lg text-muted-foreground hover:text-foreground transition"
+                    className="text-lg text-muted-foreground hover:text-foreground"
                   >
                     {t(link.key)}
                   </a>
