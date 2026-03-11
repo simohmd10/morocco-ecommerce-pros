@@ -16,19 +16,19 @@ const Portfolio = () => {
       titleKey: 'portfolio.cosmetics',
       descKey: 'portfolio.cosmetics.desc',
       image: storeCosmetics,
-      alt: 'متجر إلكتروني لمستحضرات التجميل في المغرب - تصميم Storekom',
+      alt: 'متجر إلكتروني لمستحضرات التجميل في المغرب - تصميم Brandixo',
     },
     {
       titleKey: 'portfolio.fashion',
       descKey: 'portfolio.fashion.desc',
       image: storeFashion,
-      alt: 'متجر أزياء نسائية إلكتروني في المغرب - تصميم Storekom',
+      alt: 'متجر أزياء نسائية إلكتروني في المغرب - تصميم Brandixo',
     },
     {
       titleKey: 'portfolio.electronics',
       descKey: 'portfolio.electronics.desc',
       image: storeElectronics,
-      alt: 'متجر إلكترونيات أونلاين في المغرب - تصميم Storekom',
+      alt: 'متجر إلكترونيات أونلاين في المغرب - تصميم Brandixo',
     },
   ];
 
@@ -81,11 +81,9 @@ const Portfolio = () => {
                 </div>
               </div>
               <div className="p-5">
-                <div className="flex items-center justify-between mb-4">
-                  <div>
-                    <h3 className="font-bold text-lg">{t(store.titleKey)}</h3>
-                    <p className="text-sm text-muted-foreground mt-1">{t(store.descKey)}</p>
-                  </div>
+                <div className="mb-4">
+                  <h3 className="font-bold text-lg">{t(store.titleKey)}</h3>
+                  <p className="text-sm text-muted-foreground mt-1">{t(store.descKey)}</p>
                 </div>
                 <button
                   onClick={handleVisitStore}

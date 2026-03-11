@@ -43,7 +43,7 @@ const SeoPageLayout = ({ title, description, children, structuredData }: SeoPage
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={description} />
-        <link rel="canonical" href={`https://storekom.ma${window.location.pathname}`} />
+        <link rel="canonical" href={`https://brandixo.com${window.location.pathname}`} />
         <html lang={lang} dir={lang === 'ar' ? 'rtl' : 'ltr'} />
         {structuredData && (
           <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
@@ -51,10 +51,10 @@ const SeoPageLayout = ({ title, description, children, structuredData }: SeoPage
       </Helmet>
 
       {/* Navbar */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
+      <nav className="fixed top-0 inset-inline-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
         <div className="container mx-auto px-4 flex items-center justify-between h-16">
           <Link to="/" className="text-xl font-bold font-display">
-            <span className="gold-text">Store</span>kom
+            <span className="gold-text">Bran</span>dixo
           </Link>
           <div className="hidden md:flex items-center gap-6">
             {navLinks.map(link => (
@@ -109,7 +109,7 @@ const SeoPageLayout = ({ title, description, children, structuredData }: SeoPage
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8 mb-8">
             <div>
-              <h3 className="text-xl font-bold font-display mb-3"><span className="gold-text">Store</span>kom</h3>
+              <h3 className="text-xl font-bold font-display mb-3"><span className="gold-text">Bran</span>dixo</h3>
               <p className="text-sm text-white/50">{t('footer.desc')}</p>
             </div>
             <nav aria-label="Footer navigation">
@@ -122,12 +122,12 @@ const SeoPageLayout = ({ title, description, children, structuredData }: SeoPage
             </nav>
             <address className="not-italic">
               <h4 className="font-bold mb-3 text-white/80">{t('nav.contact')}</h4>
-              <a href="mailto:storekom.support@gmail.com" className="text-sm text-white/40 hover:text-gold transition-colors block">storekom.support@gmail.com</a>
+              <a href="mailto:contact@brandixo.com" className="text-sm text-white/40 hover:text-gold transition-colors block">contact@brandixo.com</a>
               <a href="tel:+212691553120" className="text-sm text-white/40 hover:text-gold transition-colors block mt-1">+212 691 553 120</a>
             </address>
           </div>
           <div className="border-t border-white/10 pt-6 text-center text-xs text-white/30">
-            © 2026 Storekom. {t('footer.rights')}.
+            © 2026 Brandixo. {t('footer.rights')}.
           </div>
         </div>
       </footer>

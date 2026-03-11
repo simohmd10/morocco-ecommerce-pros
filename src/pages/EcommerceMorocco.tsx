@@ -12,8 +12,8 @@ const EcommerceMorocco = () => {
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "التجارة الإلكترونية في المغرب - دليل شامل",
-    "author": { "@type": "Organization", "name": "Storekom" },
-    "publisher": { "@type": "Organization", "name": "Storekom" },
+    "author": { "@type": "Organization", "name": "Brandixo" },
+    "publisher": { "@type": "Organization", "name": "Brandixo" },
     "description": "دليل شامل عن التجارة الإلكترونية في المغرب: النمو، الفرص، وطرق الدفع والتوصيل المتاحة."
   };
 
@@ -51,7 +51,7 @@ const EcommerceMorocco = () => {
 
   return (
     <SeoPageLayout
-      title="التجارة الإلكترونية في المغرب | E-commerce Morocco - Storekom"
+      title="التجارة الإلكترونية في المغرب | E-commerce Morocco - Brandixo"
       description="دليل شامل عن التجارة الإلكترونية في المغرب. تعرف على نمو السوق، فرص البيع أونلاين، طرق الدفع والتوصيل. أنشئ متجرك الإلكتروني الآن."
       structuredData={structuredData}
     >
@@ -169,7 +169,7 @@ const EcommerceMorocco = () => {
                 في المغرب، يفضل أكثر من 70% من المتسوقين عبر الإنترنت الشراء من متاجر إلكترونية محلية. هذا يعني فرصة كبيرة لأي شخص يريد بدء مشروع تجاري أونلاين.
               </p>
               <p className="leading-relaxed">
-                مع Storekom، نساعدك في إنشاء متجر إلكتروني احترافي مع كل الأدوات التي تحتاجها: تصميم عصري، دفع إلكتروني، ربط مع شركات التوصيل، وتحسين لمحركات البحث.
+                مع Brandixo، نساعدك في إنشاء متجر إلكتروني احترافي مع كل الأدوات التي تحتاجها: تصميم عصري، دفع إلكتروني، ربط مع شركات التوصيل، وتحسين لمحركات البحث.
               </p>
             </div>
           </motion.div>
@@ -181,7 +181,7 @@ const EcommerceMorocco = () => {
         <div className="container mx-auto max-w-2xl">
           <motion.div {...fadeUp}>
             <h2 className="text-3xl md:text-4xl font-bold font-display mb-6">ابدأ البيع أونلاين في المغرب</h2>
-            <p className="text-white/60 text-lg mb-8">أنشئ متجرك الإلكتروني الاحترافي مع Storekom واستفد من نمو التجارة الإلكترونية في المغرب</p>
+            <p className="text-white/60 text-lg mb-8">أنشئ متجرك الإلكتروني الاحترافي مع Brandixo واستفد من نمو التجارة الإلكترونية في المغرب</p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="gold-gradient px-8 py-4 rounded-xl text-primary font-bold text-lg gold-shadow hover:scale-105 transition-transform inline-flex items-center gap-2">
                 <MessageCircle className="w-5 h-5" />
@@ -210,6 +210,5 @@ const EcommerceMorocco = () => {
     </SeoPageLayout>
   );
 };
-
 
 export default EcommerceMorocco;

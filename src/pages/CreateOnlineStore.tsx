@@ -12,7 +12,7 @@ const CreateOnlineStore = () => {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Create Online Store in Morocco",
-    "provider": { "@type": "Organization", "name": "Storekom" },
+    "provider": { "@type": "Organization", "name": "Brandixo" },
     "areaServed": { "@type": "Country", "name": "Morocco" },
     "description": "Professional online store creation service in Morocco. Modern design, fast delivery, integrated payment and shipping."
   };
@@ -39,8 +39,8 @@ const CreateOnlineStore = () => {
 
   return (
     <SeoPageLayout
-      title="إنشاء متجر إلكتروني في المغرب | Storekom - تصميم متاجر احترافية"
-      description="أنشئ متجرك الإلكتروني الاحترافي في المغرب مع Storekom. تصميم متاجر حديثة وسريعة لبيع منتجاتك أونلاين. متجر جاهز خلال 48 ساعة. Create online store Morocco."
+      title="إنشاء متجر إلكتروني في المغرب | Brandixo - تصميم متاجر احترافية"
+      description="أنشئ متجرك الإلكتروني الاحترافي في المغرب مع Brandixo. تصميم متاجر حديثة وسريعة لبيع منتجاتك أونلاين. متجر جاهز خلال 48 ساعة. Create online store Morocco."
       structuredData={structuredData}
     >
       {/* Hero */}
@@ -76,7 +76,7 @@ const CreateOnlineStore = () => {
       <section className="section-padding bg-background">
         <div className="container mx-auto max-w-6xl">
           <motion.div {...fadeUp} className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold font-display mb-4">لماذا تختار Storekom لإنشاء متجرك؟</h2>
+            <h2 className="text-3xl md:text-4xl font-bold font-display mb-4">لماذا تختار Brandixo لإنشاء متجرك؟</h2>
             <p className="text-muted-foreground text-lg">نقدم لك كل ما تحتاجه لبدء البيع أونلاين في المغرب</p>
           </motion.div>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

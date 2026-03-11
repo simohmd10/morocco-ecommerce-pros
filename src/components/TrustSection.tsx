@@ -13,7 +13,7 @@ const TrustSection = () => {
   ];
 
   return (
-    <section className="section-padding bg-secondary/50" id="trust" aria-label="Why Storekom">
+    <section className="section-padding bg-secondary/50" id="trust" aria-label="Why Brandixo">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

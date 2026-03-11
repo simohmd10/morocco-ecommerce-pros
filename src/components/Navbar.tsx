@@ -11,7 +11,6 @@ const Navbar = () => {
   const links = [
     { key: 'nav.home', href: '#home' },
     { key: 'nav.services', href: '#services' },
-    
     { key: 'nav.portfolio', href: '#portfolio' },
     { key: 'nav.faq', href: '#faq' },
     { key: 'nav.contact', href: '#contact' },
@@ -24,10 +23,10 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
+    <nav className="fixed top-0 inset-inline-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border">
       <div className="container mx-auto px-4 flex items-center justify-between h-16">
         <a href="#home" className="text-xl font-bold font-display">
-          <span className="gold-text">Store</span>kom
+          <span className="gold-text">Bran</span>dixo
         </a>
 
         {/* Desktop links */}

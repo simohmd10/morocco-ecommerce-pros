@@ -12,7 +12,7 @@ const DropshippingStore = () => {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Dropshipping Store Creation in Morocco",
-    "provider": { "@type": "Organization", "name": "Storekom" },
+    "provider": { "@type": "Organization", "name": "Brandixo" },
     "areaServed": { "@type": "Country", "name": "Morocco" },
     "description": "Create a professional dropshipping store in Morocco. Start selling online without inventory."
   };
@@ -39,7 +39,7 @@ const DropshippingStore = () => {
 
   return (
     <SeoPageLayout
-      title="إنشاء متجر دروبشيبينغ في المغرب | Storekom - Dropshipping Morocco"
+      title="إنشاء متجر دروبشيبينغ في المغرب | Brandixo - Dropshipping Morocco"
       description="أنشئ متجر دروبشيبينغ احترافي في المغرب. ابدأ البيع أونلاين بدون مخزون. نوفر لك متجر جاهز مع موردين موثوقين. Dropshipping store Morocco."
       structuredData={structuredData}
     >
@@ -78,7 +78,7 @@ const DropshippingStore = () => {
               الدروبشيبينغ هو نموذج تجاري يتيح لك بيع المنتجات عبر الإنترنت بدون الحاجة لشراء أو تخزين أي مخزون. عندما يطلب عميل منتجًا من متجرك، تقوم بتمرير الطلب للمورد الذي يشحنه مباشرة للعميل.
             </p>
             <p className="text-muted-foreground text-lg leading-relaxed">
-              في المغرب، أصبح الدروبشيبينغ وسيلة شائعة لبدء مشروع تجاري أونلاين برأس مال محدود. مع Storekom، نساعدك في إنشاء متجر دروبشيبينغ احترافي وربطه بموردين موثوقين.
+              في المغرب، أصبح الدروبشيبينغ وسيلة شائعة لبدء مشروع تجاري أونلاين برأس مال محدود. مع Brandixo، نساعدك في إنشاء متجر دروبشيبينغ احترافي وربطه بموردين موثوقين.
             </p>
           </motion.div>
         </div>
