@@ -15,6 +15,12 @@ const Navbar = () => {
     { key: "nav.contact", href: "#contact" },
   ];
 
+  const changeLanguage = () => {
+    if (lang === "ar") setLang("fr");
+    else if (lang === "fr") setLang("en");
+    else setLang("ar");
+  };
+
   return (
     <>
       {/* Navbar */}
@@ -32,15 +38,16 @@ const Navbar = () => {
               onClick={() => setOpen(true)}
               className="p-1"
             >
-              <Menu className="w-6 h-6"/>
+              <Menu className="w-6 h-6" />
             </button>
 
             {/* Language */}
             <button
-              onClick={() => setLang(lang === "ar" ? "fr" : "ar")}
-              className="p-1"
+              onClick={changeLanguage}
+              className="flex items-center gap-1 text-sm"
             >
-              <Globe className="w-5 h-5"/>
+              <Globe className="w-5 h-5" />
+              {lang.toUpperCase()}
             </button>
 
           </div>
@@ -53,38 +60,39 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Overlay */}
+      {/* Overlay + Sidebar */}
       <AnimatePresence>
         {open && (
           <>
+            {/* Overlay */}
             <motion.div
               className="fixed inset-0 bg-black/40 backdrop-blur-sm z-40"
-              initial={{opacity:0}}
-              animate={{opacity:1}}
-              exit={{opacity:0}}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
               onClick={() => setOpen(false)}
             />
 
             {/* Sidebar */}
             <motion.div
               className="fixed top-0 left-0 h-full w-72 bg-background z-50 shadow-xl p-6"
-              initial={{x:"-100%"}}
-              animate={{x:0}}
-              exit={{x:"-100%"}}
-              transition={{type:"spring", stiffness:260, damping:25}}
+              initial={{ x: "-100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "-100%" }}
+              transition={{ type: "spring", stiffness: 260, damping: 25 }}
             >
 
               {/* Close */}
               <div className="flex justify-between items-center mb-8">
                 <span className="text-lg font-semibold">Menu</span>
+
                 <button onClick={() => setOpen(false)}>
-                  <X className="w-6 h-6"/>
+                  <X className="w-6 h-6" />
                 </button>
               </div>
 
               {/* Links */}
               <div className="flex flex-col gap-5">
-
                 {links.map((link) => (
                   <a
                     key={link.key}
@@ -95,7 +103,6 @@ const Navbar = () => {
                     {t(link.key)}
                   </a>
                 ))}
-
               </div>
 
             </motion.div>
