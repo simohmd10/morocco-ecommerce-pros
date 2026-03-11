@@ -1,7 +1,7 @@
 import SeoPageLayout from '@/components/SeoPageLayout';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Palette, Smartphone, Zap, MessageCircle, Check, X, ShoppingBag } from 'lucide-react';
+import { Palette, Smartphone, Zap, MessageCircle, Check, ShoppingBag } from 'lucide-react';
 
 const fadeUp = { initial: { opacity: 0, y: 20 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
 
@@ -19,7 +19,7 @@ const LandingPageDesign = () => {
       "priceCurrency": "MAD",
       "availability": "https://schema.org/InStock"
     },
-    "provider": { "@type": "Organization", "name": "Storekom" }
+    "provider": { "@type": "Organization", "name": "Brandixo" }
   };
 
   const features = [
@@ -31,7 +31,7 @@ const LandingPageDesign = () => {
 
   return (
     <SeoPageLayout
-      title="تصميم صفحة هبوط للمنتجات | Landing Page Design - Storekom"
+      title="تصميم صفحة هبوط للمنتجات | Landing Page Design - Brandixo"
       description="تصميم صفحة هبوط احترافية للمنتجات بسعر 99 درهم فقط. تصميم عالي التحويل، متوافق مع الهاتف، زر واتساب مدمج. Landing page design Morocco."
       structuredData={structuredData}
     >

@@ -12,7 +12,7 @@ const ShopifyStoreMorocco = () => {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Shopify Store Creation in Morocco",
-    "provider": { "@type": "Organization", "name": "Storekom" },
+    "provider": { "@type": "Organization", "name": "Brandixo" },
     "areaServed": { "@type": "Country", "name": "Morocco" },
     "description": "Professional Shopify store setup and design service in Morocco."
   };
@@ -39,8 +39,8 @@ const ShopifyStoreMorocco = () => {
 
   return (
     <SeoPageLayout
-      title="إنشاء متجر Shopify في المغرب | Storekom - Shopify Store Morocco"
-      description="أنشئ متجرك على Shopify في المغرب مع Storekom. إعداد كامل، تصميم احترافي، ربط الدفع والتوصيل. Shopify store Morocco."
+      title="إنشاء متجر Shopify في المغرب | Brandixo - Shopify Store Morocco"
+      description="أنشئ متجرك على Shopify في المغرب مع Brandixo. إعداد كامل، تصميم احترافي، ربط الدفع والتوصيل. Shopify store Morocco."
       structuredData={structuredData}
     >
       {/* Hero */}
