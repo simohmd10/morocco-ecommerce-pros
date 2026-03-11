@@ -13,34 +13,39 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 inset-0 z-50 bg-background/80 backdrop-blur border-b border-border">
-      <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+    <nav
+      dir={lang === "ar" ? "rtl" : "ltr"}
+      className="fixed top-0 inset-x-0 z-50 bg-background/80 backdrop-blur border-b border-border"
+    >
+      <div className="container mx-auto px-4 h-16 flex items-center justify-between gap-6">
 
         {/* Logo */}
-        <a href="#home" className="text-xl font-bold">
+        <a href="#home" className="text-xl font-bold whitespace-nowrap">
           <span className="text-yellow-500">Bran</span>dixo
         </a>
 
-        {/* Links */}
-        <div className="flex items-center gap-6">
+        {/* Navigation Links */}
+        <div className="flex items-center gap-6 overflow-x-auto">
+
           {links.map((link) => (
             <a
               key={link.key}
               href={link.href}
-              className="text-sm text-muted-foreground hover:text-foreground transition"
+              className="text-sm text-muted-foreground hover:text-foreground transition whitespace-nowrap"
             >
               {t(link.key)}
             </a>
           ))}
 
-          {/* Language */}
+          {/* Language Switch */}
           <button
             onClick={() => setLang(lang === "ar" ? "fr" : "ar")}
-            className="flex items-center gap-1 text-sm"
+            className="flex items-center gap-1 text-sm whitespace-nowrap"
           >
             <Globe className="w-4 h-4" />
-            {lang === "ar" ? "العربية" : "Fr"}
+            {lang === "ar" ? "العربية" : "Français"}
           </button>
+
         </div>
 
       </div>
