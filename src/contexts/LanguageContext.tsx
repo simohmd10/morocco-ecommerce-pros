@@ -11,19 +11,16 @@ interface LanguageContextType {
 
 const translations: Record<Language, Record<string, string>> = {
   ar: {
-    // Nav
     'nav.home': 'الرئيسية',
     'nav.services': 'خدماتنا',
     'nav.pricing': 'الأسعار',
     'nav.portfolio': 'أعمالنا',
     'nav.faq': 'أسئلة شائعة',
     'nav.contact': 'تواصل معنا',
-    // Hero
     'hero.title': 'أنشئ متجرك الإلكتروني وابدأ البيع في المغرب',
     'hero.subtitle': 'نصمم لك متجراً إلكترونياً احترافياً يساعدك على بيع منتجاتك أونلاين والوصول لعملاء في كل أنحاء المغرب',
     'hero.cta': 'ابدأ متجرك الآن',
     'hero.secondary': 'اكتشف خدماتنا',
-    // Why
     'why.title': 'لماذا التجارة الإلكترونية في المغرب؟',
     'why.stat1': '+15 مليون',
     'why.stat1.desc': 'مستخدم إنترنت في المغرب',
@@ -33,7 +30,6 @@ const translations: Record<Language, Record<string, string>> = {
     'why.stat3.desc': 'متجرك مفتوح دائماً',
     'why.stat4': '+80%',
     'why.stat4.desc': 'من المغاربة يتسوقون عبر الهاتف',
-    // Benefits
     'benefits.title': 'مميزات امتلاك متجر إلكتروني',
     'benefits.1': 'وصول لملايين العملاء',
     'benefits.1.desc': 'تجاوز الحدود الجغرافية وبع منتجاتك في كل مكان',
@@ -43,7 +39,6 @@ const translations: Record<Language, Record<string, string>> = {
     'benefits.3.desc': 'تابع مبيعاتك وعملائك من لوحة تحكم واحدة',
     'benefits.4': 'نمو مستمر',
     'benefits.4.desc': 'وسّع نشاطك بسهولة مع زيادة الطلب',
-    // How it works
     'how.title': 'كيف نعمل؟',
     'how.step1': 'اختيار التصميم المناسب',
     'how.step1.desc': 'نساعدك في اختيار تصميم يناسب مجال عملك وعلامتك التجارية',
@@ -51,7 +46,6 @@ const translations: Record<Language, Record<string, string>> = {
     'how.step2.desc': 'نضيف منتجاتك ونربط وسائل الدفع وشركات التوصيل',
     'how.step3': 'إطلاق المتجر وبدء البيع',
     'how.step3.desc': 'متجرك جاهز للبيع مع دعم فني مستمر',
-    // Services
     'services.title': 'إنشاء متجر إلكتروني احترافي',
     'services.subtitle': 'نقدم لك كل ما تحتاجه لبدء البيع أونلاين',
     'services.1': 'تصميم متجر احترافي',
@@ -61,7 +55,6 @@ const translations: Record<Language, Record<string, string>> = {
     'services.5': 'تحسين سرعة الموقع',
     'services.6': 'متجر متوافق مع الهاتف',
     'services.7': 'لوحة تحكم سهلة',
-    // Pricing
     'pricing.title': 'باقات الأسعار',
     'pricing.subtitle': 'اختر الباقة المناسبة لمشروعك',
     'pricing.starter': 'باقة البداية',
@@ -83,7 +76,6 @@ const translations: Record<Language, Record<string, string>> = {
     'pricing.f6': 'تحسين محركات البحث',
     'pricing.f7': 'إعداد تسويقي',
     'pricing.f8': 'دعم فني',
-    // Portfolio
     'portfolio.title': 'نماذج من أعمالنا',
     'portfolio.subtitle': 'متاجر إلكترونية صممناها لعملائنا',
     'portfolio.cosmetics': 'متجر مستحضرات تجميل',
@@ -99,13 +91,11 @@ const translations: Record<Language, Record<string, string>> = {
     'portfolio.cta.button': 'اطلب متجرك الآن',
     'portfolio.cta.want_store': 'أريد متجر مثل هذا',
     'portfolio.whatsapp_message': 'مرحباً، أريد إنشاء متجر إلكتروني مثل النماذج المعروضة في موقعكم',
-    // Trust
-    'trust.title': 'لماذا Storekom؟',
+    'trust.title': 'لماذا Brandixo؟',
     'trust.1': 'متجر جاهز خلال 48 ساعة',
     'trust.2': 'تصميم احترافي متوافق مع الهاتف',
     'trust.3': 'ربط الدفع والتوصيل في المغرب',
     'trust.4': 'دعم تقني بعد إطلاق المتجر',
-    // FAQ
     'faq.title': 'أسئلة شائعة',
     'faq.q1': 'كم يستغرق إنشاء المتجر؟',
     'faq.a1': 'عادة ما يستغرق إنشاء المتجر من 5 إلى 10 أيام عمل حسب حجم المشروع والمتطلبات.',
@@ -117,7 +107,6 @@ const translations: Record<Language, Record<string, string>> = {
     'faq.a4': 'نعم، لوحة التحكم تتيح لك إضافة وتعديل وحذف المنتجات بسهولة تامة.',
     'faq.q5': 'هل تقدمون دعماً فنياً بعد الإطلاق؟',
     'faq.a5': 'نعم، نقدم دعماً فنياً مستمراً لضمان عمل متجرك بشكل سلس.',
-    // Contact
     'contact.title': 'تواصل معنا',
     'contact.subtitle': 'هل أنت مستعد لبدء مشروعك؟ تواصل معنا الآن',
     'contact.name': 'الاسم الكامل',
@@ -126,7 +115,6 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.message': 'وصف المشروع',
     'contact.send': 'أرسل الطلب',
     'contact.whatsapp': 'تواصل عبر واتساب',
-    // Footer
     'footer.desc': 'نساعد رواد الأعمال في المغرب على إنشاء متاجر إلكترونية احترافية وبدء البيع أونلاين.',
     'footer.rights': 'جميع الحقوق محفوظة',
     'footer.links': 'روابط سريعة',
@@ -212,7 +200,7 @@ const translations: Record<Language, Record<string, string>> = {
     'portfolio.cta.button': 'Commandez votre boutique',
     'portfolio.cta.want_store': 'Je veux une boutique comme celle-ci',
     'portfolio.whatsapp_message': 'Bonjour, je souhaite créer une boutique en ligne comme les exemples sur votre site',
-    'trust.title': 'Pourquoi Storekom ?',
+    'trust.title': 'Pourquoi Brandixo ?',
     'trust.1': 'Boutique prête en 48 heures',
     'trust.2': 'Design professionnel compatible mobile',
     'trust.3': 'Paiement et livraison intégrés au Maroc',
@@ -321,7 +309,7 @@ const translations: Record<Language, Record<string, string>> = {
     'portfolio.cta.button': 'Order Your Store Now',
     'portfolio.cta.want_store': 'I want a store like this',
     'portfolio.whatsapp_message': 'Hello, I want to create an online store like the examples on your website',
-    'trust.title': 'Why Storekom?',
+    'trust.title': 'Why Brandixo?',
     'trust.1': 'Store ready in 48 hours',
     'trust.2': 'Professional mobile-friendly design',
     'trust.3': 'Payment & delivery integration in Morocco',
@@ -358,8 +346,9 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   const dir = lang === 'ar' ? 'rtl' : 'ltr';
 
   useEffect(() => {
-    document.documentElement.setAttribute('dir', dir);
-    document.documentElement.setAttribute('lang', lang);
+    const html = document.documentElement;
+    html.lang = lang;
+    html.dir = dir;
   }, [lang, dir]);
 
   const t = (key: string): string => {

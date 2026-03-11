@@ -13,19 +13,19 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
 const Index = () => {
-  const { t, lang } = useLanguage();
+  const { lang } = useLanguage();
 
   const title = lang === 'ar'
-    ? 'إنشاء متجر إلكتروني في المغرب | Storekom - تصميم متاجر احترافية'
+    ? 'Brandixo — استوديو تصميم وويب | إنشاء متجر إلكتروني في المغرب'
     : lang === 'fr'
-    ? 'Création de boutique en ligne au Maroc | Storekom'
-    : 'Create an Online Store in Morocco | Storekom';
+    ? 'Brandixo — Design & Web Studio | Création de boutique en ligne au Maroc'
+    : 'Brandixo — Design & Web Studio | Create an Online Store in Morocco';
 
   const description = lang === 'ar'
-    ? 'أنشئ متجرك الإلكتروني الاحترافي في المغرب مع Storekom. تصميم متاجر حديثة وسريعة لبيع منتجاتك أونلاين. متجر جاهز خلال 48 ساعة.'
+    ? 'Brandixo استوديو تصميم حديث متخصص في إنشاء المتاجر الإلكترونية في المغرب. تصميم UI/UX احترافي ومواقع عالية الأداء. متجر جاهز خلال 48 ساعة.'
     : lang === 'fr'
-    ? 'Créez votre boutique en ligne professionnelle au Maroc avec Storekom. Design moderne, paiement et livraison intégrés. Boutique prête en 48 heures.'
-    : 'Create your professional online store in Morocco with Storekom. Modern design, integrated payment and delivery. Store ready in 48 hours.';
+    ? 'Brandixo est un studio de design moderne spécialisé en branding, UI/UX et sites web haute performance. Boutique en ligne prête en 48 heures au Maroc.'
+    : 'Brandixo is a modern design studio specializing in branding, UI/UX design and high-performance websites. Online store ready in 48 hours in Morocco.';
 
   return (
     <>
