@@ -340,6 +340,8 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.desc': 'We help entrepreneurs in Morocco build professional online stores and start selling online.',
     'footer.rights': 'All rights reserved',
     'footer.links': 'Quick Links',
+    'footer.privacy': 'Privacy Policy',
+    'footer.terms': 'Terms of Service',
   },
 };
 
