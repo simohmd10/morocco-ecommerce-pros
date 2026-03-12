@@ -1,19 +1,31 @@
 import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const { t, lang, setLang } = useLanguage();
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const links = [
-    { key: "nav.home", href: "#home" },
-    { key: "nav.services", href: "#services" },
-    { key: "nav.portfolio", href: "#portfolio" },
-    { key: "nav.faq", href: "#faq" },
-    { key: "nav.contact", href: "#contact" },
+    { key: "nav.home", hash: "home" },
+    { key: "nav.services", hash: "services" },
+    { key: "nav.portfolio", hash: "portfolio" },
+    { key: "nav.faq", hash: "faq" },
+    { key: "nav.contact", hash: "contact" },
   ];
+
+  const handleNavClick = (hash: string) => {
+    setOpen(false);
+    if (location.pathname === "/") {
+      document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/#" + hash);
+    }
+  };
 
   return (
     <>
@@ -27,9 +39,9 @@ const Navbar = () => {
             <Menu className="w-6 h-6" />
           </button>
 
-          <a href="#home" className="text-xl font-bold">
+          <button onClick={() => handleNavClick("home")} className="text-xl font-bold cursor-pointer">
             <span className="text-yellow-500">Bran</span>dixo
-          </a>
+          </button>
 
         </div>
       </nav>
@@ -62,14 +74,13 @@ const Navbar = () => {
 
               <div className="flex flex-col gap-6">
                 {links.map((link) => (
-                  <a
+                  <button
                     key={link.key}
-                    href={link.href}
-                    onClick={() => setOpen(false)}
-                    className="text-lg text-muted-foreground hover:text-foreground transition"
+                    onClick={() => handleNavClick(link.hash)}
+                    className="text-lg text-muted-foreground hover:text-foreground transition text-start"
                   >
                     {t(link.key)}
-                  </a>
+                  </button>
                 ))}
               </div>
 
