@@ -8,13 +8,17 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative dark-section overflow-hidden"
-      style={{ height: '100svh', minHeight: '600px' }}
+      className="relative dark-section overflow-hidden flex flex-col items-center justify-center text-center px-4"
+      style={{
+        minHeight: '100svh',
+        paddingTop: 'max(80px, 10vh)',
+        paddingBottom: 'max(64px, 8vh)',
+      }}
       aria-label="Hero"
     >
       {/* Dot grid */}
       <div
-        className="absolute inset-0 opacity-[0.04]"
+        className="absolute inset-0 opacity-[0.04] pointer-events-none"
         style={{
           backgroundImage: 'radial-gradient(circle at 1px 1px, white 1px, transparent 0)',
           backgroundSize: '36px 36px',
@@ -31,99 +35,102 @@ const Hero = () => {
       <div className="absolute bottom-16 start-8 w-16 h-16 border-b border-s border-gold/20 rounded-bl-lg hidden lg:block" />
       <div className="absolute bottom-16 end-8 w-16 h-16 border-b border-e border-gold/20 rounded-br-lg hidden lg:block" />
 
-      {/* ✅ المحتوى — يملأ كامل الـ section ويتمركز في المنتصف */}
-      <div
-        className="absolute inset-0 flex flex-col items-center justify-center text-center px-4"
-        style={{ paddingTop: '64px', paddingBottom: '56px' }}
-      >
-        <div className="container mx-auto">
+      {/* Content */}
+      <div className="container mx-auto relative z-10">
 
-          {/* Badge */}
-          <motion.div
-            initial={{ opacity: 0, y: -12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex justify-center mb-4"
-          >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/30 bg-gold/8 backdrop-blur-sm">
-              <ShoppingBag className="w-3.5 h-3.5 text-gold" />
-              <span className="text-xs font-semibold text-gold-light tracking-widest uppercase">
-                E-Commerce Morocco
-              </span>
-            </div>
-          </motion.div>
+        {/* Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: -12 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="flex justify-center mb-5"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/30 bg-gold/8 backdrop-blur-sm">
+            <ShoppingBag className="w-3.5 h-3.5 text-gold" />
+            <span className="text-xs font-semibold text-gold-light tracking-widest uppercase">
+              E-Commerce Morocco
+            </span>
+          </div>
+        </motion.div>
 
-          {/* Title */}
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-[1.1] max-w-4xl mx-auto mb-3"
-          >
-            {t('hero.title')}
-          </motion.h1>
+        {/* Title */}
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.1 }}
+          className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-[1.1] max-w-4xl mx-auto mb-3"
+        >
+          {t('hero.title')}
+        </motion.h1>
 
-          {/* Gold line */}
-          <motion.div
-            initial={{ scaleX: 0 }}
-            animate={{ scaleX: 1 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="w-14 h-0.5 gold-gradient mx-auto mb-4 rounded-full"
-          />
+        {/* Gold line */}
+        <motion.div
+          initial={{ scaleX: 0 }}
+          animate={{ scaleX: 1 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="w-14 h-0.5 gold-gradient mx-auto mb-4 rounded-full"
+        />
 
-          {/* Subtitle */}
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-sm md:text-base text-white/55 max-w-lg mx-auto mb-6 font-body leading-relaxed"
-          >
-            {t('hero.subtitle')}
-          </motion.p>
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-sm md:text-base text-white/55 max-w-lg mx-auto mb-6 font-body leading-relaxed"
+        >
+          {t('hero.subtitle')}
+        </motion.p>
 
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex items-center justify-center gap-5 md:gap-10 mb-7 flex-wrap"
-          >
-            {[
-              { icon: Star,         label: '48h',   sub: 'تسليم سريع'  },
-              { icon: Zap,          label: '+50',   sub: 'متجر مُنجز'  },
-              { icon: ShoppingBag,  label: '100%',  sub: 'رضا العملاء' },
-            ].map(({ icon: Icon, label, sub }) => (
-              <div key={label} className="flex items-center gap-2">
-                <div className="w-7 h-7 rounded-lg bg-gold/10 border border-gold/20 flex items-center justify-center">
-                  <Icon className="w-3 h-3 text-gold" />
-                </div>
-                <div className="text-start">
-                  <div className="text-white font-bold text-xs leading-tight">{label}</div>
-                  <div className="text-white/40 text-[10px]">{sub}</div>
-                </div>
+        {/* Stats - nowrap على صف واحد */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="flex items-center justify-center gap-4 md:gap-10 mb-7"
+        >
+          {[
+            { icon: Star,        label: '48h',  sub: 'تسليم سريع'  },
+            { icon: Zap,         label: '+50',  sub: 'متجر مُنجز'  },
+            { icon: ShoppingBag, label: '100%', sub: 'رضا العملاء' },
+          ].map(({ icon: Icon, label, sub }) => (
+            <div key={label} className="flex items-center gap-2 shrink-0">
+              <div className="w-7 h-7 rounded-lg bg-gold/10 border border-gold/20 flex items-center justify-center shrink-0">
+                <Icon className="w-3 h-3 text-gold" />
               </div>
-            ))}
-          </motion.div>
+              <div className="text-start">
+                <div className="text-white font-bold text-xs leading-tight">{label}</div>
+                <div className="text-white/40 text-[10px]">{sub}</div>
+              </div>
+            </div>
+          ))}
+        </motion.div>
 
-          {/* CTAs */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-row items-center justify-center gap-3 flex-wrap"
+        {/* CTAs - أحجام ثابتة لا تمتد */}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="flex items-center justify-center gap-3"
+        >
+          <a
+            href="#contact"
+            className="btn-gold text-sm px-6 py-3"
+            aria-label={t('hero.cta')}
           >
-            <a href="#contact" className="btn-gold text-sm" aria-label={t('hero.cta')}>
-              {t('hero.cta')}
-            </a>
-            <a href="#services" className="btn-outline-white text-sm" aria-label={t('hero.secondary')}>
-              {t('hero.secondary')}
-            </a>
-          </motion.div>
+            {t('hero.cta')}
+          </a>
+          <a
+            href="#services"
+            className="btn-outline-white text-sm px-6 py-3"
+            aria-label={t('hero.secondary')}
+          >
+            {t('hero.secondary')}
+          </a>
+        </motion.div>
 
-        </div>
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
