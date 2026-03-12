@@ -118,6 +118,8 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.desc': 'نساعد رواد الأعمال في المغرب على إنشاء متاجر إلكترونية احترافية وبدء البيع أونلاين.',
     'footer.rights': 'جميع الحقوق محفوظة',
     'footer.links': 'روابط سريعة',
+    'footer.privacy': 'سياسة الخصوصية',
+    'footer.terms': 'شروط الاستخدام',
   },
   fr: {
     'nav.home': 'Accueil',
