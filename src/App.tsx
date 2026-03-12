@@ -9,7 +9,7 @@ import { lazy, Suspense } from "react";
 
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import Privacy from "./pages/privacy";
+import Privacy from "./pages/Privacy";
 
 const CreateOnlineStore = lazy(() => import("./pages/CreateOnlineStore"));
 const ShopifyStoreMorocco = lazy(() => import("./pages/ShopifyStoreMorocco"));
@@ -39,7 +39,6 @@ const App = () => (
 
                 <Route path="/" element={<Index />} />
 
-                {/* Privacy Page */}
                 <Route path="/privacy" element={<Privacy />} />
 
                 <Route path="/create-online-store" element={<CreateOnlineStore />} />
