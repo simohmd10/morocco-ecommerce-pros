@@ -9,7 +9,7 @@ const Hero = () => {
     <section
       id="home"
       className="relative dark-section overflow-hidden"
-      style={{ minHeight: '100svh' }}
+      style={{ height: '100svh', minHeight: '600px' }}
       aria-label="Hero"
     >
       {/* Dot grid */}
@@ -25,16 +25,16 @@ const Hero = () => {
       <div className="absolute top-1/3 start-1/3 w-[500px] h-[500px] bg-gold/8 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-1/4 end-1/4 w-80 h-80 bg-gold/5 rounded-full blur-[100px] pointer-events-none" />
 
-      {/* Corner decorations - desktop only */}
+      {/* Corner decorations */}
       <div className="absolute top-24 start-8 w-16 h-16 border-t border-s border-gold/20 rounded-tl-lg hidden lg:block" />
       <div className="absolute top-24 end-8 w-16 h-16 border-t border-e border-gold/20 rounded-tr-lg hidden lg:block" />
       <div className="absolute bottom-16 start-8 w-16 h-16 border-b border-s border-gold/20 rounded-bl-lg hidden lg:block" />
       <div className="absolute bottom-16 end-8 w-16 h-16 border-b border-e border-gold/20 rounded-br-lg hidden lg:block" />
 
-      {/* Main content */}
+      {/* ✅ المحتوى — يملأ كامل الـ section ويتمركز في المنتصف */}
       <div
-        className="relative z-10 flex flex-col items-center justify-center text-center w-full px-4"
-        style={{ minHeight: '100svh', paddingTop: '64px', paddingBottom: '48px' }}
+        className="absolute inset-0 flex flex-col items-center justify-center text-center px-4"
+        style={{ paddingTop: '64px', paddingBottom: '56px' }}
       >
         <div className="container mx-auto">
 
@@ -43,7 +43,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="flex justify-center mb-4 landscape:mb-2"
+            className="flex justify-center mb-4"
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/30 bg-gold/8 backdrop-blur-sm">
               <ShoppingBag className="w-3.5 h-3.5 text-gold" />
@@ -68,7 +68,7 @@ const Hero = () => {
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="w-14 h-0.5 gold-gradient mx-auto mb-3 rounded-full"
+            className="w-14 h-0.5 gold-gradient mx-auto mb-4 rounded-full"
           />
 
           {/* Subtitle */}
@@ -76,7 +76,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-sm md:text-base text-white/55 max-w-lg mx-auto mb-5 font-body leading-relaxed"
+            className="text-sm md:text-base text-white/55 max-w-lg mx-auto mb-6 font-body leading-relaxed"
           >
             {t('hero.subtitle')}
           </motion.p>
@@ -86,12 +86,12 @@ const Hero = () => {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex items-center justify-center gap-5 md:gap-10 mb-6 flex-wrap"
+            className="flex items-center justify-center gap-5 md:gap-10 mb-7 flex-wrap"
           >
             {[
-              { icon: Star, label: '48h', sub: 'تسليم سريع' },
-              { icon: Zap, label: '+50', sub: 'متجر مُنجز' },
-              { icon: ShoppingBag, label: '100%', sub: 'رضا العملاء' },
+              { icon: Star,         label: '48h',   sub: 'تسليم سريع'  },
+              { icon: Zap,          label: '+50',   sub: 'متجر مُنجز'  },
+              { icon: ShoppingBag,  label: '100%',  sub: 'رضا العملاء' },
             ].map(({ icon: Icon, label, sub }) => (
               <div key={label} className="flex items-center gap-2">
                 <div className="w-7 h-7 rounded-lg bg-gold/10 border border-gold/20 flex items-center justify-center">
@@ -112,18 +112,10 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex flex-row items-center justify-center gap-3 flex-wrap"
           >
-            <a
-              href="#contact"
-              className="btn-gold text-sm"
-              aria-label={t('hero.cta')}
-            >
+            <a href="#contact" className="btn-gold text-sm" aria-label={t('hero.cta')}>
               {t('hero.cta')}
             </a>
-            <a
-              href="#services"
-              className="btn-outline-white text-sm"
-              aria-label={t('hero.secondary')}
-            >
+            <a href="#services" className="btn-outline-white text-sm" aria-label={t('hero.secondary')}>
               {t('hero.secondary')}
             </a>
           </motion.div>
@@ -136,7 +128,7 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.6 }}
-        className="absolute bottom-4 inset-x-0 flex justify-center"
+        className="absolute bottom-5 inset-x-0 flex justify-center z-10"
       >
         <div className="flex flex-col items-center gap-1">
           <span className="text-white/25 text-[10px] tracking-widest uppercase">scroll</span>
