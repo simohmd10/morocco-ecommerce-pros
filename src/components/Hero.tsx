@@ -9,7 +9,7 @@ const Hero = () => {
     <section
       id="home"
       className="relative flex items-center justify-center dark-section overflow-hidden noise-overlay"
-      style={{ minHeight: '100svh' }}
+      style={{ minHeight: "100svh", paddingTop: "64px" }}
       aria-label="Hero"
     >
       {/* Dot grid background */}
@@ -31,15 +31,14 @@ const Hero = () => {
       <div className="absolute bottom-16 start-8 w-16 h-16 border-b border-s border-gold/20 rounded-bl-lg hidden md:block" />
       <div className="absolute bottom-16 end-8 w-16 h-16 border-b border-e border-gold/20 rounded-br-lg hidden md:block" />
 
-      {/* Main content — vertically centered */}
-      <div className="container mx-auto px-4 relative z-10 text-center py-28 md:py-32">
+      <div className="container mx-auto px-4 relative z-10 text-center pt-24 pb-16 md:pt-28 md:pb-20">
 
         {/* Trust badge */}
         <motion.div
           initial={{ opacity: 0, y: -12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="flex justify-center mb-6"
+          className="flex justify-center mb-7"
         >
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/30 bg-gold/8 backdrop-blur-sm">
             <ShoppingBag className="w-3.5 h-3.5 text-gold" />
@@ -54,16 +53,16 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="text-4xl md:text-6xl lg:text-7xl font-bold font-display leading-[1.1] max-w-4xl mx-auto mb-4"
+          className="text-4xl md:text-6xl lg:text-7xl font-bold font-display leading-[1.1] max-w-4xl mx-auto mb-5"
         >
           {t('hero.title')}
         </motion.h1>
 
-        {/* Gold divider */}
+        {/* Gold divider line */}
         <motion.div
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
+          transition={{ duration: 0.6, delay: 0.35 }}
           className="w-16 h-0.5 gold-gradient mx-auto mb-5 rounded-full"
         />
 
@@ -71,8 +70,8 @@ const Hero = () => {
         <motion.p
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-base md:text-lg text-white/55 max-w-xl mx-auto mb-8 font-body leading-relaxed"
+          transition={{ duration: 0.6, delay: 0.25 }}
+          className="text-base md:text-lg text-white/55 max-w-xl mx-auto mb-9 font-body leading-relaxed"
         >
           {t('hero.subtitle')}
         </motion.p>
@@ -81,8 +80,8 @@ const Hero = () => {
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex items-center justify-center gap-6 md:gap-10 mb-8 flex-wrap"
+          transition={{ duration: 0.6, delay: 0.35 }}
+          className="flex items-center justify-center gap-6 md:gap-10 mb-10 flex-wrap"
         >
           {[
             { icon: Star, label: '48h', sub: 'تسليم سريع' },
@@ -105,7 +104,7 @@ const Hero = () => {
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
+          transition={{ duration: 0.6, delay: 0.45 }}
           className="flex flex-col sm:flex-row items-center justify-center gap-3"
         >
           <a
@@ -130,8 +129,8 @@ const Hero = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.6 }}
-        className="absolute bottom-6 inset-x-0 flex justify-center"
+        transition={{ delay: 1.4, duration: 0.6 }}
+        className="absolute bottom-7 inset-x-0 flex justify-center"
       >
         <div className="flex flex-col items-center gap-1.5">
           <span className="text-white/25 text-[10px] tracking-widest uppercase">scroll</span>
