@@ -9,7 +9,7 @@ import { lazy, Suspense } from "react";
 
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
-import Privacy from "./pages/Privacy";
+import Privacy from "./pages/privacy";
 
 const CreateOnlineStore = lazy(() => import("./pages/CreateOnlineStore"));
 const ShopifyStoreMorocco = lazy(() => import("./pages/ShopifyStoreMorocco"));
@@ -24,6 +24,7 @@ const App = () => (
     <QueryClientProvider client={queryClient}>
       <LanguageProvider>
         <TooltipProvider>
+
           <Toaster />
           <Sonner />
 
@@ -35,21 +36,27 @@ const App = () => (
                 </div>
               }
             >
+
               <Routes>
 
+                {/* الصفحة الرئيسية */}
                 <Route path="/" element={<Index />} />
 
+                {/* صفحة سياسة الخصوصية */}
                 <Route path="/privacy" element={<Privacy />} />
 
+                {/* صفحات الخدمات */}
                 <Route path="/create-online-store" element={<CreateOnlineStore />} />
                 <Route path="/shopify-store-morocco" element={<ShopifyStoreMorocco />} />
                 <Route path="/landing-page-design" element={<LandingPageDesign />} />
                 <Route path="/dropshipping-store" element={<DropshippingStore />} />
                 <Route path="/ecommerce-morocco" element={<EcommerceMorocco />} />
 
+                {/* صفحة الخطأ */}
                 <Route path="*" element={<NotFound />} />
 
               </Routes>
+
             </Suspense>
           </BrowserRouter>
 
