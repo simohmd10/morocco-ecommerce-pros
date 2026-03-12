@@ -229,6 +229,8 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.desc': 'Nous aidons les entrepreneurs au Maroc à créer des boutiques en ligne professionnelles.',
     'footer.rights': 'Tous droits réservés',
     'footer.links': 'Liens rapides',
+    'footer.privacy': 'Politique de confidentialité',
+    'footer.terms': 'Conditions d\'utilisation',
   },
   en: {
     'nav.home': 'Home',
