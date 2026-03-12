@@ -47,8 +47,8 @@ const App = () => (
                 <Route path="/landing-page-design" element={<LandingPageDesign />} />
                 <Route path="/dropshipping-store" element={<DropshippingStore />} />
                 <Route path="/ecommerce-morocco" element={<EcommerceMorocco />} />
-
-                <Route path="*" element={<NotFound />} />
+                <Route path="/privacy" element={<Privacy />} />
+                <Route path="/terms" element={<Terms />} />
 
               </Routes>
 
