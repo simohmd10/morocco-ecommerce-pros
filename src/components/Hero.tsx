@@ -8,8 +8,8 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative flex items-center justify-center dark-section overflow-hidden noise-overlay"
-      style={{ minHeight: "100svh", paddingTop: "64px" }}
+      className="relative dark-section overflow-hidden noise-overlay"
+      style={{ minHeight: "100svh" }}
       aria-label="Hero"
     >
       {/* Dot grid background */}
@@ -31,7 +31,8 @@ const Hero = () => {
       <div className="absolute bottom-16 start-8 w-16 h-16 border-b border-s border-gold/20 rounded-bl-lg hidden md:block" />
       <div className="absolute bottom-16 end-8 w-16 h-16 border-b border-e border-gold/20 rounded-br-lg hidden md:block" />
 
-      <div className="container mx-auto px-4 relative z-10 text-center pt-24 pb-16 md:pt-28 md:pb-20">
+      <div className="absolute inset-0 flex items-center justify-center" style={{ paddingTop: "64px" }}>
+      <div className="container mx-auto px-4 relative z-10 text-center py-12">
 
         {/* Trust badge */}
         <motion.div
@@ -123,6 +124,7 @@ const Hero = () => {
           </a>
         </motion.div>
 
+      </div>
       </div>
 
       {/* Scroll indicator */}
