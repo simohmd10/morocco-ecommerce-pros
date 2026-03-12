@@ -1,19 +1,31 @@
 import { useState } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useNavigate, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const Navbar = () => {
   const { t, lang, setLang } = useLanguage();
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const links = [
-    { key: "nav.home", href: "#home" },
-    { key: "nav.services", href: "#services" },
-    { key: "nav.portfolio", href: "#portfolio" },
-    { key: "nav.faq", href: "#faq" },
-    { key: "nav.contact", href: "#contact" },
+    { key: "nav.home", hash: "home" },
+    { key: "nav.services", hash: "services" },
+    { key: "nav.portfolio", hash: "portfolio" },
+    { key: "nav.faq", hash: "faq" },
+    { key: "nav.contact", hash: "contact" },
   ];
+
+  const handleNavClick = (hash: string) => {
+    setOpen(false);
+    if (location.pathname === "/") {
+      document.getElementById(hash)?.scrollIntoView({ behavior: "smooth" });
+    } else {
+      navigate("/#" + hash);
+    }
+  };
 
   return (
     <>
