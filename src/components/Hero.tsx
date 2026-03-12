@@ -8,12 +8,8 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative dark-section overflow-hidden flex flex-col items-center justify-center text-center px-4"
-      style={{
-        minHeight: '100svh',
-        paddingTop: 'max(72px, 8vh)',
-        paddingBottom: 'max(52px, 6vh)',
-      }}
+      className="relative dark-section overflow-hidden flex flex-col text-center px-4"
+      style={{ minHeight: '100svh' }}
       aria-label="Hero"
     >
       {/* Dot grid */}
@@ -35,7 +31,11 @@ const Hero = () => {
       <div className="absolute bottom-16 start-8 w-16 h-16 border-b border-s border-gold/20 rounded-bl-lg hidden lg:block" />
       <div className="absolute bottom-16 end-8 w-16 h-16 border-b border-e border-gold/20 rounded-br-lg hidden lg:block" />
 
-      {/* Content */}
+      {/* Navbar spacer */}
+      <div style={{ height: '64px', flexShrink: 0 }} />
+      
+      {/* Content — flex-1 fills remaining space and centers */}
+      <div className="flex-1 flex items-center justify-center w-full">
       <div className="container mx-auto relative z-10">
 
         {/* Badge */}
@@ -129,6 +129,9 @@ const Hero = () => {
         </motion.div>
 
       </div>
+      </div>
+
+      <div style={{ height: "56px", flexShrink: 0 }} />
 
       {/* Scroll */}
       <motion.div
