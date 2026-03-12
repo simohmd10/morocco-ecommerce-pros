@@ -5,11 +5,11 @@ const Footer = () => {
   const { t } = useLanguage();
 
   const links = [
-    { key: 'nav.home', href: '#home' },
-    { key: 'nav.services', href: '#services' },
-    { key: 'nav.portfolio', href: '#portfolio' },
-    { key: 'nav.faq', href: '#faq' },
-    { key: 'nav.contact', href: '#contact' },
+    { key: 'nav.home', href: '/#home' },
+    { key: 'nav.services', href: '/#services' },
+    { key: 'nav.portfolio', href: '/#portfolio' },
+    { key: 'nav.faq', href: '/#faq' },
+    { key: 'nav.contact', href: '/#contact' },
   ];
 
   return (
@@ -18,11 +18,12 @@ const Footer = () => {
 
         <div className="grid md:grid-cols-3 gap-8 mb-8">
 
-          {/* Logo + description */}
+          {/* Logo */}
           <div>
             <h3 className="text-xl font-bold font-display mb-3">
               <span className="gold-text">Bran</span>dixo
             </h3>
+
             <p className="text-sm text-white/50">
               {t('footer.desc')}
             </p>
@@ -47,6 +48,7 @@ const Footer = () => {
               ))}
 
               {/* Legal pages */}
+
               <Link
                 to="/privacy"
                 className="text-sm text-white/40 hover:text-gold transition-colors"
@@ -88,7 +90,6 @@ const Footer = () => {
 
         </div>
 
-        {/* Bottom */}
         <div className="border-t border-white/10 pt-6 text-center text-xs text-white/30">
           © 2026 Brandixo. {t('footer.rights')}.
         </div>
