@@ -73,10 +73,10 @@ const Footer = () => {
             </h4>
 
             <a
-              href="mailto:contact@brandixo.com"
+              href="mailto:contact@brandixo.shop"
               className="text-sm text-white/40 hover:text-gold transition-colors block"
             >
-              contact@brandixo.com
+              contact@brandixo.shop
             </a>
 
             <a
