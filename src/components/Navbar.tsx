@@ -39,7 +39,7 @@ const Navbar = () => {
             <Menu className="w-6 h-6" />
           </button>
 
-          <a href="#home" className="text-xl font-bold">
+          <button onClick={() => handleNavClick("home")} className="text-xl font-bold cursor-pointer">
             <span className="text-yellow-500">Bran</span>dixo
           </a>
 
