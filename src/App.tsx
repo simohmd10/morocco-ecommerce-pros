@@ -9,14 +9,14 @@ import { lazy, Suspense } from "react";
 
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
 
 const CreateOnlineStore = lazy(() => import("./pages/CreateOnlineStore"));
 const ShopifyStoreMorocco = lazy(() => import("./pages/ShopifyStoreMorocco"));
 const LandingPageDesign = lazy(() => import("./pages/LandingPageDesign"));
 const DropshippingStore = lazy(() => import("./pages/DropshippingStore"));
 const EcommerceMorocco = lazy(() => import("./pages/EcommerceMorocco"));
-const Privacy = lazy(() => import("./pages/Privacy"));
-const Terms = lazy(() => import("./pages/Terms"));
 
 const queryClient = new QueryClient();
 
@@ -42,13 +42,17 @@ const App = () => (
 
                 <Route path="/" element={<Index />} />
 
+                {/* pages */}
+                <Route path="/privacy" element={<Privacy />} />
+                <Route path="/terms" element={<Terms />} />
+
                 <Route path="/create-online-store" element={<CreateOnlineStore />} />
                 <Route path="/shopify-store-morocco" element={<ShopifyStoreMorocco />} />
                 <Route path="/landing-page-design" element={<LandingPageDesign />} />
                 <Route path="/dropshipping-store" element={<DropshippingStore />} />
                 <Route path="/ecommerce-morocco" element={<EcommerceMorocco />} />
-                <Route path="/privacy" element={<Privacy />} />
-                <Route path="/terms" element={<Terms />} />
+
+                <Route path="*" element={<NotFound />} />
 
               </Routes>
 
