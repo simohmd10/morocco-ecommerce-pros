@@ -29,6 +29,8 @@ const Footer = () => {
                   {t(link.key)}
                 </a>
               ))}
+              <a href="/privacy" className="text-sm text-white/40 hover:text-gold transition-colors">{t('footer.privacy')}</a>
+              <a href="/terms" className="text-sm text-white/40 hover:text-gold transition-colors">{t('footer.terms')}</a>
             </div>
           </nav>
           <address className="not-italic">

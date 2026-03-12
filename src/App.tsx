@@ -15,6 +15,8 @@ const ShopifyStoreMorocco = lazy(() => import("./pages/ShopifyStoreMorocco"));
 const LandingPageDesign = lazy(() => import("./pages/LandingPageDesign"));
 const DropshippingStore = lazy(() => import("./pages/DropshippingStore"));
 const EcommerceMorocco = lazy(() => import("./pages/EcommerceMorocco"));
+const Privacy = lazy(() => import("./pages/Privacy"));
+const Terms = lazy(() => import("./pages/Terms"));
 
 const queryClient = new QueryClient();
 
@@ -45,8 +47,8 @@ const App = () => (
                 <Route path="/landing-page-design" element={<LandingPageDesign />} />
                 <Route path="/dropshipping-store" element={<DropshippingStore />} />
                 <Route path="/ecommerce-morocco" element={<EcommerceMorocco />} />
-
-                <Route path="*" element={<NotFound />} />
+                <Route path="/privacy" element={<Privacy />} />
+                <Route path="/terms" element={<Terms />} />
 
               </Routes>
 

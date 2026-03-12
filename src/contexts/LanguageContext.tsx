@@ -118,6 +118,8 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.desc': 'نساعد رواد الأعمال في المغرب على إنشاء متاجر إلكترونية احترافية وبدء البيع أونلاين.',
     'footer.rights': 'جميع الحقوق محفوظة',
     'footer.links': 'روابط سريعة',
+    'footer.privacy': 'سياسة الخصوصية',
+    'footer.terms': 'شروط الاستخدام',
   },
   fr: {
     'nav.home': 'Accueil',
@@ -227,6 +229,8 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.desc': 'Nous aidons les entrepreneurs au Maroc à créer des boutiques en ligne professionnelles.',
     'footer.rights': 'Tous droits réservés',
     'footer.links': 'Liens rapides',
+    'footer.privacy': 'Politique de confidentialité',
+    'footer.terms': 'Conditions d\'utilisation',
   },
   en: {
     'nav.home': 'Home',
@@ -336,6 +340,8 @@ const translations: Record<Language, Record<string, string>> = {
     'footer.desc': 'We help entrepreneurs in Morocco build professional online stores and start selling online.',
     'footer.rights': 'All rights reserved',
     'footer.links': 'Quick Links',
+    'footer.privacy': 'Privacy Policy',
+    'footer.terms': 'Terms of Service',
   },
 };
 
