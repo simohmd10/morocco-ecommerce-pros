@@ -9,7 +9,7 @@ const Hero = () => {
     <section
       id="home"
       className="relative dark-section overflow-hidden"
-      style={{ height: '100svh' }}
+      style={{ minHeight: '100svh' }}
       aria-label="Hero"
     >
       {/* Dot grid */}
@@ -25,25 +25,25 @@ const Hero = () => {
       <div className="absolute top-1/3 start-1/3 w-[500px] h-[500px] bg-gold/8 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-1/4 end-1/4 w-80 h-80 bg-gold/5 rounded-full blur-[100px] pointer-events-none" />
 
-      {/* Corner decorations */}
-      <div className="absolute top-24 start-8 w-16 h-16 border-t border-s border-gold/20 rounded-tl-lg hidden md:block" />
-      <div className="absolute top-24 end-8 w-16 h-16 border-t border-e border-gold/20 rounded-tr-lg hidden md:block" />
-      <div className="absolute bottom-16 start-8 w-16 h-16 border-b border-s border-gold/20 rounded-bl-lg hidden md:block" />
-      <div className="absolute bottom-16 end-8 w-16 h-16 border-b border-e border-gold/20 rounded-br-lg hidden md:block" />
+      {/* Corner decorations - desktop only */}
+      <div className="absolute top-24 start-8 w-16 h-16 border-t border-s border-gold/20 rounded-tl-lg hidden lg:block" />
+      <div className="absolute top-24 end-8 w-16 h-16 border-t border-e border-gold/20 rounded-tr-lg hidden lg:block" />
+      <div className="absolute bottom-16 start-8 w-16 h-16 border-b border-s border-gold/20 rounded-bl-lg hidden lg:block" />
+      <div className="absolute bottom-16 end-8 w-16 h-16 border-b border-e border-gold/20 rounded-br-lg hidden lg:block" />
 
-      {/* Centered content wrapper — accounts for 64px navbar */}
+      {/* Main content */}
       <div
-        className="absolute inset-0 flex items-center justify-center"
-        style={{ paddingTop: '64px' }}
+        className="relative z-10 flex flex-col items-center justify-center text-center w-full px-4"
+        style={{ minHeight: '100svh', paddingTop: '64px', paddingBottom: '48px' }}
       >
-        <div className="container mx-auto px-4 text-center">
+        <div className="container mx-auto">
 
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="flex justify-center mb-5"
+            className="flex justify-center mb-4 landscape:mb-2"
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-gold/30 bg-gold/8 backdrop-blur-sm">
               <ShoppingBag className="w-3.5 h-3.5 text-gold" />
@@ -58,7 +58,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold font-display leading-[1.1] max-w-4xl mx-auto mb-4"
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-[1.1] max-w-4xl mx-auto mb-3"
           >
             {t('hero.title')}
           </motion.h1>
@@ -68,7 +68,7 @@ const Hero = () => {
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="w-14 h-0.5 gold-gradient mx-auto mb-4 rounded-full"
+            className="w-14 h-0.5 gold-gradient mx-auto mb-3 rounded-full"
           />
 
           {/* Subtitle */}
@@ -76,7 +76,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-sm md:text-lg text-white/55 max-w-xl mx-auto mb-7 font-body leading-relaxed"
+            className="text-sm md:text-base text-white/55 max-w-lg mx-auto mb-5 font-body leading-relaxed"
           >
             {t('hero.subtitle')}
           </motion.p>
@@ -86,7 +86,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex items-center justify-center gap-5 md:gap-10 mb-7 flex-wrap"
+            className="flex items-center justify-center gap-5 md:gap-10 mb-6 flex-wrap"
           >
             {[
               { icon: Star, label: '48h', sub: 'تسليم سريع' },
@@ -110,12 +110,20 @@ const Hero = () => {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-3"
+            className="flex flex-row items-center justify-center gap-3 flex-wrap"
           >
-            <a href="#contact" className="btn-gold text-sm md:text-base" aria-label={t('hero.cta')}>
+            <a
+              href="#contact"
+              className="btn-gold text-sm"
+              aria-label={t('hero.cta')}
+            >
               {t('hero.cta')}
             </a>
-            <a href="#services" className="btn-outline-white text-sm md:text-base" aria-label={t('hero.secondary')}>
+            <a
+              href="#services"
+              className="btn-outline-white text-sm"
+              aria-label={t('hero.secondary')}
+            >
               {t('hero.secondary')}
             </a>
           </motion.div>
@@ -128,7 +136,7 @@ const Hero = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.2, duration: 0.6 }}
-        className="absolute bottom-6 inset-x-0 flex justify-center"
+        className="absolute bottom-4 inset-x-0 flex justify-center"
       >
         <div className="flex flex-col items-center gap-1">
           <span className="text-white/25 text-[10px] tracking-widest uppercase">scroll</span>
