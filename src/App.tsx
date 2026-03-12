@@ -15,6 +15,8 @@ const ShopifyStoreMorocco = lazy(() => import("./pages/ShopifyStoreMorocco"));
 const LandingPageDesign = lazy(() => import("./pages/LandingPageDesign"));
 const DropshippingStore = lazy(() => import("./pages/DropshippingStore"));
 const EcommerceMorocco = lazy(() => import("./pages/EcommerceMorocco"));
+const Privacy = lazy(() => import("./pages/Privacy"));
+const Terms = lazy(() => import("./pages/Terms"));
 
 const queryClient = new QueryClient();
 
