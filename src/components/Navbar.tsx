@@ -74,14 +74,13 @@ const Navbar = () => {
 
               <div className="flex flex-col gap-6">
                 {links.map((link) => (
-                  <a
+                  <button
                     key={link.key}
-                    href={link.href}
-                    onClick={() => setOpen(false)}
-                    className="text-lg text-muted-foreground hover:text-foreground transition"
+                    onClick={() => handleNavClick(link.hash)}
+                    className="text-lg text-muted-foreground hover:text-foreground transition text-start"
                   >
                     {t(link.key)}
-                  </a>
+                  </button>
                 ))}
               </div>
 
