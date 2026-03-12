@@ -28,7 +28,7 @@ const Privacy = () => {
     },
   };
 
-  const t = content[lang];
+  const t = content[lang as "en" | "fr" | "ar"];
 
   return (
     <>
