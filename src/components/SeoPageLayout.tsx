@@ -118,6 +118,8 @@ const SeoPageLayout = ({ title, description, children, structuredData }: SeoPage
                 {navLinks.map(link => (
                   <Link key={link.to} to={link.to} className="text-sm text-white/40 hover:text-gold transition-colors">{link.label}</Link>
                 ))}
+                <Link to="/privacy" className="text-sm text-white/40 hover:text-gold transition-colors">{t('footer.privacy')}</Link>
+                <Link to="/terms" className="text-sm text-white/40 hover:text-gold transition-colors">{t('footer.terms')}</Link>
               </div>
             </nav>
             <address className="not-italic">
