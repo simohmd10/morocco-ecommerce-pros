@@ -11,8 +11,8 @@ const Hero = () => {
       className="relative dark-section overflow-hidden flex flex-col items-center justify-center text-center px-4"
       style={{
         minHeight: '100svh',
-        paddingTop: 'max(80px, 10vh)',
-        paddingBottom: 'max(64px, 8vh)',
+        paddingTop: 'max(72px, 8vh)',
+        paddingBottom: 'max(52px, 6vh)',
       }}
       aria-label="Hero"
     >
@@ -114,14 +114,14 @@ const Hero = () => {
         >
           <a
             href="#contact"
-            className="btn-gold text-sm px-6 py-3"
+            className="btn-gold text-sm px-5 py-2.5 whitespace-nowrap"
             aria-label={t('hero.cta')}
           >
             {t('hero.cta')}
           </a>
           <a
             href="#services"
-            className="btn-outline-white text-sm px-6 py-3"
+            className="btn-outline-white text-sm px-5 py-2.5 whitespace-nowrap"
             aria-label={t('hero.secondary')}
           >
             {t('hero.secondary')}
