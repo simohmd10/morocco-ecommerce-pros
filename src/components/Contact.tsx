@@ -1,7 +1,7 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import { MessageCircle, Send } from 'lucide-react';
+import { MessageCircle, Send, Loader } from 'lucide-react';
 import { toast } from 'sonner';
 
 const Contact = () => {
@@ -14,28 +14,38 @@ const Contact = () => {
     message: ''
   });
 
+  const [loading, setLoading] = useState(false);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setLoading(true);
 
-    const response = await fetch("https://formspree.io/f/mdawgbkj", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify(form)
-    });
-
-    if (response.ok) {
-      toast.success("Message envoyé ✓");
-      setForm({
-        name: '',
-        email: '',
-        phone: '',
-        message: ''
+    try {
+      const response = await fetch("https://formspree.io/f/mdawgbkj", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(form)
       });
-    } else {
-      toast.error("Erreur lors de l'envoi");
+
+      if (response.ok) {
+        toast.success("Message envoyé ✓");
+        setForm({
+          name: '',
+          email: '',
+          phone: '',
+          message: ''
+        });
+      } else {
+        toast.error("Erreur lors de l'envoi");
+      }
+
+    } catch (error) {
+      toast.error("Erreur réseau");
     }
+
+    setLoading(false);
   };
 
   const whatsappUrl =
@@ -43,17 +53,13 @@ const Contact = () => {
     encodeURIComponent("مرحباً، أريد إنشاء متجر إلكتروني");
 
   return (
-    <section
-      id="contact"
-      className="section-padding bg-background"
-      aria-label="Contact"
-    >
+    <section id="contact" className="section-padding bg-background">
       <div className="container mx-auto max-w-4xl">
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          initial={{ opacity:0, y:20 }}
+          whileInView={{ opacity:1, y:0 }}
+          viewport={{ once:true }}
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold font-display mb-4">
@@ -70,9 +76,9 @@ const Contact = () => {
           <motion.form
             onSubmit={handleSubmit}
             className="space-y-4"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity:0, x:-20 }}
+            whileInView={{ opacity:1, x:0 }}
+            viewport={{ once:true }}
           >
 
             <input
@@ -80,10 +86,8 @@ const Contact = () => {
               required
               placeholder={t('contact.name')}
               value={form.name}
-              onChange={e =>
-                setForm({ ...form, name: e.target.value })
-              }
-              className="w-full px-4 py-3 rounded-xl bg-card border border-border focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-colors text-foreground"
+              onChange={e => setForm({...form, name:e.target.value})}
+              className="w-full px-4 py-3 rounded-xl bg-card border border-border focus:border-gold focus:ring-1 focus:ring-gold outline-none"
             />
 
             <input
@@ -91,10 +95,8 @@ const Contact = () => {
               required
               placeholder={t('contact.email')}
               value={form.email}
-              onChange={e =>
-                setForm({ ...form, email: e.target.value })
-              }
-              className="w-full px-4 py-3 rounded-xl bg-card border border-border focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-colors text-foreground"
+              onChange={e => setForm({...form, email:e.target.value})}
+              className="w-full px-4 py-3 rounded-xl bg-card border border-border focus:border-gold focus:ring-1 focus:ring-gold outline-none"
             />
 
             <input
@@ -102,10 +104,8 @@ const Contact = () => {
               required
               placeholder={t('contact.phone')}
               value={form.phone}
-              onChange={e =>
-                setForm({ ...form, phone: e.target.value })
-              }
-              className="w-full px-4 py-3 rounded-xl bg-card border border-border focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-colors text-foreground"
+              onChange={e => setForm({...form, phone:e.target.value})}
+              className="w-full px-4 py-3 rounded-xl bg-card border border-border focus:border-gold focus:ring-1 focus:ring-gold outline-none"
             />
 
             <textarea
@@ -113,30 +113,38 @@ const Contact = () => {
               required
               placeholder={t('contact.message')}
               value={form.message}
-              onChange={e =>
-                setForm({ ...form, message: e.target.value })
-              }
-              className="w-full px-4 py-3 rounded-xl bg-card border border-border focus:border-gold focus:ring-1 focus:ring-gold outline-none transition-colors resize-none text-foreground"
+              onChange={e => setForm({...form, message:e.target.value})}
+              className="w-full px-4 py-3 rounded-xl bg-card border border-border focus:border-gold focus:ring-1 focus:ring-gold outline-none resize-none"
             />
 
             <button
               type="submit"
-              className="w-full gold-gradient text-primary font-bold py-3 rounded-xl gold-shadow hover:scale-[1.02] transition-transform flex items-center justify-center gap-2"
+              disabled={loading}
+              className="w-full gold-gradient text-primary font-bold py-3 rounded-xl gold-shadow hover:scale-[1.02] transition-transform flex items-center justify-center gap-2 disabled:opacity-70"
             >
-              <Send className="w-4 h-4" />
-              {t('contact.send')}
+              {loading ? (
+                <>
+                  <Loader className="w-4 h-4 animate-spin"/>
+                  Envoi...
+                </>
+              ) : (
+                <>
+                  <Send className="w-4 h-4"/>
+                  {t('contact.send')}
+                </>
+              )}
             </button>
 
           </motion.form>
 
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity:0, x:20 }}
+            whileInView={{ opacity:1, x:0 }}
+            viewport={{ once:true }}
             className="flex flex-col items-center justify-center gap-6 p-8 rounded-2xl bg-card border border-border card-shadow"
           >
 
-            <MessageCircle className="w-16 h-16 text-green-500" />
+            <MessageCircle className="w-16 h-16 text-green-500"/>
 
             <p className="text-center text-muted-foreground">
               {t('contact.subtitle')}
@@ -148,7 +156,7 @@ const Contact = () => {
               rel="noopener noreferrer"
               className="bg-green-500 text-primary-foreground font-bold px-8 py-3 rounded-xl hover:bg-green-600 transition-colors flex items-center gap-2"
             >
-              <MessageCircle className="w-5 h-5" />
+              <MessageCircle className="w-5 h-5"/>
               {t('contact.whatsapp')}
             </a>
 
