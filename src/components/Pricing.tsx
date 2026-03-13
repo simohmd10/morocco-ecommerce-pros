@@ -29,75 +29,112 @@ const Pricing = () => {
     },
   ];
 
-  const featureKeys = ['pricing.f1', 'pricing.f2', 'pricing.f3', 'pricing.f4', 'pricing.f5', 'pricing.f6', 'pricing.f7', 'pricing.f8'];
+  const featureKeys = [
+    'pricing.f1', 'pricing.f2', 'pricing.f3', 'pricing.f4',
+    'pricing.f5', 'pricing.f6', 'pricing.f7', 'pricing.f8'
+  ];
 
   return (
     <section id="pricing" className="section-padding bg-secondary/50">
       <div className="container mx-auto">
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-10 md:mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold font-display mb-4">{t('pricing.title')}</h2>
-          <p className="text-muted-foreground text-lg">{t('pricing.subtitle')}</p>
+          <h2 className="text-2xl md:text-4xl font-bold font-display mb-3">
+            {t('pricing.title')}
+          </h2>
+          <p className="text-muted-foreground text-base md:text-lg">
+            {t('pricing.subtitle')}
+          </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-          {plans.map((plan, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className={`relative rounded-2xl p-6 flex flex-col ${
-                plan.popular
-                  ? 'bg-primary text-primary-foreground gold-shadow scale-105 border-2 border-gold'
-                  : 'bg-background border border-border card-shadow'
-              }`}
-            >
-              {plan.popular && (
-                <div className="absolute -top-3 start-1/2 -translate-x-1/2 rtl:translate-x-1/2 px-4 py-1 rounded-full gold-gradient text-primary text-xs font-bold">
-                  {t('pricing.popular')}
-                </div>
-              )}
-
-              <h3 className="text-xl font-bold mb-2">{t(plan.name)}</h3>
-              <p className={`text-sm mb-4 ${plan.popular ? 'text-primary-foreground/70' : 'text-muted-foreground'}`}>
-                {t(plan.desc)}
-              </p>
-              <div className="text-3xl font-bold font-display mb-6 gold-text">{t(plan.price)}</div>
-
-              <div className="flex-1 space-y-3 mb-6">
-                {featureKeys.map((fKey, fi) => (
-                  <div key={fi} className="flex items-center gap-2 text-sm">
-                    {plan.features[fi] ? (
-                      <Check className="w-4 h-4 text-gold flex-shrink-0" />
-                    ) : (
-                      <X className={`w-4 h-4 flex-shrink-0 ${plan.popular ? 'text-primary-foreground/30' : 'text-muted-foreground/30'}`} />
-                    )}
-                    <span className={!plan.features[fi] ? (plan.popular ? 'text-primary-foreground/40' : 'text-muted-foreground/40') : ''}>
-                      {t(fKey)}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              <a
-                href="#contact"
-                className={`block text-center py-3 rounded-xl font-bold transition-transform hover:scale-105 ${
-                  plan.popular
-                    ? 'gold-gradient text-primary'
-                    : 'bg-primary text-primary-foreground'
-                }`}
+        {/*
+          Mobile: stacked vertically, popular plan first & full-width highlighted
+          Desktop: 3-column grid, popular plan scaled up
+        */}
+        <div className="flex flex-col gap-4 md:grid md:grid-cols-3 md:gap-6 md:items-start max-w-5xl mx-auto">
+          {/* Reorder on mobile: pro first */}
+          {[plans[1], plans[0], plans[2]].map((plan, i) => {
+            const originalIndex = plans.indexOf(plan);
+            return (
+              <motion.div
+                key={plan.name}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+                className={`relative rounded-2xl p-5 md:p-6 flex flex-col
+                  ${plan.popular
+                    ? 'bg-primary text-primary-foreground border-2 border-gold md:scale-105 shadow-[0_8px_40px_-8px_hsl(42_80%_48%/0.35)]'
+                    : 'bg-background border border-border card-shadow'
+                  }
+                  ${/* Hide non-popular plans visually below popular on mobile */ ''}
+                `}
               >
-                {t('pricing.cta')}
-              </a>
-            </motion.div>
-          ))}
+                {/* Popular badge */}
+                {plan.popular && (
+                  <div className="absolute -top-3 start-1/2 -translate-x-1/2 rtl:translate-x-1/2 px-4 py-1 rounded-full gold-gradient text-dark text-xs font-bold whitespace-nowrap">
+                    {t('pricing.popular')}
+                  </div>
+                )}
+
+                {/* Plan header */}
+                <div className="mb-4">
+                  <h3 className="text-lg md:text-xl font-bold mb-1">{t(plan.name)}</h3>
+                  <p className={`text-sm leading-relaxed ${plan.popular ? 'text-primary-foreground/70' : 'text-muted-foreground'}`}>
+                    {t(plan.desc)}
+                  </p>
+                </div>
+
+                {/* Price */}
+                <div className="text-3xl md:text-4xl font-bold font-display mb-5 gold-text">
+                  {t(plan.price)}
+                </div>
+
+                {/* Features */}
+                <div className="flex-1 space-y-2.5 mb-5">
+                  {featureKeys.map((fKey, fi) => (
+                    <div key={fi} className="flex items-center gap-2.5 text-sm">
+                      {plan.features[fi] ? (
+                        <Check className="w-4 h-4 text-gold flex-shrink-0" />
+                      ) : (
+                        <X className={`w-4 h-4 flex-shrink-0 ${
+                          plan.popular ? 'text-primary-foreground/25' : 'text-muted-foreground/25'
+                        }`} />
+                      )}
+                      <span className={
+                        !plan.features[fi]
+                          ? plan.popular
+                            ? 'text-primary-foreground/35'
+                            : 'text-muted-foreground/40'
+                          : ''
+                      }>
+                        {t(fKey)}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* CTA */}
+                <a
+                  href="#contact"
+                  className={`block text-center py-3 rounded-xl font-bold transition-all hover:-translate-y-px active:scale-[0.98] ${
+                    plan.popular
+                      ? 'gold-gradient text-dark hover:shadow-[0_4px_20px_-4px_hsl(42_80%_48%/0.5)]'
+                      : 'bg-primary text-primary-foreground hover:bg-primary/90'
+                  }`}
+                >
+                  {t('pricing.cta')}
+                </a>
+              </motion.div>
+            );
+          })}
         </div>
+
       </div>
     </section>
   );
