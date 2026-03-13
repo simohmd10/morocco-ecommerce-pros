@@ -16,7 +16,7 @@ const Portfolio = () => {
       descKey: 'portfolio.electronics.desc',
       image: storeElectronics,
       alt: 'متجر إلكترونيات أونلاين في المغرب - تصميم Brandixo',
-      url: 'https://tech-haven-store.vercel.app/',   // ← الرابط الجديد
+      url: 'https://tech-haven-store.vercel.app/',
     },
     {
       titleKey: 'portfolio.fashion',
@@ -34,8 +34,8 @@ const Portfolio = () => {
     },
   ];
 
-  const handleVisitStore = (url) => {
-    window.open(url, '_blank', 'noopener,noreferrer');
+  const handleVisitStore = (url: string) => {
+    window.open(url, '_blank');
   };
 
   const handleWhatsAppCTA = () => {
@@ -64,7 +64,7 @@ const Portfolio = () => {
         <div className="flex flex-col gap-5 md:grid md:grid-cols-3 md:gap-8 max-w-5xl mx-auto">
           {stores.map((store, i) => (
             <motion.article
-              key={i}
+              key={store.url}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
@@ -81,8 +81,6 @@ const Portfolio = () => {
                   src={store.image}
                   alt={store.alt}
                   loading="lazy"
-                  width={500}
-                  height={220}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
 
