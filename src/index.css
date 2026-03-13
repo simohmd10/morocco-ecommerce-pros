@@ -71,11 +71,20 @@
 
   * {
     @apply border-border;
+    /* Prevent horizontal scroll globally */
+    box-sizing: border-box;
+  }
+
+  html {
+    overflow-x: hidden;
   }
 
   body {
     @apply bg-background text-foreground font-body antialiased;
     background-color: hsl(0 0% 99%);
+    overflow-x: hidden;
+    /* Better mobile tap highlight */
+    -webkit-tap-highlight-color: transparent;
   }
 
   html[dir="rtl"] {
@@ -87,13 +96,20 @@
   ::-webkit-scrollbar-track { background: hsl(0 0% 96%); }
   ::-webkit-scrollbar-thumb { background: hsl(42 80% 48%); border-radius: 3px; }
   ::-webkit-scrollbar-thumb:hover { background: hsl(42 75% 40%); }
+
+  /* Better focus styles for accessibility */
+  :focus-visible {
+    outline: 2px solid hsl(42 80% 48%);
+    outline-offset: 2px;
+  }
 }
 
 @layer components {
 
   /* ═══ LAYOUT ═══ */
   .section-padding {
-    @apply py-20 md:py-28 px-4 md:px-8;
+    /* Reduced vertical padding on mobile */
+    @apply py-14 md:py-28 px-4 md:px-8;
   }
 
   /* ═══ GOLD ═══ */
@@ -245,7 +261,7 @@
     margin: 0;
   }
 
-  /* ═══ NOISE TEXTURE (subtle luxury feel) ═══ */
+  /* ═══ NOISE TEXTURE ═══ */
   .noise-overlay::after {
     content: '';
     position: absolute;
@@ -254,5 +270,47 @@
     pointer-events: none;
     opacity: 0.4;
     mix-blend-mode: overlay;
+  }
+}
+
+/* ═══════════════════════════════════════
+   MOBILE-SPECIFIC FIXES
+   ═══════════════════════════════════════ */
+
+@media (max-width: 767px) {
+
+  /* Tighter section spacing on mobile */
+  .section-padding {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Prevent overflow from scaled elements */
+  .md\:scale-105 {
+    transform: none !important;
+  }
+
+  /* Better touch targets */
+  button, a {
+    min-height: 44px;
+  }
+
+  /* Readable font sizes */
+  h1 { font-size: clamp(1.75rem, 6vw, 2.5rem); }
+  h2 { font-size: clamp(1.4rem, 5vw, 2rem); }
+  h3 { font-size: clamp(1.1rem, 4vw, 1.5rem); }
+
+  /* Prevent text overflow */
+  p, span, li {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  /* Container padding */
+  .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
 }
