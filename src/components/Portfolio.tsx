@@ -30,7 +30,7 @@ const Portfolio = () => {
       descKey: 'portfolio.cosmetics.desc',
       image: storeCosmetics,
       alt: 'متجر إلكتروني لمستحضرات التجميل في المغرب - تصميم Brandixo',
-      url: 'https://es-d-5183352620260309-019cc6aa-1b20-7fe1-9816-30c5a687a999.codepen.dev/',
+      url: 'https://serene-beauty-e-commerce.vercel.app/',
     },
   ];
 
