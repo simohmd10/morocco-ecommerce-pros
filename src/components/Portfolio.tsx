@@ -16,7 +16,7 @@ const Portfolio = () => {
       descKey: 'portfolio.electronics.desc',
       image: storeElectronics,
       alt: 'متجر إلكترونيات أونلاين في المغرب - تصميم Brandixo',
-      url: 'https://es-d-5183352620260309-019cc6aa-1b20-7fe1-9816-30c5a687a999.codepen.dev/',
+      url: 'https://tech-haven-store.vercel.app/',   // ← الرابط الجديد
     },
     {
       titleKey: 'portfolio.fashion',
