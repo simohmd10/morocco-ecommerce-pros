@@ -12,11 +12,12 @@ import NotFound from "./pages/NotFound";
 import Privacy from "./pages/Privacy";
 import Terms from "./pages/Terms";
 
-const CreateOnlineStore = lazy(() => import("./pages/CreateOnlineStore"));
+const CreateOnlineStore  = lazy(() => import("./pages/CreateOnlineStore"));
 const ShopifyStoreMorocco = lazy(() => import("./pages/ShopifyStoreMorocco"));
-const LandingPageDesign = lazy(() => import("./pages/LandingPageDesign"));
-const DropshippingStore = lazy(() => import("./pages/DropshippingStore"));
-const EcommerceMorocco = lazy(() => import("./pages/EcommerceMorocco"));
+const LandingPageDesign  = lazy(() => import("./pages/LandingPageDesign"));
+const DropshippingStore  = lazy(() => import("./pages/DropshippingStore"));
+const EcommerceMorocco   = lazy(() => import("./pages/EcommerceMorocco"));
+const PricingPage        = lazy(() => import("./pages/PricingPage")); // ✅ جديد
 
 const queryClient = new QueryClient();
 
@@ -37,25 +38,27 @@ const App = () => (
                 </div>
               }
             >
-
               <Routes>
 
                 <Route path="/" element={<Index />} />
 
-                {/* pages */}
+                {/* صفحات قانونية */}
                 <Route path="/privacy" element={<Privacy />} />
-                <Route path="/terms" element={<Terms />} />
+                <Route path="/terms"   element={<Terms />} />
 
-                <Route path="/create-online-store" element={<CreateOnlineStore />} />
+                {/* صفحات الخدمات */}
+                <Route path="/create-online-store"   element={<CreateOnlineStore />} />
                 <Route path="/shopify-store-morocco" element={<ShopifyStoreMorocco />} />
-                <Route path="/landing-page-design" element={<LandingPageDesign />} />
-                <Route path="/dropshipping-store" element={<DropshippingStore />} />
-                <Route path="/ecommerce-morocco" element={<EcommerceMorocco />} />
+                <Route path="/landing-page-design"   element={<LandingPageDesign />} />
+                <Route path="/dropshipping-store"    element={<DropshippingStore />} />
+                <Route path="/ecommerce-morocco"     element={<EcommerceMorocco />} />
+
+                {/* ✅ صفحة الأسعار الجديدة */}
+                <Route path="/pricing" element={<PricingPage />} />
 
                 <Route path="*" element={<NotFound />} />
 
               </Routes>
-
             </Suspense>
           </BrowserRouter>
 
