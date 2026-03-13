@@ -5,7 +5,7 @@ import storeCosmetics from '@/assets/store-cosmetics.jpg';
 import storeFashion from '@/assets/store-fashion.jpg';
 import storeElectronics from '@/assets/store-electronics.jpg';
 
-const PREVIEW_URL = 'https://v0-luxury-fashion-website-five-ecru.vercel.app/';
+const PREVIEW_URL = 'https://es-d-5183352620260309-019cc6aa-1b20-7fe1-9816-30c5a687a999.codepen.dev/';
 const WHATSAPP_NUMBER = '212691553120';
 
 const Portfolio = () => {
