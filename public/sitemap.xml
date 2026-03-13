@@ -1,23 +1,67 @@
-{
-  "headers": [
-    {
-      "source": "/sitemap.xml",
-      "headers": [
-        {
-          "key": "Content-Type",
-          "value": "application/xml"
-        }
-      ]
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/sitemap.xml",
-      "destination": "/sitemap.xml"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/"
-    }
-  ]
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+<url>
+<loc>https://brandixo.store/</loc>
+<lastmod>2026-03-01</lastmod>
+<changefreq>weekly</changefreq>
+<priority>1.0</priority>
+</url>
+
+<url>
+<loc>https://brandixo.store/create-online-store</loc>
+<lastmod>2026-03-01</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+
+<url>
+<loc>https://brandixo.store/shopify-store-morocco</loc>
+<lastmod>2026-03-01</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://brandixo.store/landing-page-design</loc>
+<lastmod>2026-03-01</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://brandixo.store/dropshipping-store</loc>
+<lastmod>2026-03-01</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.8</priority>
+</url>
+
+<url>
+<loc>https://brandixo.store/ecommerce-morocco</loc>
+<lastmod>2026-03-01</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+
+<url>
+<loc>https://brandixo.store/pricing</loc>
+<lastmod>2026-03-01</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.9</priority>
+</url>
+
+<url>
+<loc>https://brandixo.store/privacy</loc>
+<lastmod>2026-01-01</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.3</priority>
+</url>
+
+<url>
+<loc>https://brandixo.store/terms</loc>
+<lastmod>2026-01-01</lastmod>
+<changefreq>yearly</changefreq>
+<priority>0.3</priority>
+</url>
+
+</urlset>
