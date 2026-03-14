@@ -169,7 +169,9 @@
 "portfolio.cosmetics": "متجر مستحضرات تجميل",
 "portfolio.cosmetics.desc": "نموذج متجر كوزميتيك احترافي",
 
-"portfolio.visit": "زيارة المتجر"
+"portfolio.visit": "زيارة المتجر",
+"portfolio.cta.title": "هل تريد متجراً مثل هذا؟",
+"portfolio.cta.want_store": "أنشئ متجرك الآن"
 
 }
 
