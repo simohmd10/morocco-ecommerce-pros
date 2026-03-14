@@ -257,6 +257,19 @@
     margin: 0;
   }
 
+  /* ✅ إصلاح Contrast — gold على خلفية فاتحة */
+  .text-gold-accessible {
+    color: hsl(42 75% 34%); /* gold-dark — contrast ratio 4.5:1 */
+  }
+
+  a.text-gold {
+    color: hsl(42 70% 36%); /* أغمق قليلاً للـ contrast */
+  }
+
+  a.text-gold:hover {
+    color: hsl(42 80% 28%);
+  }
+
   /* ═══ NOISE TEXTURE ═══ */
   .noise-overlay::after {
     content: '';
