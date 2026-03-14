@@ -44,7 +44,7 @@ const Pricing = () => {
           viewport={{ once: true }}
           className="text-center mb-10 md:mb-16"
         >
-          <h2 className="text-2xl md:text-4xl font-bold font-display mb-3">
+          <h2 className="text-2xl md:text-4xl font-bold font-display mb-3 text-foreground">
             {t('pricing.title')}
           </h2>
           <p className="text-muted-foreground text-base md:text-lg">
@@ -63,7 +63,7 @@ const Pricing = () => {
               className={`relative rounded-2xl p-5 md:p-6 flex flex-col
                 ${plan.popular
                   ? 'bg-primary text-primary-foreground border-2 border-gold md:scale-105 shadow-[0_8px_40px_-8px_hsl(42_80%_48%/0.35)]'
-                  : 'bg-background border border-border card-shadow'
+                  : 'bg-card border border-border card-shadow text-card-foreground'
                 }
               `}
             >
@@ -76,7 +76,9 @@ const Pricing = () => {
 
               {/* Plan header */}
               <div className="mb-4">
-                <h3 className="text-lg md:text-xl font-bold mb-1">{t(plan.name)}</h3>
+                <h3 className={`text-lg md:text-xl font-bold mb-1 ${plan.popular ? 'text-primary-foreground' : 'text-foreground'}`}>
+                  {t(plan.name)}
+                </h3>
                 <p className={`text-sm leading-relaxed ${plan.popular ? 'text-primary-foreground/70' : 'text-muted-foreground'}`}>
                   {t(plan.desc)}
                 </p>
@@ -103,7 +105,9 @@ const Pricing = () => {
                         ? plan.popular
                           ? 'text-primary-foreground/35'
                           : 'text-muted-foreground/40'
-                        : ''
+                        : plan.popular
+                          ? 'text-primary-foreground'
+                          : 'text-foreground'
                     }>
                       {t(fKey)}
                     </span>
@@ -117,7 +121,7 @@ const Pricing = () => {
                 className={`block text-center py-3 rounded-xl font-bold transition-all hover:-translate-y-px active:scale-[0.98] ${
                   plan.popular
                     ? 'gold-gradient text-dark hover:shadow-[0_4px_20px_-4px_hsl(42_80%_48%/0.5)]'
-                    : 'bg-primary text-primary-foreground hover:bg-primary/90'
+                    : 'bg-foreground text-background hover:bg-foreground/90'
                 }`}
               >
                 {t('pricing.cta')}
