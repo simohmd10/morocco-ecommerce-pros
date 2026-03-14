@@ -1,7 +1,6 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 /* ============================================================
    GOOGLE FONTS — Playfair Display + Tajawal
    ============================================================ */
