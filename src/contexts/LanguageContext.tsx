@@ -36,7 +36,7 @@ const translations: Record<Language, Record<string, string>> = {
     'portfolio.enter_store': 'دخول المتجر',
 
     'portfolio.cosmetics': 'متجر مستحضرات التجميل',
-    'portfolio.cosmetics.desc': 'متجر إلكتروني احترافي لبيع منتجات التجميل والعناية بالبشرة.',
+    'portfolio.cosmetics.desc': 'متجر إلكتروني احترافي لبيع منتجات التجميل.',
     'portfolio.visit': 'زيارة المتجر',
 
     'portfolio.cta.title': 'هل تريد متجرًا مثل هذا؟',
@@ -44,15 +44,6 @@ const translations: Record<Language, Record<string, string>> = {
 
     'faq.title': 'أسئلة شائعة',
     'faq.related': 'روابط ذات صلة',
-
-    'footer.desc': 'نبني متاجر إلكترونية احترافية للتجار المغاربة.',
-    'footer.links': 'روابط سريعة',
-    'footer.privacy': 'سياسة الخصوصية',
-    'footer.terms': 'الشروط والأحكام',
-    'footer.rights': 'جميع الحقوق محفوظة',
-    'footer.available': 'متاح لمشاريع جديدة',
-    'footer.whatsapp': 'واتساب',
-    'footer.made': 'صُنع بـ',
 
     'testimonials.tag': 'آراء العملاء',
     'testimonials.title.part1': 'ماذا يقول',
@@ -63,16 +54,6 @@ const translations: Record<Language, Record<string, string>> = {
     'testimonials.stat.recommend': 'يوصون بنا',
     'testimonials.cta': 'ابدأ متجرك اليوم',
 
-    'testimonials.1.name': 'أحمد بنعلي',
-    'testimonials.1.role': 'صاحب متجر ملابس — الدار البيضاء',
-    'testimonials.1.avatar': 'أ',
-    'testimonials.1.text': 'أنشأ لي Brandixo متجري في أقل من 48 ساعة.',
-
-    'testimonials.2.name': 'فاطمة الزهراء',
-    'testimonials.2.role': 'صاحبة متجر عطور — مراكش',
-    'testimonials.2.avatar': 'ف',
-    'testimonials.2.text': 'الفريق ساعدني خطوة بخطوة.',
-
     'contact.title': 'تواصل معنا',
     'contact.subtitle': 'هل أنت مستعد لبدء مشروعك؟',
     'contact.name': 'الاسم الكامل',
@@ -80,15 +61,15 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.phone': 'رقم الهاتف',
     'contact.message': 'وصف المشروع',
     'contact.send': 'أرسل الطلب',
-    'contact.sending': 'جاري الإرسال...',
-    'contact.success': 'تم إرسال رسالتك بنجاح ✓',
-    'contact.error': 'حدث خطأ أثناء الإرسال',
-    'contact.error.network': 'خطأ في الاتصال بالشبكة',
 
-    'contact.whatsapp': 'تواصل عبر واتساب',
-    'contact.whatsapp.title': 'تواصل عبر واتساب',
-    'contact.whatsapp.subtitle': 'هل تفضل التواصل المباشر؟',
-    'contact.whatsapp.message': 'مرحباً، أريد إنشاء متجر إلكتروني'
+    'footer.desc': 'نبني متاجر إلكترونية احترافية للتجار المغاربة.',
+    'footer.links': 'روابط سريعة',
+    'footer.privacy': 'سياسة الخصوصية',
+    'footer.terms': 'الشروط والأحكام',
+    'footer.rights': 'جميع الحقوق محفوظة',
+    'footer.available': 'متاح لمشاريع جديدة',
+    'footer.whatsapp': 'واتساب',
+    'footer.made': 'صُنع بـ',
   },
 
   fr: {
@@ -101,47 +82,35 @@ const translations: Record<Language, Record<string, string>> = {
 
     'hero.badge': 'E-Commerce Maroc',
     'hero.title': 'Créez votre boutique en ligne',
-    'hero.subtitle': 'Nous créons votre boutique e-commerce professionnelle',
+    'hero.subtitle': 'Nous créons votre boutique e-commerce',
     'hero.cta': 'Lancez votre boutique',
     'hero.secondary': 'Découvrir nos services',
 
     'hero.stat.delivery': 'Livraison rapide',
     'hero.stat.stores': 'Boutiques créées',
     'hero.stat.satisfaction': 'Satisfaction client',
-    'hero.scroll': 'défiler',
 
     'portfolio.title': 'Notre Portfolio',
-    'portfolio.subtitle': 'Boutiques créées pour nos clients',
-    'portfolio.preview': 'Aperçu de la boutique',
-    'portfolio.enter_store': 'Entrer dans la boutique',
+    'portfolio.subtitle': 'Boutiques que nous avons créées',
+    'portfolio.preview': 'Aperçu',
+    'portfolio.enter_store': 'Entrer',
 
     'portfolio.cosmetics': 'Boutique cosmétique',
-    'portfolio.cosmetics.desc': 'Boutique en ligne professionnelle pour produits de beauté.',
-    'portfolio.visit': 'Visiter la boutique',
+    'portfolio.cosmetics.desc': 'Boutique beauté professionnelle',
+    'portfolio.visit': 'Visiter',
 
     'portfolio.cta.title': 'Vous voulez une boutique comme celle-ci ?',
     'portfolio.cta.want_store': 'Je veux ma boutique',
 
     'faq.title': 'Questions fréquentes',
-    'faq.related': 'Liens connexes',
-
-    'footer.desc': 'Nous créons des boutiques e-commerce professionnelles.',
-    'footer.links': 'Liens rapides',
-    'footer.privacy': 'Politique de confidentialité',
-    'footer.terms': 'Conditions générales',
-    'footer.rights': 'Tous droits réservés',
-    'footer.available': 'Disponible pour de nouveaux projets',
-    'footer.whatsapp': 'WhatsApp',
-    'footer.made': 'Fait avec',
-
-    'testimonials.tag': 'Avis clients',
+    'faq.related': 'Liens connexes','testimonials.tag': 'Avis clients',
     'testimonials.title.part1': 'Ce que disent',
     'testimonials.title.part2': 'nos clients',
     'testimonials.subtitle': '+50 boutiques réussies au Maroc',
     'testimonials.stat.rating': 'Note moyenne',
     'testimonials.stat.clients': 'Client satisfait',
     'testimonials.stat.recommend': 'Nous recommandent',
-    'testimonials.cta': "Lancez votre boutique",
+    'testimonials.cta': 'Lancez votre boutique',
 
     'contact.title': 'Contactez-nous',
     'contact.subtitle': 'Prêt à lancer votre projet ?',
@@ -149,7 +118,7 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.email': 'Email',
     'contact.phone': 'Téléphone',
     'contact.message': 'Description du projet',
-    'contact.send': 'Envoyer'
+    'contact.send': 'Envoyer',
   },
 
   en: {
@@ -161,7 +130,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.contact': 'Contact',
 
     'hero.badge': 'E-Commerce Morocco',
-    'hero.title': 'Build Your Online Store in Morocco',
+    'hero.title': 'Build Your Online Store',
     'hero.subtitle': 'We create professional e-commerce stores',
     'hero.cta': 'Start Your Store Now',
     'hero.secondary': 'Discover Our Services',
@@ -169,15 +138,14 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.stat.delivery': 'Fast delivery',
     'hero.stat.stores': 'Stores built',
     'hero.stat.satisfaction': 'Client satisfaction',
-    'hero.scroll': 'scroll',
 
     'portfolio.title': 'Our Portfolio',
-    'portfolio.subtitle': 'Online stores we built for our clients',
-    'portfolio.preview': 'Preview Store',
-    'portfolio.enter_store': 'Enter Store',
+    'portfolio.subtitle': 'Online stores we built',
+    'portfolio.preview': 'Preview',
+    'portfolio.enter_store': 'Enter',
 
     'portfolio.cosmetics': 'Cosmetics Store',
-    'portfolio.cosmetics.desc': 'Professional beauty products online store.',
+    'portfolio.cosmetics.desc': 'Professional beauty products store',
     'portfolio.visit': 'Visit Store',
 
     'portfolio.cta.title': 'Want a store like this?',
@@ -186,19 +154,10 @@ const translations: Record<Language, Record<string, string>> = {
     'faq.title': 'Frequently Asked Questions',
     'faq.related': 'Related links',
 
-    'footer.desc': 'We build professional e-commerce stores.',
-    'footer.links': 'Quick Links',
-    'footer.privacy': 'Privacy Policy',
-    'footer.terms': 'Terms & Conditions',
-    'footer.rights': 'All rights reserved',
-    'footer.available': 'Available for new projects',
-    'footer.whatsapp': 'WhatsApp',
-    'footer.made': 'Made with',
-
     'testimonials.tag': 'Client Reviews',
     'testimonials.title.part1': 'What our',
     'testimonials.title.part2': 'clients say',
-    'testimonials.subtitle': '+50 successful online stores in Morocco',
+    'testimonials.subtitle': '+50 successful online stores',
     'testimonials.stat.rating': 'Average rating',
     'testimonials.stat.clients': 'Happy client',
     'testimonials.stat.recommend': 'Recommend us',
@@ -210,7 +169,7 @@ const translations: Record<Language, Record<string, string>> = {
     'contact.email': 'Email',
     'contact.phone': 'Phone',
     'contact.message': 'Project description',
-    'contact.send': 'Send Request'
+    'contact.send': 'Send Request',
   }
 
 };
