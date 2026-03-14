@@ -14,7 +14,6 @@ const FAQ = () => {
     { q: 'faq.q5', a: 'faq.a5' },
   ];
 
-  // Inject FAQ structured data dynamically based on language
   useEffect(() => {
     const faqSchema = {
       "@context": "https://schema.org",
@@ -29,7 +28,7 @@ const FAQ = () => {
       }))
     };
 
-    let script = document.getElementById('faq-schema');
+    let script = document.getElementById('faq-schema') as HTMLScriptElement | null;
     if (!script) {
       script = document.createElement('script');
       script.id = 'faq-schema';
@@ -80,9 +79,9 @@ const FAQ = () => {
           ))}
         </Accordion>
 
-        {/* Internal links for SEO */}
+        {/* ✅ FIX: استبدال lang === 'ar' ? ... بـ t() */}
         <nav className="mt-12 text-center" aria-label="Related sections">
-          <p className="text-white/40 text-sm mb-3">{lang === 'ar' ? 'روابط ذات صلة' : lang === 'fr' ? 'Liens connexes' : 'Related links'}</p>
+          <p className="text-white/40 text-sm mb-3">{t('faq.related')}</p>
           <div className="flex flex-wrap justify-center gap-3">
             <a href="#services" className="text-gold/70 hover:text-gold text-sm transition-colors underline underline-offset-4">
               {t('services.title')}
