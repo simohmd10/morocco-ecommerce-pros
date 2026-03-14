@@ -28,8 +28,8 @@ const Hero = () => {
       />
 
       {/* Gold glows */}
-      <div className="absolute top-1/3 start-1/3 w-[500px] h-[500px] bg-gold/8 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-1/4 end-1/4 w-80 h-80 bg-gold/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/3 start-1/3 w-[500px] h-[500px] bg-gold/8 rounded-full blur-[140px] pointer-events-none hidden md:block" />
+      <div className="absolute bottom-1/4 end-1/4 w-80 h-80 bg-gold/5 rounded-full blur-[100px] pointer-events-none hidden md:block" />
 
       {/* Corner decorations */}
       <div className="absolute top-24 start-8 w-16 h-16 border-t border-s border-gold/20 rounded-tl-lg hidden lg:block" />
@@ -64,7 +64,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-[1.1] max-w-4xl mx-auto mb-3"
+            className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold font-display leading-[1.1] max-w-4xl mx-auto mb-3 text-white"
           >
             {t('hero.title')}
           </motion.h1>
