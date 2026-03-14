@@ -15,7 +15,7 @@ const Hero = () => {
     <section
       id="home"
       className="relative dark-section overflow-hidden flex flex-col text-center px-4"
-      style={{ minHeight: '100svh' }}
+      style={{ minHeight: '100svh', height: '100svh' }}
       aria-label="Hero"
     >
       {/* Dot grid */}
@@ -133,7 +133,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <div style={{ height: '56px', flexShrink: 0 }} />
+      <div style={{ height: '32px', flexShrink: 0 }} />
 
       {/* Scroll indicator */}
       <motion.div
