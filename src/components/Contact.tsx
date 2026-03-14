@@ -62,10 +62,6 @@ const Contact = () => {
           </p>
         </motion.div>
 
-        {/*
-          Mobile: WhatsApp card first (more CTA-driven), form below
-          Desktop: form right, WhatsApp left (RTL)
-        */}
         <div className="flex flex-col-reverse gap-5 md:grid md:grid-cols-2 md:gap-8">
 
           {/* Form */}
@@ -84,6 +80,7 @@ const Contact = () => {
               onChange={e => setForm({ ...form, name: e.target.value })}
               className="w-full px-4 py-3.5 rounded-xl bg-card border border-border focus:border-gold focus:ring-1 focus:ring-gold outline-none text-sm transition-colors"
             />
+
             <input
               type="email"
               required
@@ -92,6 +89,7 @@ const Contact = () => {
               onChange={e => setForm({ ...form, email: e.target.value })}
               className="w-full px-4 py-3.5 rounded-xl bg-card border border-border focus:border-gold focus:ring-1 focus:ring-gold outline-none text-sm transition-colors"
             />
+
             <input
               type="tel"
               required
@@ -100,6 +98,7 @@ const Contact = () => {
               onChange={e => setForm({ ...form, phone: e.target.value })}
               className="w-full px-4 py-3.5 rounded-xl bg-card border border-border focus:border-gold focus:ring-1 focus:ring-gold outline-none text-sm transition-colors"
             />
+
             <textarea
               rows={4}
               required
@@ -108,6 +107,7 @@ const Contact = () => {
               onChange={e => setForm({ ...form, message: e.target.value })}
               className="w-full px-4 py-3.5 rounded-xl bg-card border border-border focus:border-gold focus:ring-1 focus:ring-gold outline-none resize-none text-sm transition-colors"
             />
+
             <button
               type="submit"
               disabled={loading}
@@ -127,7 +127,7 @@ const Contact = () => {
             </button>
           </motion.form>
 
-          {/* WhatsApp card */}
+          {/* WhatsApp Card */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -139,7 +139,12 @@ const Contact = () => {
             </div>
 
             <div>
-              <h3 className="font-bold text-base md:text-lg mb-1">{t('contact.whatsapp.title') || 'تواصل عبر واتساب'}</h3>
+              <h3 className="font-bold text-base md:text-lg mb-1">
+                {t('contact.whatsapp.title') === 'contact.whatsapp.title'
+                  ? 'تواصل عبر واتساب'
+                  : t('contact.whatsapp.title')}
+              </h3>
+
               <p className="text-sm text-muted-foreground leading-relaxed">
                 {t('contact.subtitle')}
               </p>
