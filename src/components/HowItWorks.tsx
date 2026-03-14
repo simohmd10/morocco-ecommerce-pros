@@ -18,7 +18,7 @@ const HowItWorks = () => {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-bold font-display text-center mb-16"
+          className="text-3xl md:text-4xl font-bold font-display text-center mb-16 text-white"
         >
           {t('how.title')}
         </motion.h2>
@@ -35,9 +35,9 @@ const HowItWorks = () => {
             >
               <div className="text-6xl font-bold text-gold/10 font-display mb-4" aria-hidden="true">{step.num}</div>
               <div className="w-16 h-16 rounded-2xl gold-gradient flex items-center justify-center mx-auto mb-4" aria-hidden="true">
-                <step.icon className="w-7 h-7 text-primary" />
+                <step.icon className="w-7 h-7 text-white" />
               </div>
-              <h3 className="text-xl font-bold mb-2">{t(step.title)}</h3>
+              <h3 className="text-xl font-bold mb-2 text-white">{t(step.title)}</h3>
               <p className="text-sm text-white/50">{t(step.desc)}</p>
             </motion.div>
           ))}
