@@ -165,5 +165,7 @@
 "portfolio.cosmetics": "Cosmetics Store",
 "portfolio.cosmetics.desc": "Professional cosmetics store demo",
 
-"portfolio.visit": "Visit Store"
+"portfolio.visit": "Visit Store",
+"portfolio.cta.title": "Want a store like this?",
+"portfolio.cta.want_store": "Create your store now"
 }
