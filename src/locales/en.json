@@ -77,21 +77,6 @@
   "portfolio.preview": "Preview Store",
   "portfolio.enter_store": "Enter Store",
 
-  "portfolio.electronics": "Electronics Store",
-  "portfolio.electronics.desc": "Professional electronics store",
-
-  "portfolio.fashion": "Fashion Store",
-  "portfolio.fashion.desc": "Modern clothing store",
-
-  "portfolio.cosmetics": "Cosmetics Store",
-  "portfolio.cosmetics.desc": "Professional beauty store",
-
-  "portfolio.visit": "Visit Store",
-
-  "portfolio.cta.title": "Do you want a store like this?",
-  "portfolio.cta.want_store": "I want my store",
-  "portfolio.whatsapp_message": "Hello, I want a store like the ones in your portfolio",
-
   "faq.title": "Frequently Asked Questions",
   "faq.related": "Related links",
   "faq.q1": "How long does it take to build the store?",
@@ -113,6 +98,30 @@
   "testimonials.stat.clients": "Happy client",
   "testimonials.stat.recommend": "Recommend us",
   "testimonials.cta": "Start your store today",
+  "testimonials.1.name": "Ahmed Benali",
+  "testimonials.1.role": "Clothing store owner — Casablanca",
+  "testimonials.1.avatar": "A",
+  "testimonials.1.text": "Brandixo built my store in less than 48 hours. Sales tripled in the first month. Professional design and excellent service.",
+  "testimonials.2.name": "Fatima Zahra",
+  "testimonials.2.role": "Perfume store owner — Marrakech",
+  "testimonials.2.avatar": "F",
+  "testimonials.2.text": "I was afraid of selling online, but the team explained everything step by step. My store now sells all across Morocco.",
+  "testimonials.3.name": "Youssef El Hassani",
+  "testimonials.3.role": "Electronics merchant — Rabat",
+  "testimonials.3.avatar": "Y",
+  "testimonials.3.text": "Best investment I ever made. The store is fast, professional, and works perfectly on mobile.",
+  "testimonials.4.name": "Sanaa El Mansouri",
+  "testimonials.4.role": "Cosmetics store owner — Fès",
+  "testimonials.4.avatar": "S",
+  "testimonials.4.text": "After-sales service is wonderful. Always available to help. The store fully reflects my brand identity.",
+  "testimonials.5.name": "Karim Ait Ali",
+  "testimonials.5.role": "Sports supplies seller — Agadir",
+  "testimonials.5.avatar": "K",
+  "testimonials.5.text": "Orders started pouring in from day one! Attractive design and easy payment. Thank you Brandixo!",
+  "testimonials.6.name": "Nadia Bouchtay",
+  "testimonials.6.role": "Pastry store owner — Tangier",
+  "testimonials.6.avatar": "N",
+  "testimonials.6.text": "A dream come true. Luxury design at a reasonable price. Customers always compliment the look of the site.",
 
   "contact.title": "Contact Us",
   "contact.subtitle": "Ready to start your project? Contact us now",
@@ -121,14 +130,21 @@
   "contact.phone": "Phone",
   "contact.message": "Project Description",
   "contact.send": "Send Request",
-
-  "contact.whatsapp.title": "Contact via WhatsApp",
-  "contact.whatsapp.subtitle": "Prefer direct contact? We are here to answer your questions",
+  "contact.sending": "Sending...",
+  "contact.success": "Message sent successfully ✓",
+  "contact.error": "Error sending message",
+  "contact.error.network": "Network error",
   "contact.whatsapp": "Contact via WhatsApp",
+  "contact.whatsapp.title": "Contact via WhatsApp",
+  "contact.whatsapp.subtitle": "Prefer direct contact? We're here to answer your questions",
+  "contact.whatsapp.message": "Hello, I want to create an online store",
 
   "footer.desc": "We build professional e-commerce stores for Moroccan merchants. Fast, reliable, and affordable.",
   "footer.links": "Quick links",
   "footer.privacy": "Privacy Policy",
   "footer.terms": "Terms & Conditions",
-  "footer.rights": "All rights reserved"
+  "footer.rights": "All rights reserved",
+  "footer.available": "Available for new projects",
+  "footer.whatsapp": "WhatsApp",
+  "footer.made": "Made with"
 }
