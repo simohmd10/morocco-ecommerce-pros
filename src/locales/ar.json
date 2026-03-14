@@ -155,5 +155,12 @@
 "why.stat3": "48h",
 "why.stat3.desc": "متوسط وقت إنشاء متجرك",
 "why.stat4": "100%",
-"why.stat4.desc": "متوافق مع الهاتف"
+"why.stat4.desc": "متوافق مع الهاتف",
+"why.stat4.desc": "متوافق مع الهاتف",
+
+"portfolio.electronics": "متجر إلكترونيات",
+"portfolio.electronics.desc": "نموذج متجر إلكترونيات احترافي",
+"portfolio.visit": "زيارة المتجر"
+
+}
 }
