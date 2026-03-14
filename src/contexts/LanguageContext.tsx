@@ -1,16 +1,7 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-
-type Language = 'ar' | 'fr' | 'en';
-
-interface LanguageContextType {
-lang: Language;
-setLang: (lang: Language) => void;
-t: (key: string) => string;
-dir: 'rtl' | 'ltr';
-}
-
 const translations: Record<Language, Record<string, string>> = {
+
 ar: {
+
 'nav.home': 'الرئيسية',
 'nav.services': 'خدماتنا',
 'nav.pricing': 'الأسعار',
@@ -18,6 +9,8 @@ ar: {
 'nav.faq': 'أسئلة شائعة',
 'nav.contact': 'تواصل معنا',
 
+'hero.title': 'أنشئ متجرك الإلكتروني وابدأ البيع في المغرب',
+'hero.subtitle': 'نصمم لك متجراً إلكترونياً احترافياً يساعدك على بيع منتجاتك أونلاين',
 'hero.cta': 'ابدأ متجرك الآن',
 'hero.secondary': 'اكتشف خدماتنا',
 
@@ -26,6 +19,11 @@ ar: {
 'trust.2': 'تصميم احترافي متوافق مع الهاتف',
 'trust.3': 'ربط الدفع والتوصيل في المغرب',
 'trust.4': 'دعم تقني بعد إطلاق المتجر',
+
+'portfolio.title': 'نماذج من أعمالنا',
+'portfolio.subtitle': 'متاجر إلكترونية صممناها لعملائنا',
+'portfolio.preview': 'معاينة المتجر',
+'portfolio.enter_store': 'دخول المتجر',
 
 'contact.title': 'تواصل معنا',
 'contact.subtitle': 'هل أنت مستعد لبدء مشروعك؟ تواصل معنا الآن',
@@ -41,6 +39,7 @@ ar: {
 },
 
 fr: {
+
 'nav.home': 'Accueil',
 'nav.services': 'Services',
 'nav.pricing': 'Tarifs',
@@ -48,6 +47,8 @@ fr: {
 'nav.faq': 'FAQ',
 'nav.contact': 'Contact',
 
+'hero.title': 'Créez votre boutique en ligne',
+'hero.subtitle': 'Nous créons votre boutique e-commerce professionnelle',
 'hero.cta': 'Lancez votre boutique',
 'hero.secondary': 'Découvrir nos services',
 
@@ -56,6 +57,11 @@ fr: {
 'trust.2': 'Design professionnel compatible mobile',
 'trust.3': 'Paiement et livraison intégrés au Maroc',
 'trust.4': 'Support technique après lancement',
+
+'portfolio.title': 'Notre Portfolio',
+'portfolio.subtitle': 'Boutiques que nous avons créées',
+'portfolio.preview': 'Aperçu de la boutique',
+'portfolio.enter_store': 'Entrer dans la boutique',
 
 'contact.title': 'Contactez-nous',
 'contact.subtitle': 'Prêt à lancer votre projet ? Contactez-nous maintenant',
@@ -71,6 +77,7 @@ fr: {
 },
 
 en: {
+
 'nav.home': 'Home',
 'nav.services': 'Services',
 'nav.pricing': 'Pricing',
@@ -78,6 +85,8 @@ en: {
 'nav.faq': 'FAQ',
 'nav.contact': 'Contact',
 
+'hero.title': 'Build Your Online Store',
+'hero.subtitle': 'We create professional e-commerce stores',
 'hero.cta': 'Start Your Store Now',
 'hero.secondary': 'Discover Our Services',
 
@@ -86,6 +95,11 @@ en: {
 'trust.2': 'Professional mobile-friendly design',
 'trust.3': 'Payment & delivery integration in Morocco',
 'trust.4': 'Technical support after launch',
+
+'portfolio.title': 'Our Portfolio',
+'portfolio.subtitle': 'Stores we built for our clients',
+'portfolio.preview': 'Preview Store',
+'portfolio.enter_store': 'Enter Store',
 
 'contact.title': 'Contact Us',
 'contact.subtitle': 'Ready to start your project? Contact us now',
@@ -99,52 +113,5 @@ en: {
 'contact.whatsapp.title': 'Contact via WhatsApp',
 
 }
-};
 
-const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
-
-export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-
-const [lang, setLangState] = useState<Language>(() => {
-const saved = localStorage.getItem('site-lang') as Language;
-return saved || 'ar';
-});
-
-const setLang = (newLang: Language) => {
-localStorage.setItem('site-lang', newLang);
-setLangState(newLang);
-};
-
-const dir = lang === 'ar' ? 'rtl' : 'ltr';
-
-useEffect(() => {
-const html = document.documentElement;
-html.lang = lang;
-html.dir = dir;
-}, [lang, dir]);
-
-const t = (key: string): string => {
-return (
-translations[lang]?.[key] ||
-translations['ar']?.[key] ||
-translations['en']?.[key] ||
-key
-);
-};
-
-return (
-<LanguageContext.Provider value={{ lang, setLang, t, dir }}>
-{children}
-</LanguageContext.Provider>
-);
-};
-
-export const useLanguage = () => {
-const context = useContext(LanguageContext);
-
-if (!context) {
-throw new Error('useLanguage must be used within LanguageProvider');
-}
-
-return context;
 };
