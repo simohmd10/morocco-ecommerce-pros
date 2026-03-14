@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import { Menu, X, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -17,7 +17,6 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Lock body scroll when menu open
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
@@ -30,6 +29,8 @@ const Navbar = () => {
     { key: "nav.faq", hash: "faq" },
     { key: "nav.contact", hash: "contact" },
   ];
+
+  const blogLabel = lang === "ar" ? "المدونة" : "Blog";
 
   const handleNavClick = (hash: string) => {
     setOpen(false);
@@ -56,7 +57,7 @@ const Navbar = () => {
       >
         <div className="container mx-auto px-4 h-[60px] md:h-16 flex items-center justify-between gap-3">
 
-          {/* Logo — centered on mobile, start on desktop */}
+          {/* Logo */}
           <button
             onClick={() => handleNavClick("home")}
             className={`text-xl font-bold tracking-tight transition-colors flex-1 md:flex-none text-center md:text-start ${
@@ -82,11 +83,22 @@ const Navbar = () => {
                 {t(link.key)}
               </button>
             ))}
+
+            {/* ✅ Blog link — Desktop */}
+            <Link
+              to="/blog"
+              className={`px-3 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+                scrolled
+                  ? "text-muted-foreground hover:text-foreground hover:bg-black/5"
+                  : "text-white/75 hover:text-white hover:bg-white/10"
+              } ${location.pathname === "/blog" ? "text-gold font-semibold" : ""}`}
+            >
+              {blogLabel}
+            </Link>
           </div>
 
           {/* Right side: CTA + Hamburger */}
           <div className="flex items-center gap-2 flex-1 md:flex-none justify-end">
-            {/* CTA button */}
             <a
               href="#contact"
               onClick={(e) => { e.preventDefault(); handleNavClick("contact"); }}
@@ -96,7 +108,6 @@ const Navbar = () => {
               <span className="text-dark">{t('hero.cta')}</span>
             </a>
 
-            {/* Hamburger — mobile only */}
             <button
               onClick={() => setOpen(true)}
               className={`md:hidden w-9 h-9 flex items-center justify-center rounded-lg transition-colors ${
@@ -113,11 +124,10 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Mobile Drawer — opens from RIGHT for RTL */}
+      {/* Mobile Drawer */}
       <AnimatePresence>
         {open && (
           <>
-            {/* Backdrop */}
             <motion.div
               className="fixed inset-0 bg-black/55 backdrop-blur-[2px] z-40 md:hidden"
               initial={{ opacity: 0 }}
@@ -126,7 +136,6 @@ const Navbar = () => {
               onClick={() => setOpen(false)}
             />
 
-            {/* Drawer panel — right side for RTL, left for LTR */}
             <motion.div
               dir={isRTL ? "rtl" : "ltr"}
               className={`fixed top-0 ${isRTL ? "right-0" : "left-0"} h-full w-[78vw] max-w-[300px] bg-white z-50 shadow-2xl flex flex-col md:hidden`}
@@ -163,6 +172,25 @@ const Navbar = () => {
                     {t(link.key)}
                   </motion.button>
                 ))}
+
+                {/* ✅ Blog link — Mobile */}
+                <motion.div
+                  initial={{ opacity: 0, x: isRTL ? 16 : -16 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: links.length * 0.05, duration: 0.25 }}
+                >
+                  <Link
+                    to="/blog"
+                    onClick={() => setOpen(false)}
+                    className={`w-full text-end px-4 py-3.5 rounded-xl text-sm font-medium transition-all active:scale-[0.98] flex justify-end ${
+                      location.pathname === "/blog"
+                        ? "text-gold font-semibold bg-gold/5"
+                        : "text-muted-foreground hover:text-foreground hover:bg-black/4"
+                    }`}
+                  >
+                    {blogLabel}
+                  </Link>
+                </motion.div>
               </nav>
 
               {/* Divider */}
