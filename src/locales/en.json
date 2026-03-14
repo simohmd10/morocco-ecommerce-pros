@@ -122,6 +122,10 @@
   "contact.message": "Project Description",
   "contact.send": "Send Request",
 
+  "contact.whatsapp.title": "Contact via WhatsApp",
+  "contact.whatsapp.subtitle": "Prefer direct contact? We are here to answer your questions",
+  "contact.whatsapp": "Contact via WhatsApp",
+
   "footer.desc": "We build professional e-commerce stores for Moroccan merchants. Fast, reliable, and affordable.",
   "footer.links": "Quick links",
   "footer.privacy": "Privacy Policy",
