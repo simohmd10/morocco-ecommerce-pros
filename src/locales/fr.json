@@ -146,5 +146,14 @@
   "footer.rights": "Tous droits réservés",
   "footer.available": "Disponible pour de nouveaux projets",
   "footer.whatsapp": "WhatsApp",
-  "footer.made": "Fait avec"
+  "footer.made": "Fait avec",
+"why.title": "Pourquoi avoir une boutique en ligne ?",
+"why.stat1": "+30M",
+"why.stat1.desc": "Utilisateurs internet au Maroc",
+"why.stat2": "+70%",
+"why.stat2.desc": "Des Marocains achètent en ligne",
+"why.stat3": "48h",
+"why.stat3.desc": "Délai moyen de création",
+"why.stat4": "100%",
+"why.stat4.desc": "Compatible mobile"
 }
