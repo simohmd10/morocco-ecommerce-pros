@@ -15,12 +15,15 @@ const TestimonialCard = ({
     className="bg-white border border-black/6 rounded-2xl p-6 card-hover card-shadow flex flex-col gap-4"
   >
     <Quote className="w-6 h-6 text-gold/40" />
+
     <div className="flex gap-0.5">
       {Array.from({ length: rating }).map((_, i) => (
         <Star key={i} className="w-3.5 h-3.5 fill-gold text-gold" />
       ))}
     </div>
+
     <p className="text-sm text-foreground/70 leading-relaxed flex-1">{text}</p>
+
     <div className="flex items-center gap-3 pt-2 border-t border-black/5">
       <div
         className="w-9 h-9 rounded-full flex items-center justify-center text-dark font-bold text-sm shrink-0"
@@ -28,6 +31,7 @@ const TestimonialCard = ({
       >
         {avatar}
       </div>
+
       <div>
         <div className="text-sm font-semibold text-foreground">{name}</div>
         <div className="text-xs text-muted-foreground">{role}</div>
@@ -96,6 +100,7 @@ const Testimonials = () => {
 
         {/* Header */}
         <div className="text-center mb-14">
+
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -105,6 +110,7 @@ const Testimonials = () => {
             <span className="section-tag">⭐ {t('testimonials.tag')}</span>
           </motion.div>
 
+          {/* العنوان المترجم */}
           <motion.h2
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -113,7 +119,9 @@ const Testimonials = () => {
             className="text-3xl md:text-4xl font-bold font-display mb-4"
           >
             {t('testimonials.title.part1')}{' '}
-            <span className="gold-text">{t('testimonials.title.part2')}</span>
+            <span className="gold-text">
+              {t('testimonials.title.part2')}
+            </span>
           </motion.h2>
 
           <motion.p
@@ -126,7 +134,6 @@ const Testimonials = () => {
             {t('testimonials.subtitle')}
           </motion.p>
 
-          {/* Stats bar */}
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -141,16 +148,15 @@ const Testimonials = () => {
               </div>
             ))}
           </motion.div>
+
         </div>
 
-        {/* Cards grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {testimonials.map((item, i) => (
             <TestimonialCard key={i} {...item} />
           ))}
         </div>
 
-        {/* Bottom CTA */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
