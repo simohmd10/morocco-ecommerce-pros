@@ -155,5 +155,15 @@
 "why.stat3": "48h",
 "why.stat3.desc": "Average store creation time",
 "why.stat4": "100%",
-"why.stat4.desc": "Mobile compatible"
+"why.stat4.desc": "Mobile compatible",
+"portfolio.electronics": "Electronics Store",
+"portfolio.electronics.desc": "Professional electronics store demo",
+
+"portfolio.fashion": "Fashion Store",
+"portfolio.fashion.desc": "Professional fashion store demo",
+
+"portfolio.cosmetics": "Cosmetics Store",
+"portfolio.cosmetics.desc": "Professional cosmetics store demo",
+
+"portfolio.visit": "Visit Store"
 }
