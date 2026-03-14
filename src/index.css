@@ -3,29 +3,32 @@
 @tailwind utilities;
 
 /* ============================================================
-   BRANDIXO — index.css
-   Restored from git diff
+   GOOGLE FONTS — Playfair Display + Tajawal
    ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Tajawal:wght@300;400;500;700&display=swap');
 
+/* ============================================================
+   BASE — CSS Variables + Dark Theme
+   ============================================================ */
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 6%;
+    --background: 0 0% 6%;
+    --foreground: 0 0% 98%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 6%;
+    --card: 0 0% 9%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 6%;
+    --popover: 0 0% 9%;
+    --popover-foreground: 0 0% 98%;
 
     --primary: 42 80% 48%;
     --primary-foreground: 0 0% 6%;
 
-    --secondary: 0 0% 96%;
-    --secondary-foreground: 0 0% 6%;
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 0 0% 96%;
-    --muted-foreground: 0 0% 45%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 55%;
 
     --accent: 42 80% 48%;
     --accent-foreground: 0 0% 6%;
@@ -33,16 +36,20 @@
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 0 0% 90%;
-    --input: 0 0% 90%;
+    --border: 0 0% 15%;
+    --input: 0 0% 15%;
     --ring: 42 80% 48%;
 
     --radius: 0.5rem;
 
-    /* === GOLD COLORS === */
+    /* === GOLD === */
     --gold: 42 80% 48%;
     --gold-light: 42 85% 62%;
     --gold-dark: 42 75% 34%;
+
+    /* === DARK === */
+    --dark: 0 0% 6%;
+    --dark-soft: 0 0% 10%;
 
     /* === GRADIENTS === */
     --gradient-gold: linear-gradient(135deg, hsl(42 80% 48%), hsl(42 85% 62%));
@@ -57,14 +64,15 @@
     --shadow-card-hover: 0 8px 40px -8px hsl(0 0% 0% / 0.12);
     --shadow-dark: 0 24px 60px -12px hsl(0 0% 0% / 0.4);
 
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* === SIDEBAR === */
+    --sidebar-background: 0 0% 8%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 42 80% 48%;
+    --sidebar-primary-foreground: 0 0% 6%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 0 0% 90%;
+    --sidebar-border: 0 0% 15%;
+    --sidebar-ring: 42 80% 48%;
   }
 
   * {
@@ -79,6 +87,7 @@
   body {
     background: hsl(0 0% 6%);
     color: hsl(0 0% 98%);
+    font-family: 'Tajawal', sans-serif;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -88,12 +97,19 @@
     background: hsl(0 0% 6%);
     min-height: 100vh;
   }
+
+  .font-display {
+    font-family: 'Playfair Display', serif !important;
+  }
+
+  .font-body {
+    font-family: 'Tajawal', sans-serif !important;
+  }
 }
 
 /* ============================================================
-   HERO ANIMATIONS — CSS بدل framer-motion
+   HERO ANIMATIONS
    ============================================================ */
-
 @keyframes hero-fade {
   from { opacity: 0; }
   to   { opacity: 1; }
@@ -136,7 +152,6 @@
 /* ============================================================
    COMPONENTS
    ============================================================ */
-
 @layer components {
 
   /* === LAYOUT === */
@@ -192,7 +207,7 @@
     transform: translateY(-2px);
   }
 
-  /* === GOLD SHADOW === */
+  /* === GOLD SHADOWS === */
   .gold-shadow {
     box-shadow: var(--shadow-gold);
   }
@@ -308,7 +323,6 @@
 /* ============================================================
    MOBILE-SPECIFIC FIXES
    ============================================================ */
-
 @media (max-width: 767px) {
 
   .section-padding {
@@ -318,17 +332,14 @@
     padding-right: 1rem;
   }
 
-  /* Prevent overflow from scaled elements */
   .md\:scale-105 {
     transform: none !important;
   }
 
-  /* Better touch targets */
   button, a {
     min-height: 44px;
   }
 
-  /* Readable font sizes */
   h1 { font-size: clamp(1.75rem, 6vw, 2.5rem); }
   h2 { font-size: clamp(1.4rem, 5vw, 2rem); }
   h3 { font-size: clamp(1.1rem, 4vw, 1.5rem); }
