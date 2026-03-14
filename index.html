@@ -121,37 +121,41 @@ height="0" width="0" style="display:none;visibility:hidden">
 
 <!-- Analytics events -->
 <script>
+document.addEventListener("click", function(e) {
 
-document.addEventListener("click",function(e){
+  const link = e.target.closest("a, button");
+  if(!link) return;
 
-const link=e.target.closest("a, button");
-if(!link) return;
+  const text = link.innerText?.trim() || link.href || "unknown";
 
-const text=link.innerText?.trim()||link.href||"unknown";
+  // تأكد أن Google Analytics جاهز
+  if(typeof gtag === "undefined") return;
 
-if(link.href && link.href.includes("wa.me")){
-gtag("event","whatsapp_click",{
-event_category:"contact",
-event_label:text
+  // WhatsApp
+  if(link.href && link.href.includes("wa.me")){
+    gtag("event","whatsapp_click",{
+      event_category:"contact",
+      event_label:text
+    });
+  }
+
+  // CTA buttons
+  if(text.includes("Start") || text.includes("ابدأ")){
+    gtag("event","cta_click",{
+      event_category:"cta",
+      event_label:text
+    });
+  }
+
+  // Portfolio
+  if(text.includes("Visit") || text.includes("زيارة")){
+    gtag("event","portfolio_click",{
+      event_category:"portfolio",
+      event_label:text
+    });
+  }
+
 });
-}
-
-if(text.includes("Start")||text.includes("ابدأ")){
-gtag("event","cta_click",{
-event_category:"cta",
-event_label:text
-});
-}
-
-if(text.includes("Visit")||text.includes("زيارة")){
-gtag("event","portfolio_click",{
-event_category:"portfolio",
-event_label:text
-});
-}
-
-});
-
 </script>
 
 </body>
