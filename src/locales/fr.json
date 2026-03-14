@@ -155,5 +155,15 @@
 "why.stat3": "48h",
 "why.stat3.desc": "Délai moyen de création",
 "why.stat4": "100%",
-"why.stat4.desc": "Compatible mobile"
+"why.stat4.desc": "Compatible mobile",
+"portfolio.electronics": "Boutique électronique",
+"portfolio.electronics.desc": "Exemple de boutique électronique professionnelle",
+
+"portfolio.fashion": "Boutique de vêtements",
+"portfolio.fashion.desc": "Exemple de boutique de mode professionnelle",
+
+"portfolio.cosmetics": "Boutique de cosmétiques",
+"portfolio.cosmetics.desc": "Exemple de boutique de cosmétiques professionnelle",
+
+"portfolio.visit": "Visiter la boutique"
 }
