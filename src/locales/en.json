@@ -146,5 +146,14 @@
   "footer.rights": "All rights reserved",
   "footer.available": "Available for new projects",
   "footer.whatsapp": "WhatsApp",
-  "footer.made": "Made with"
+  "footer.made": "Made with",
+"why.title": "Why Do You Need an Online Store?",
+"why.stat1": "+30M",
+"why.stat1.desc": "Internet users in Morocco",
+"why.stat2": "+70%",
+"why.stat2.desc": "Moroccans shop online",
+"why.stat3": "48h",
+"why.stat3.desc": "Average store creation time",
+"why.stat4": "100%",
+"why.stat4.desc": "Mobile compatible"
 }
