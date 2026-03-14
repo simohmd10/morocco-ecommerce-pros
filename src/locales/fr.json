@@ -165,5 +165,7 @@
 "portfolio.cosmetics": "Boutique de cosmétiques",
 "portfolio.cosmetics.desc": "Exemple de boutique de cosmétiques professionnelle",
 
-"portfolio.visit": "Visiter la boutique"
+"portfolio.visit": "Visiter la boutique",
+"portfolio.cta.title": "Vous voulez une boutique comme celle-ci ?",
+"portfolio.cta.want_store": "Créer votre boutique maintenant"
 }
