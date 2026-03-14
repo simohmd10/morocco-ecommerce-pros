@@ -14,8 +14,6 @@ interface LanguageContextType {
 
 const translations: Record<Language, Record<string, string>> = { ar, fr, en };
 
-const missingKeys = new Set<string>(); // ← هنا
-
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -39,19 +37,12 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   }, [lang, dir]);
 
   const t = (key: string): string => {
-    const value =
+    return (
       translations[lang]?.[key] ||
       translations['ar']?.[key] ||
-      translations['en']?.[key];
-
-    if (!value) {
-      missingKeys.add(key);
-      console.warn("❌ Missing:", key);
-      console.log("All missing keys:", [...missingKeys]);
-      return key;
-    }
-
-    return value;
+      translations['en']?.[key] ||
+      key
+    );
   };
 
   return (
