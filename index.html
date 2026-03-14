@@ -279,19 +279,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <div id="root"></div>
 
-<script type="module" src="/src/main.tsx"></script>
-
-</body>
-<div id="__next"></div>
 <script>
 document.addEventListener("click", function(e) {
 
-  const link = e.target.closest("a,button");
+  const link = e.target.closest("a, button");
   if(!link) return;
 
-  const text = link.innerText || link.href || "unknown";
+  const text = link.innerText?.trim() || link.href || "unknown";
 
-  // واتساب
+  // WhatsApp
   if(link.href && link.href.includes("wa.me")){
     gtag("event","whatsapp_click",{
       event_category:"contact",
@@ -299,7 +295,7 @@ document.addEventListener("click", function(e) {
     });
   }
 
-  // أزرار CTA
+  // CTA buttons
   if(text.includes("Start") || text.includes("ابدأ")){
     gtag("event","cta_click",{
       event_category:"cta",
@@ -307,7 +303,7 @@ document.addEventListener("click", function(e) {
     });
   }
 
-  // portfolio links
+  // Portfolio
   if(text.includes("Visit") || text.includes("زيارة")){
     gtag("event","portfolio_click",{
       event_category:"portfolio",
@@ -317,4 +313,5 @@ document.addEventListener("click", function(e) {
 
 });
 </script>
+</body>
 </html>
