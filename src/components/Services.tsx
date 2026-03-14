@@ -24,7 +24,9 @@ const Services = () => {
           viewport={{ once: true }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold font-display mb-4">{t('services.title')}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold font-display mb-4 text-foreground">
+            {t('services.title')}
+          </h2>
           <p className="text-muted-foreground text-lg">{t('services.subtitle')}</p>
         </motion.div>
 
@@ -39,14 +41,13 @@ const Services = () => {
               className="flex items-center gap-3 p-4 rounded-xl bg-card border border-border hover:border-gold/30 transition-colors card-shadow"
             >
               <div className="w-10 h-10 rounded-lg gold-gradient flex items-center justify-center flex-shrink-0" aria-hidden="true">
-                <service.icon className="w-5 h-5 text-primary" />
+                <service.icon className="w-5 h-5 text-white" />
               </div>
-              <span className="font-medium text-sm">{t(service.key)}</span>
+              <span className="font-medium text-sm text-foreground">{t(service.key)}</span>
             </motion.div>
           ))}
         </div>
 
-        {/* Internal link for SEO */}
         <div className="text-center mt-10">
           <a href="#contact" className="text-gold hover:text-gold-light text-sm font-medium transition-colors underline underline-offset-4">
             {t('hero.cta')} →
