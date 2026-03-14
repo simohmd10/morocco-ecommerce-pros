@@ -3,375 +3,121 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 type Language = 'ar' | 'fr' | 'en';
 
 interface LanguageContextType {
-  lang: Language;
-  setLang: (lang: Language) => void;
-  t: (key: string) => string;
-  dir: 'rtl' | 'ltr';
+lang: Language;
+setLang: (lang: Language) => void;
+t: (key: string) => string;
+dir: 'rtl' | 'ltr';
 }
 
 const translations: Record<Language, Record<string, string>> = {
-  ar: {
-    'nav.home': 'الرئيسية',
-    'nav.services': 'خدماتنا',
-    'nav.pricing': 'الأسعار',
-    'nav.portfolio': 'أعمالنا',
-    'nav.faq': 'أسئلة شائعة',
-    'nav.contact': 'تواصل معنا',
-    'hero.title': 'أنشئ متجرك الإلكتروني وابدأ البيع في المغرب',
-    'hero.subtitle': 'نصمم لك متجراً إلكترونياً احترافياً يساعدك على بيع منتجاتك أونلاين والوصول لعملاء في كل أنحاء المغرب',
-    'hero.cta': 'ابدأ متجرك الآن',
-    'hero.secondary': 'اكتشف خدماتنا',
-    'why.title': 'لماذا التجارة الإلكترونية في المغرب؟',
-    'why.stat1': '+15 مليون',
-    'why.stat1.desc': 'مستخدم إنترنت في المغرب',
-    'why.stat2': '+40%',
-    'why.stat2.desc': 'نمو التجارة الإلكترونية سنوياً',
-    'why.stat3': '24/7',
-    'why.stat3.desc': 'متجرك مفتوح دائماً',
-    'why.stat4': '+80%',
-    'why.stat4.desc': 'من المغاربة يتسوقون عبر الهاتف',
-    'benefits.title': 'مميزات امتلاك متجر إلكتروني',
-    'benefits.1': 'وصول لملايين العملاء',
-    'benefits.1.desc': 'تجاوز الحدود الجغرافية وبع منتجاتك في كل مكان',
-    'benefits.2': 'تكاليف أقل',
-    'benefits.2.desc': 'لا حاجة لإيجار محل أو موظفين كثر',
-    'benefits.3': 'تحكم كامل',
-    'benefits.3.desc': 'تابع مبيعاتك وعملائك من لوحة تحكم واحدة',
-    'benefits.4': 'نمو مستمر',
-    'benefits.4.desc': 'وسّع نشاطك بسهولة مع زيادة الطلب',
-    'how.title': 'كيف نعمل؟',
-    'how.step1': 'اختيار التصميم المناسب',
-    'how.step1.desc': 'نساعدك في اختيار تصميم يناسب مجال عملك وعلامتك التجارية',
-    'how.step2': 'إعداد المتجر وربط الدفع',
-    'how.step2.desc': 'نضيف منتجاتك ونربط وسائل الدفع وشركات التوصيل',
-    'how.step3': 'إطلاق المتجر وبدء البيع',
-    'how.step3.desc': 'متجرك جاهز للبيع مع دعم فني مستمر',
-    'services.title': 'إنشاء متجر إلكتروني احترافي',
-    'services.subtitle': 'نقدم لك كل ما تحتاجه لبدء البيع أونلاين',
-    'services.1': 'تصميم متجر احترافي',
-    'services.2': 'إضافة المنتجات',
-    'services.3': 'ربط وسائل الدفع',
-    'services.4': 'ربط شركات التوصيل',
-    'services.5': 'تحسين سرعة الموقع',
-    'services.6': 'متجر متوافق مع الهاتف',
-    'services.7': 'لوحة تحكم سهلة',
-    'pricing.title': 'باقات الأسعار',
-    'pricing.subtitle': 'اختر الباقة المناسبة لمشروعك',
-    'pricing.starter': 'باقة البداية',
-    'pricing.starter.desc': 'متجر أساسي + 10 منتجات',
-    'pricing.starter.price': '2,999 درهم',
-    'pricing.pro': 'باقة احترافية',
-    'pricing.pro.desc': 'متجر كامل + ربط الدفع + التوصيل',
-    'pricing.pro.price': '5,999 درهم',
-    'pricing.premium': 'باقة متقدمة',
-    'pricing.premium.desc': 'متجر متقدم + SEO + إعداد تسويقي',
-    'pricing.premium.price': '9,999 درهم',
-    'pricing.cta': 'اطلب الآن',
-    'pricing.popular': 'الأكثر طلباً',
-    'pricing.f1': 'تصميم احترافي',
-    'pricing.f2': 'متوافق مع الهاتف',
-    'pricing.f3': 'لوحة تحكم',
-    'pricing.f4': 'ربط وسائل الدفع',
-    'pricing.f5': 'ربط شركات التوصيل',
-    'pricing.f6': 'تحسين محركات البحث',
-    'pricing.f7': 'إعداد تسويقي',
-    'pricing.f8': 'دعم فني',
-    'portfolio.title': 'نماذج من أعمالنا',
-    'portfolio.subtitle': 'متاجر إلكترونية صممناها لعملائنا',
-    'portfolio.cosmetics': 'متجر مستحضرات تجميل',
-    'portfolio.cosmetics.desc': 'متجر إلكتروني متكامل لبيع مستحضرات التجميل والعناية بالبشرة مع تصميم أنيق وعصري',
-    'portfolio.fashion': 'متجر أزياء نسائية',
-    'portfolio.fashion.desc': 'متجر أزياء نسائية بتصميم راقي يعرض أحدث صيحات الموضة مع تجربة تسوق سلسة',
-    'portfolio.electronics': 'متجر إلكترونيات',
-    'portfolio.electronics.desc': 'متجر إلكترونيات احترافي لبيع الهواتف والحواسيب والأجهزة الذكية',
-    'portfolio.visit': 'زيارة المتجر الكامل',
-    'portfolio.enter_store': 'دخول المتجر',
-    'portfolio.preview': 'معاينة المتجر',
-    'portfolio.cta.title': 'هل تريد متجرًا مثل هذه المتاجر؟',
-    'portfolio.cta.button': 'اطلب متجرك الآن',
-    'portfolio.cta.want_store': 'أريد متجر مثل هذا',
-    'portfolio.whatsapp_message': 'مرحباً، أريد إنشاء متجر إلكتروني مثل النماذج المعروضة في موقعكم',
-    'trust.title': 'لماذا Brandixo؟',
-    'trust.1': 'متجر جاهز خلال 48 ساعة',
-    'trust.2': 'تصميم احترافي متوافق مع الهاتف',
-    'trust.3': 'ربط الدفع والتوصيل في المغرب',
-    'trust.4': 'دعم تقني بعد إطلاق المتجر',
-    'faq.title': 'أسئلة شائعة',
-    'faq.q1': 'كم يستغرق إنشاء المتجر؟',
-    'faq.a1': 'عادة ما يستغرق إنشاء المتجر من 5 إلى 10 أيام عمل حسب حجم المشروع والمتطلبات.',
-    'faq.q2': 'هل أحتاج خبرة تقنية لإدارة المتجر؟',
-    'faq.a2': 'لا، نوفر لك لوحة تحكم سهلة الاستخدام مع تدريب كامل على إدارة المتجر.',
-    'faq.q3': 'ما هي وسائل الدفع المتاحة في المغرب؟',
-    'faq.a3': 'نربط متجرك بأشهر وسائل الدفع في المغرب مثل CMI، الدفع عند الاستلام، والتحويل البنكي.',
-    'faq.q4': 'هل يمكنني إضافة منتجات بنفسي؟',
-    'faq.a4': 'نعم، لوحة التحكم تتيح لك إضافة وتعديل وحذف المنتجات بسهولة تامة.',
-    'faq.q5': 'هل تقدمون دعماً فنياً بعد الإطلاق؟',
-    'faq.a5': 'نعم، نقدم دعماً فنياً مستمراً لضمان عمل متجرك بشكل سلس.',
-    'contact.title': 'تواصل معنا',
-    'contact.subtitle': 'هل أنت مستعد لبدء مشروعك؟ تواصل معنا الآن',
-    'contact.name': 'الاسم الكامل',
-    'contact.email': 'البريد الإلكتروني',
-    'contact.phone': 'رقم الهاتف',
-    'contact.message': 'وصف المشروع',
-    'contact.send': 'أرسل الطلب',
-    'contact.whatsapp': 'تواصل عبر واتساب',
-    'footer.desc': 'نساعد رواد الأعمال في المغرب على إنشاء متاجر إلكترونية احترافية وبدء البيع أونلاين.',
-    'footer.rights': 'جميع الحقوق محفوظة',
-    'footer.links': 'روابط سريعة',
-    'footer.privacy': 'سياسة الخصوصية',
-    'footer.terms': 'شروط الاستخدام',
-  },
-  fr: {
-    'nav.home': 'Accueil',
-    'nav.services': 'Services',
-    'nav.pricing': 'Tarifs',
-    'nav.portfolio': 'Portfolio',
-    'nav.faq': 'FAQ',
-    'nav.contact': 'Contact',
-    'hero.title': 'Créez votre boutique en ligne et commencez à vendre au Maroc',
-    'hero.subtitle': 'Nous créons votre boutique e-commerce professionnelle pour vendre vos produits en ligne et atteindre des clients partout au Maroc',
-    'hero.cta': 'Lancez votre boutique',
-    'hero.secondary': 'Découvrir nos services',
-    'why.title': 'Pourquoi le e-commerce au Maroc ?',
-    'why.stat1': '+15 millions',
-    'why.stat1.desc': 'd\'utilisateurs internet au Maroc',
-    'why.stat2': '+40%',
-    'why.stat2.desc': 'de croissance e-commerce annuelle',
-    'why.stat3': '24/7',
-    'why.stat3.desc': 'Votre boutique toujours ouverte',
-    'why.stat4': '+80%',
-    'why.stat4.desc': 'des Marocains achètent via mobile',
-    'benefits.title': 'Avantages d\'une boutique en ligne',
-    'benefits.1': 'Accès à des millions de clients',
-    'benefits.1.desc': 'Dépassez les frontières géographiques',
-    'benefits.2': 'Coûts réduits',
-    'benefits.2.desc': 'Pas de loyer ni de personnel excessif',
-    'benefits.3': 'Contrôle total',
-    'benefits.3.desc': 'Suivez vos ventes depuis un tableau de bord',
-    'benefits.4': 'Croissance continue',
-    'benefits.4.desc': 'Développez facilement avec la demande',
-    'how.title': 'Comment ça marche ?',
-    'how.step1': 'Choix du design',
-    'how.step1.desc': 'Nous vous aidons à choisir un design adapté à votre activité',
-    'how.step2': 'Configuration et paiement',
-    'how.step2.desc': 'Ajout de produits, paiement et livraison intégrés',
-    'how.step3': 'Lancement de la boutique',
-    'how.step3.desc': 'Votre boutique est prête avec support continu',
-    'services.title': 'Création de boutique e-commerce professionnelle',
-    'services.subtitle': 'Tout ce dont vous avez besoin pour vendre en ligne',
-    'services.1': 'Design professionnel',
-    'services.2': 'Ajout de produits',
-    'services.3': 'Intégration de paiement',
-    'services.4': 'Intégration de livraison',
-    'services.5': 'Optimisation de vitesse',
-    'services.6': 'Compatible mobile',
-    'services.7': 'Tableau de bord facile',
-    'pricing.title': 'Nos Tarifs',
-    'pricing.subtitle': 'Choisissez le forfait adapté à votre projet',
-    'pricing.starter': 'Forfait Starter',
-    'pricing.starter.desc': 'Boutique basique + 10 produits',
-    'pricing.starter.price': '2 999 MAD',
-    'pricing.pro': 'Forfait Professionnel',
-    'pricing.pro.desc': 'Boutique complète + paiement + livraison',
-    'pricing.pro.price': '5 999 MAD',
-    'pricing.premium': 'Forfait Premium',
-    'pricing.premium.desc': 'Boutique avancée + SEO + marketing',
-    'pricing.premium.price': '9 999 MAD',
-    'pricing.cta': 'Commander',
-    'pricing.popular': 'Plus populaire',
-    'pricing.f1': 'Design professionnel',
-    'pricing.f2': 'Compatible mobile',
-    'pricing.f3': 'Tableau de bord',
-    'pricing.f4': 'Intégration paiement',
-    'pricing.f5': 'Intégration livraison',
-    'pricing.f6': 'Optimisation SEO',
-    'pricing.f7': 'Configuration marketing',
-    'pricing.f8': 'Support technique',
-    'portfolio.title': 'Notre Portfolio',
-    'portfolio.subtitle': 'Des boutiques que nous avons créées',
-    'portfolio.cosmetics': 'Boutique Cosmétiques',
-    'portfolio.cosmetics.desc': 'Boutique en ligne complète pour vendre des cosmétiques et soins de la peau avec un design élégant',
-    'portfolio.fashion': 'Boutique Mode Femme',
-    'portfolio.fashion.desc': 'Boutique de mode féminine avec un design raffiné présentant les dernières tendances',
-    'portfolio.electronics': 'Boutique Électronique',
-    'portfolio.electronics.desc': 'Boutique professionnelle pour vendre smartphones, ordinateurs et appareils intelligents',
-    'portfolio.visit': 'Visiter la boutique complète',
-    'portfolio.enter_store': 'Entrer dans la boutique',
-    'portfolio.preview': 'Aperçu de la boutique',
-    'portfolio.cta.title': 'Vous voulez une boutique comme celles-ci ?',
-    'portfolio.cta.button': 'Commandez votre boutique',
-    'portfolio.cta.want_store': 'Je veux une boutique comme celle-ci',
-    'portfolio.whatsapp_message': 'Bonjour, je souhaite créer une boutique en ligne comme les exemples sur votre site',
-    'trust.title': 'Pourquoi Brandixo ?',
-    'trust.1': 'Boutique prête en 48 heures',
-    'trust.2': 'Design professionnel compatible mobile',
-    'trust.3': 'Paiement et livraison intégrés au Maroc',
-    'trust.4': 'Support technique après lancement',
-    'faq.title': 'Questions Fréquentes',
-    'faq.q1': 'Combien de temps pour créer la boutique ?',
-    'faq.a1': 'Généralement entre 5 et 10 jours ouvrables selon le projet.',
-    'faq.q2': 'Ai-je besoin de compétences techniques ?',
-    'faq.a2': 'Non, nous fournissons un tableau de bord simple avec formation complète.',
-    'faq.q3': 'Quels moyens de paiement au Maroc ?',
-    'faq.a3': 'CMI, paiement à la livraison, virement bancaire et plus.',
-    'faq.q4': 'Puis-je ajouter des produits moi-même ?',
-    'faq.a4': 'Oui, le tableau de bord permet d\'ajouter et modifier facilement.',
-    'faq.q5': 'Offrez-vous un support après lancement ?',
-    'faq.a5': 'Oui, nous offrons un support technique continu.',
-    'contact.title': 'Contactez-nous',
-    'contact.subtitle': 'Prêt à lancer votre projet ? Contactez-nous maintenant',
-    'contact.name': 'Nom complet',
-    'contact.email': 'Email',
-    'contact.phone': 'Téléphone',
-    'contact.message': 'Description du projet',
-    'contact.send': 'Envoyer',
-    'contact.whatsapp': 'Contacter via WhatsApp',
-    'footer.desc': 'Nous aidons les entrepreneurs au Maroc à créer des boutiques en ligne professionnelles.',
-    'footer.rights': 'Tous droits réservés',
-    'footer.links': 'Liens rapides',
-    'footer.privacy': 'Politique de confidentialité',
-    'footer.terms': 'Conditions d\'utilisation',
-  },
-  en: {
-    'nav.home': 'Home',
-    'nav.services': 'Services',
-    'nav.pricing': 'Pricing',
-    'nav.portfolio': 'Portfolio',
-    'nav.faq': 'FAQ',
-    'nav.contact': 'Contact',
-    'hero.title': 'Build Your Online Store and Start Selling in Morocco',
-    'hero.subtitle': 'We create professional e-commerce stores to help you sell products online and reach customers across Morocco',
-    'hero.cta': 'Start Your Store Now',
-    'hero.secondary': 'Discover Our Services',
-    'why.title': 'Why E-Commerce in Morocco?',
-    'why.stat1': '+15 Million',
-    'why.stat1.desc': 'Internet users in Morocco',
-    'why.stat2': '+40%',
-    'why.stat2.desc': 'Annual e-commerce growth',
-    'why.stat3': '24/7',
-    'why.stat3.desc': 'Your store is always open',
-    'why.stat4': '+80%',
-    'why.stat4.desc': 'Moroccans shop on mobile',
-    'benefits.title': 'Benefits of Owning an Online Store',
-    'benefits.1': 'Reach millions of customers',
-    'benefits.1.desc': 'Break geographical barriers and sell everywhere',
-    'benefits.2': 'Lower costs',
-    'benefits.2.desc': 'No rent or excessive staff needed',
-    'benefits.3': 'Full control',
-    'benefits.3.desc': 'Track sales and customers from one dashboard',
-    'benefits.4': 'Continuous growth',
-    'benefits.4.desc': 'Scale easily as demand increases',
-    'how.title': 'How It Works',
-    'how.step1': 'Choose Your Design',
-    'how.step1.desc': 'We help you pick a design that fits your brand',
-    'how.step2': 'Setup & Payment Integration',
-    'how.step2.desc': 'We add products and connect payment & delivery',
-    'how.step3': 'Launch & Start Selling',
-    'how.step3.desc': 'Your store is ready with ongoing support',
-    'services.title': 'Professional E-Commerce Store Creation',
-    'services.subtitle': 'Everything you need to start selling online',
-    'services.1': 'Professional store design',
-    'services.2': 'Product listing',
-    'services.3': 'Payment integration',
-    'services.4': 'Delivery integration',
-    'services.5': 'Speed optimization',
-    'services.6': 'Mobile-friendly store',
-    'services.7': 'Easy dashboard',
-    'pricing.title': 'Pricing Plans',
-    'pricing.subtitle': 'Choose the plan that fits your project',
-    'pricing.starter': 'Starter Store',
-    'pricing.starter.desc': 'Basic store + 10 products',
-    'pricing.starter.price': '2,999 MAD',
-    'pricing.pro': 'Professional Store',
-    'pricing.pro.desc': 'Full store + payment + delivery',
-    'pricing.pro.price': '5,999 MAD',
-    'pricing.premium': 'Premium Store',
-    'pricing.premium.desc': 'Advanced store + SEO + marketing',
-    'pricing.premium.price': '9,999 MAD',
-    'pricing.cta': 'Order Now',
-    'pricing.popular': 'Most Popular',
-    'pricing.f1': 'Professional design',
-    'pricing.f2': 'Mobile-friendly',
-    'pricing.f3': 'Dashboard',
-    'pricing.f4': 'Payment integration',
-    'pricing.f5': 'Delivery integration',
-    'pricing.f6': 'SEO optimization',
-    'pricing.f7': 'Marketing setup',
-    'pricing.f8': 'Technical support',
-    'portfolio.title': 'Our Portfolio',
-    'portfolio.subtitle': 'Stores we\'ve built for our clients',
-    'portfolio.cosmetics': 'Beauty & Cosmetics Store',
-    'portfolio.cosmetics.desc': 'A complete online store for selling cosmetics and skincare with an elegant modern design',
-    'portfolio.fashion': 'Women\'s Fashion Store',
-    'portfolio.fashion.desc': 'A stylish fashion store showcasing the latest trends with a seamless shopping experience',
-    'portfolio.electronics': 'Electronics Store',
-    'portfolio.electronics.desc': 'A professional electronics store for selling smartphones, laptops and smart devices',
-    'portfolio.visit': 'Visit Full Store',
-    'portfolio.enter_store': 'Enter Store',
-    'portfolio.preview': 'Store Preview',
-    'portfolio.cta.title': 'Want a store like these?',
-    'portfolio.cta.button': 'Order Your Store Now',
-    'portfolio.cta.want_store': 'I want a store like this',
-    'portfolio.whatsapp_message': 'Hello, I want to create an online store like the examples on your website',
-    'trust.title': 'Why Brandixo?',
-    'trust.1': 'Store ready in 48 hours',
-    'trust.2': 'Professional mobile-friendly design',
-    'trust.3': 'Payment & delivery integration in Morocco',
-    'trust.4': 'Technical support after launch',
-    'faq.title': 'Frequently Asked Questions',
-    'faq.q1': 'How long does it take to build a store?',
-    'faq.a1': 'Usually 5 to 10 business days depending on the project scope.',
-    'faq.q2': 'Do I need technical skills?',
-    'faq.a2': 'No, we provide an easy dashboard with full training.',
-    'faq.q3': 'What payment methods are available in Morocco?',
-    'faq.a3': 'CMI, cash on delivery, bank transfer and more.',
-    'faq.q4': 'Can I add products myself?',
-    'faq.a4': 'Yes, the dashboard makes it easy to add and edit products.',
-    'faq.q5': 'Do you offer support after launch?',
-    'faq.a5': 'Yes, we provide ongoing technical support.',
-    'contact.title': 'Contact Us',
-    'contact.subtitle': 'Ready to start your project? Contact us now',
-    'contact.name': 'Full Name',
-    'contact.email': 'Email',
-    'contact.phone': 'Phone',
-    'contact.message': 'Project Description',
-    'contact.send': 'Send Request',
-    'contact.whatsapp': 'Contact via WhatsApp',
-    'footer.desc': 'We help entrepreneurs in Morocco build professional online stores and start selling online.',
-    'footer.rights': 'All rights reserved',
-    'footer.links': 'Quick Links',
-    'footer.privacy': 'Privacy Policy',
-    'footer.terms': 'Terms of Service',
-  },
+ar: {
+'nav.home': 'الرئيسية',
+'nav.services': 'خدماتنا',
+'nav.pricing': 'الأسعار',
+'nav.portfolio': 'أعمالنا',
+'nav.faq': 'أسئلة شائعة',
+'nav.contact': 'تواصل معنا',
+
+'contact.title': 'تواصل معنا',
+'contact.subtitle': 'هل أنت مستعد لبدء مشروعك؟ تواصل معنا الآن',
+'contact.name': 'الاسم الكامل',
+'contact.email': 'البريد الإلكتروني',
+'contact.phone': 'رقم الهاتف',
+'contact.message': 'وصف المشروع',
+'contact.send': 'أرسل الطلب',
+
+'contact.whatsapp': 'تواصل عبر واتساب',
+'contact.whatsapp.title': 'تواصل عبر واتساب',
+
+},
+
+fr: {
+'nav.home': 'Accueil',
+'nav.services': 'Services',
+'nav.pricing': 'Tarifs',
+'nav.portfolio': 'Portfolio',
+'nav.faq': 'FAQ',
+'nav.contact': 'Contact',
+
+'contact.title': 'Contactez-nous',
+'contact.subtitle': 'Prêt à lancer votre projet ? Contactez-nous maintenant',
+'contact.name': 'Nom complet',
+'contact.email': 'Email',
+'contact.phone': 'Téléphone',
+'contact.message': 'Description du projet',
+'contact.send': 'Envoyer',
+
+'contact.whatsapp': 'Contacter via WhatsApp',
+'contact.whatsapp.title': 'Contact via WhatsApp',
+
+},
+
+en: {
+'nav.home': 'Home',
+'nav.services': 'Services',
+'nav.pricing': 'Pricing',
+'nav.portfolio': 'Portfolio',
+'nav.faq': 'FAQ',
+'nav.contact': 'Contact',
+
+'contact.title': 'Contact Us',
+'contact.subtitle': 'Ready to start your project? Contact us now',
+'contact.name': 'Full Name',
+'contact.email': 'Email',
+'contact.phone': 'Phone',
+'contact.message': 'Project Description',
+'contact.send': 'Send Request',
+
+'contact.whatsapp': 'Contact via WhatsApp',
+'contact.whatsapp.title': 'Contact via WhatsApp',
+
+}
 };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [lang, setLang] = useState<Language>('ar');
-  const dir = lang === 'ar' ? 'rtl' : 'ltr';
 
-  useEffect(() => {
-    const html = document.documentElement;
-    html.lang = lang;
-    html.dir = dir;
-  }, [lang, dir]);
+const [lang, setLangState] = useState<Language>(() => {
+const saved = localStorage.getItem('site-lang') as Language;
+return saved || 'ar';
+});
 
-  const t = (key: string): string => {
-    return translations[lang][key] || key;
-  };
+const setLang = (newLang: Language) => {
+localStorage.setItem('site-lang', newLang);
+setLangState(newLang);
+};
 
-  return (
-    <LanguageContext.Provider value={{ lang, setLang, t, dir }}>
-      {children}
-    </LanguageContext.Provider>
-  );
+const dir = lang === 'ar' ? 'rtl' : 'ltr';
+
+useEffect(() => {
+const html = document.documentElement;
+html.lang = lang;
+html.dir = dir;
+}, [lang, dir]);
+
+const t = (key: string): string => {
+return (
+translations[lang]?.[key] ||
+translations['ar']?.[key] ||
+translations['en']?.[key] ||
+key
+);
+};
+
+return (
+<LanguageContext.Provider value={{ lang, setLang, t, dir }}>
+{children}
+</LanguageContext.Provider>
+);
 };
 
 export const useLanguage = () => {
-  const context = useContext(LanguageContext);
-  if (!context) {
-    throw new Error('useLanguage must be used within LanguageProvider');
-  }
-  return context;
+const context = useContext(LanguageContext);
+
+if (!context) {
+throw new Error('useLanguage must be used within LanguageProvider');
+}
+
+return context;
 };
