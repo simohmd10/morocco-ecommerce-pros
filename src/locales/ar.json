@@ -76,7 +76,16 @@
   "portfolio.subtitle": "متاجر إلكترونية صممناها لعملائنا",
   "portfolio.preview": "معاينة المتجر",
   "portfolio.enter_store": "دخول المتجر",
+"portfolio.electronics": "متجر إلكترونيات",
+"portfolio.electronics.desc": "متجر احترافي لبيع الأجهزة الإلكترونية",
 
+"portfolio.fashion": "متجر ملابس",
+"portfolio.fashion.desc": "متجر أزياء حديث",
+
+"portfolio.cosmetics": "متجر مستحضرات تجميل",
+"portfolio.cosmetics.desc": "متجر تجميل احترافي",
+
+"portfolio.visit": "زيارة المتجر",
   "faq.title": "أسئلة شائعة",
   "faq.related": "روابط ذات صلة",
   "faq.q1": "كم يستغرق إنشاء المتجر؟",
