@@ -25,7 +25,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <!-- ═══════════════════════════════════════════
      SEO - PRIMARY (Arabic default)
-     هذا ما يقرأه جوجل أولاً — يجب أن يكون واضحاً
 ═══════════════════════════════════════════ -->
 <title>إنشاء متجر إلكتروني في المغرب احترافي | Brandixo — جاهز خلال 48 ساعة</title>
 
@@ -78,13 +77,37 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="twitter:image" content="https://brandixo.store/og-image.jpg">
 
 <!-- ═══════════════════════════════════════════
-     PERFORMANCE - Preconnect & Prefetch
+     PERFORMANCE - Preconnect & Fonts
+     ✅ Google Fonts محملة بشكل non-blocking
 ═══════════════════════════════════════════ -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="dns-prefetch" href="https://www.googletagmanager.com">
 <link rel="dns-prefetch" href="https://www.google-analytics.com">
 <link rel="dns-prefetch" href="https://formspree.io">
+
+<!-- ✅ Playfair Display + Tajawal — Non-blocking load -->
+<link rel="preload" as="style"
+  href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Tajawal:wght@300;400;500;700&display=swap"
+  onload="this.onload=null;this.rel='stylesheet'">
+<noscript>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800&family=Tajawal:wght@300;400;500;700&display=swap">
+</noscript>
+
+<!-- ═══════════════════════════════════════════
+     CRITICAL CSS — يمنع Flash of Unstyled Content
+═══════════════════════════════════════════ -->
+<style>
+  html, body, #root {
+    background: #0f0f0f;
+    color: #fafafa;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    font-family: 'Tajawal', system-ui, sans-serif;
+  }
+</style>
 
 <!-- ═══════════════════════════════════════════
      STRUCTURED DATA: Organization
@@ -96,11 +119,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   "name": "Brandixo",
   "url": "https://brandixo.store",
   "logo": {
- "@type": "ImageObject",
- "url": "https://brandixo.store/logo.png",
- "width": 512,
- "height": 512
-},
+    "@type": "ImageObject",
+    "url": "https://brandixo.store/logo.png",
+    "width": 512,
+    "height": 512
+  },
   "description": "إنشاء متاجر إلكترونية احترافية في المغرب مع ربط الدفع والتوصيل",
   "email": "contact@brandixo.shop",
   "telephone": "+212691553120",
@@ -110,7 +133,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     "addressRegion": "Morocco"
   },
   "sameAs": [
-    "https://wa.me/212691553120"
+    "https://wa.me/212691553120",
+    "https://www.facebook.com/brandixo",
+    "https://www.instagram.com/brandixo"
   ],
   "foundingDate": "2024",
   "areaServed": {
@@ -174,7 +199,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </script>
 
 <!-- ═══════════════════════════════════════════
-     STRUCTURED DATA: WebSite + SearchAction
+     STRUCTURED DATA: WebSite
 ═══════════════════════════════════════════ -->
 <script type="application/ld+json">
 {
@@ -193,9 +218,55 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
 <!-- ═══════════════════════════════════════════
      STRUCTURED DATA: FAQPage
-     (يظهر كـ Rich Snippet في جوجل ↓)
 ═══════════════════════════════════════════ -->
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "كم يستغرق إنشاء المتجر الإلكتروني؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "عادة ما يستغرق إنشاء المتجر من 5 إلى 10 أيام عمل حسب حجم المشروع. الباقات الأساسية تكون جاهزة في 48 ساعة."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "هل أحتاج خبرة تقنية لإدارة المتجر الإلكتروني؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "لا، نوفر لك لوحة تحكم سهلة الاستخدام مع تدريب كامل على إدارة المتجر بدون أي خبرة تقنية."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ما هي وسائل الدفع المتاحة في المغرب؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "نربط متجرك بأشهر وسائل الدفع في المغرب مثل CMI، الدفع عند الاستلام، والتحويل البنكي."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "كم تكلفة إنشاء متجر إلكتروني في المغرب؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "تبدأ أسعار إنشاء المتجر الإلكتروني من 2,999 درهم للباقة الأساسية، و5,999 درهم للباقة الاحترافية مع ربط الدفع والتوصيل، و9,999 درهم للباقة المتقدمة مع SEO وإعداد تسويقي."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "هل تقدمون دعماً فنياً بعد إطلاق المتجر؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "نعم، نقدم دعماً فنياً مستمراً لضمان عمل متجرك بشكل سلس بعد الإطلاق."
+      }
+    }
+  ]
+}
+</script>
 
 </head>
 
@@ -205,15 +276,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZCBK2LH"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
-
-<!--
-  ════════════════════════════════════════════════
-  لا يوجد محتوى مخفي هنا — تم حذفه عمداً.
-  إخفاء محتوى عن المستخدم وعرضه للـ crawler = Cloaking
-  مخالف لـ Google Guidelines → خطر penalty.
-  الـ JSON-LD في <head> يكفي تماماً.
-  ════════════════════════════════════════════════
--->
 
 <div id="root"></div>
 
