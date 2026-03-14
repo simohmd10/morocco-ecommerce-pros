@@ -76,7 +76,16 @@
   "portfolio.subtitle": "Online stores we built for our clients",
   "portfolio.preview": "Preview Store",
   "portfolio.enter_store": "Enter Store",
+"portfolio.electronics": "Electronics Store",
+"portfolio.electronics.desc": "Professional electronics store",
 
+"portfolio.fashion": "Fashion Store",
+"portfolio.fashion.desc": "Modern clothing store",
+
+"portfolio.cosmetics": "Cosmetics Store",
+"portfolio.cosmetics.desc": "Professional beauty store",
+
+"portfolio.visit": "Visit Store",
   "faq.title": "Frequently Asked Questions",
   "faq.related": "Related links",
   "faq.q1": "How long does it take to build the store?",
