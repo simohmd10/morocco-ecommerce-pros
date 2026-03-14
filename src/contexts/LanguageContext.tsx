@@ -37,13 +37,18 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   }, [lang, dir]);
 
   const t = (key: string): string => {
-    return (
-      translations[lang]?.[key] ||
-      translations['ar']?.[key] ||
-      translations['en']?.[key] ||
-      key
-    );
-  };
+  const value =
+    translations[lang]?.[key] ||
+    translations['ar']?.[key] ||
+    translations['en']?.[key];
+
+  if (!value) {
+    console.warn("❌ Missing translation key:", key);
+    return key;
+  }
+
+  return value;
+};
 
   return (
     <LanguageContext.Provider value={{ lang, setLang, t, dir }}>
