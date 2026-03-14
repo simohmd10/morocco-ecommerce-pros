@@ -54,7 +54,7 @@ const Contact = () => {
           viewport={{ once: true }}
           className="text-center mb-10 md:mb-16"
         >
-          <h2 className="text-2xl md:text-4xl font-bold font-display mb-3">
+          <h2 className="text-2xl md:text-4xl font-bold font-display mb-3 text-foreground">
             {t('contact.title')}
           </h2>
           <p className="text-muted-foreground text-base md:text-lg">
@@ -78,7 +78,7 @@ const Contact = () => {
               placeholder={t('contact.name')}
               value={form.name}
               onChange={e => setForm({ ...form, name: e.target.value })}
-              className="w-full px-4 py-3.5 rounded-xl bg-card border border-border focus:border-gold focus:ring-1 focus:ring-gold outline-none text-sm transition-colors"
+              className="w-full px-4 py-3.5 rounded-xl bg-card border border-border focus:border-gold focus:ring-1 focus:ring-gold outline-none text-sm text-foreground placeholder:text-muted-foreground transition-colors"
             />
 
             <input
@@ -87,7 +87,7 @@ const Contact = () => {
               placeholder={t('contact.email')}
               value={form.email}
               onChange={e => setForm({ ...form, email: e.target.value })}
-              className="w-full px-4 py-3.5 rounded-xl bg-card border border-border focus:border-gold focus:ring-1 focus:ring-gold outline-none text-sm transition-colors"
+              className="w-full px-4 py-3.5 rounded-xl bg-card border border-border focus:border-gold focus:ring-1 focus:ring-gold outline-none text-sm text-foreground placeholder:text-muted-foreground transition-colors"
             />
 
             <input
@@ -96,7 +96,7 @@ const Contact = () => {
               placeholder={t('contact.phone')}
               value={form.phone}
               onChange={e => setForm({ ...form, phone: e.target.value })}
-              className="w-full px-4 py-3.5 rounded-xl bg-card border border-border focus:border-gold focus:ring-1 focus:ring-gold outline-none text-sm transition-colors"
+              className="w-full px-4 py-3.5 rounded-xl bg-card border border-border focus:border-gold focus:ring-1 focus:ring-gold outline-none text-sm text-foreground placeholder:text-muted-foreground transition-colors"
             />
 
             <textarea
@@ -105,7 +105,7 @@ const Contact = () => {
               placeholder={t('contact.message')}
               value={form.message}
               onChange={e => setForm({ ...form, message: e.target.value })}
-              className="w-full px-4 py-3.5 rounded-xl bg-card border border-border focus:border-gold focus:ring-1 focus:ring-gold outline-none resize-none text-sm transition-colors"
+              className="w-full px-4 py-3.5 rounded-xl bg-card border border-border focus:border-gold focus:ring-1 focus:ring-gold outline-none resize-none text-sm text-foreground placeholder:text-muted-foreground transition-colors"
             />
 
             <button
@@ -139,11 +139,9 @@ const Contact = () => {
             </div>
 
             <div>
-              {/* ✅ FIX 1: إزالة الـ fallback المنطقي الخاطئ — t() تعمل مباشرة */}
-              <h3 className="font-bold text-base md:text-lg mb-1">
+              <h3 className="font-bold text-base md:text-lg mb-1 text-foreground">
                 {t('contact.whatsapp.title')}
               </h3>
-
               <p className="text-sm text-muted-foreground leading-relaxed">
                 {t('contact.whatsapp.subtitle')}
               </p>
