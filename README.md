@@ -1,73 +1,121 @@
-# Welcome to your Lovable project
+# Brandixo — إنشاء متجر إلكتروني احترافي في المغرب
 
-## Project info
+> استوديو تصميم متخصص في بناء المتاجر الإلكترونية الاحترافية للتجار المغاربة
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+🌐 **الموقع:** [brandixo.store](https://brandixo.store)
+📱 **واتساب:** [+212 691 553 120](https://wa.me/212691553120)
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🛠️ التقنيات المستخدمة
 
-**Use Lovable**
+| التقنية | الاستخدام |
+|---|---|
+| **React 18** | واجهة المستخدم |
+| **TypeScript** | أمان الكود |
+| **Vite** | Build tool وسرعة التطوير |
+| **Tailwind CSS** | التصميم والستايل |
+| **shadcn/ui** | مكونات UI جاهزة |
+| **framer-motion** | الحركات والـ animations |
+| **react-helmet-async** | إدارة الـ SEO meta tags |
+| **react-router-dom** | التنقل بين الصفحات |
+| **Vercel** | الاستضافة والنشر |
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🚀 تشغيل المشروع محلياً
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
+```bash
+# 1. استنسخ المشروع
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# 2. ادخل مجلد المشروع
+cd brandixo
 
-# Step 3: Install the necessary dependencies.
-npm i
+# 3. ثبّت التبعيات
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# 4. شغّل بيئة التطوير
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+المشروع سيعمل على: `http://localhost:8080`
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## 📁 هيكل المشروع
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```
+src/
+├── components/          # مكونات الصفحة
+│   ├── Hero.tsx         # القسم الرئيسي
+│   ├── Navbar.tsx       # شريط التنقل
+│   ├── Services.tsx     # الخدمات
+│   ├── Portfolio.tsx    # أعمالنا
+│   ├── Pricing.tsx      # الأسعار
+│   ├── Testimonials.tsx # آراء العملاء
+│   ├── FAQ.tsx          # الأسئلة الشائعة
+│   ├── Contact.tsx      # تواصل معنا
+│   ├── Footer.tsx       # تذييل الصفحة
+│   ├── Benefits.tsx     # مزايا التجارة الإلكترونية
+│   ├── TrustSection.tsx # لماذا Brandixo
+│   ├── WhyEcommerce.tsx # إحصائيات السوق
+│   └── HowItWorks.tsx   # كيف نعمل
+├── contexts/
+│   └── LanguageContext.tsx  # إدارة اللغات (AR/FR/EN)
+├── locales/
+│   ├── ar.json          # النصوص العربية
+│   ├── fr.json          # النصوص الفرنسية
+│   └── en.json          # النصوص الإنجليزية
+├── pages/
+│   └── Index.tsx        # الصفحة الرئيسية
+└── assets/              # الصور والملفات
+```
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+## 🌍 دعم تعدد اللغات
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+الموقع يدعم 3 لغات بشكل كامل:
+- **العربية** (الافتراضي) — RTL
+- **الفرنسية** — LTR
+- **الإنجليزية** — LTR
 
-## How can I deploy this project?
+---
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+## 📦 أوامر مفيدة
 
-## Can I connect a custom domain to my Lovable project?
+```bash
+npm run dev        # تشغيل بيئة التطوير
+npm run build      # بناء نسخة الإنتاج
+npm run preview    # معاينة نسخة الإنتاج محلياً
+npm run lint       # فحص جودة الكود
+```
 
-Yes, you can!
+---
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+## 📊 أداء الموقع
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+| المقياس | النتيجة |
+|---|---|
+| SEO Score | 100/100 ✅ |
+| Best Practices | 100/100 ✅ |
+| Accessibility | 96/100 ✅ |
+| Desktop Performance | 97/100 ✅ |
+| Mobile Performance | 72/100 🟠 |
+
+---
+
+## 🔧 المتغيرات البيئية
+
+لا يوجد متغيرات بيئية مطلوبة. جميع الإعدادات موجودة في الكود مباشرة.
+
+---
+
+## 📄 الترخيص
+
+جميع الحقوق محفوظة لـ **Brandixo** © 2026
+
+---
+
+*صُنع بـ ❤️ في المغرب*
