@@ -28,13 +28,13 @@ const Contact = () => {
       });
 
       if (response.ok) {
-        toast.success("Message envoyé ✓");
+        toast.success(t('contact.success'));
         setForm({ name: '', email: '', phone: '', message: '' });
       } else {
-        toast.error("Erreur lors de l'envoi");
+        toast.error(t('contact.error'));
       }
     } catch {
-      toast.error("Erreur réseau");
+      toast.error(t('contact.error.network'));
     }
 
     setLoading(false);
@@ -42,7 +42,7 @@ const Contact = () => {
 
   const whatsappUrl =
     "https://wa.me/212691553120?text=" +
-    encodeURIComponent("مرحباً، أريد إنشاء متجر إلكتروني");
+    encodeURIComponent(t('contact.whatsapp.message'));
 
   return (
     <section id="contact" className="section-padding bg-background">
@@ -116,7 +116,7 @@ const Contact = () => {
               {loading ? (
                 <>
                   <Loader className="w-4 h-4 animate-spin" />
-                  Envoi...
+                  {t('contact.sending')}
                 </>
               ) : (
                 <>
@@ -139,14 +139,13 @@ const Contact = () => {
             </div>
 
             <div>
+              {/* ✅ FIX 1: إزالة الـ fallback المنطقي الخاطئ — t() تعمل مباشرة */}
               <h3 className="font-bold text-base md:text-lg mb-1">
-                {t('contact.whatsapp.title') === 'contact.whatsapp.title'
-                  ? 'تواصل عبر واتساب'
-                  : t('contact.whatsapp.title')}
+                {t('contact.whatsapp.title')}
               </h3>
 
               <p className="text-sm text-muted-foreground leading-relaxed">
-                {t('contact.subtitle')}
+                {t('contact.whatsapp.subtitle')}
               </p>
             </div>
 
