@@ -18,7 +18,7 @@
     --primary: 0 0% 6%;
     --primary-foreground: 0 0% 99%;
 
-    --secondary: 0 0% 97%;         /* ✅ أفتح قليلاً للـ sections */
+    --secondary: 0 0% 100%;        /* ✅ أبيض نظيف — يزيل الرمادي */
     --secondary-foreground: 0 0% 6%;
 
     --muted: 0 0% 95%;
