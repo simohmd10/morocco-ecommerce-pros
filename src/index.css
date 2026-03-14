@@ -69,10 +69,24 @@
 
   * {
     @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    background: hsl(0 0% 6%);
   }
 
   body {
-    @apply bg-background text-foreground;
+    background: hsl(0 0% 6%);
+    color: hsl(0 0% 98%);
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  #root {
+    background: hsl(0 0% 6%);
+    min-height: 100vh;
   }
 }
 
