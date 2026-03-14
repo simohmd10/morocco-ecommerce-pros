@@ -25,6 +25,13 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.cta': 'ابدأ متجرك الآن',
     'hero.secondary': 'اكتشف خدماتنا',
 
+    // مفاتيح Hero الجديدة
+    'hero.badge': 'E-Commerce Morocco',
+    'hero.stat.delivery': 'تسليم سريع',
+    'hero.stat.stores': 'متجر مُنجز',
+    'hero.stat.satisfaction': 'رضا العملاء',
+    'hero.scroll': 'scroll',
+
     'trust.title': 'لماذا Brandixo؟',
     'trust.1': 'متجر جاهز خلال 48 ساعة',
     'trust.2': 'تصميم احترافي متوافق مع الهاتف',
@@ -46,13 +53,21 @@ const translations: Record<Language, Record<string, string>> = {
 
     'contact.whatsapp': 'تواصل عبر واتساب',
     'contact.whatsapp.title': 'تواصل عبر واتساب',
-
     'contact.whatsapp.subtitle': 'هل تفضل التواصل المباشر؟ نحن هنا للرد على استفساراتك',
     'contact.whatsapp.message': 'مرحباً، أريد إنشاء متجر إلكتروني',
+
     'contact.sending': 'جاري الإرسال...',
     'contact.success': 'تم إرسال رسالتك بنجاح ✓',
     'contact.error': 'حدث خطأ أثناء الإرسال',
     'contact.error.network': 'خطأ في الاتصال بالشبكة',
+
+    // FAQ
+    'faq.related': 'روابط ذات صلة',
+
+    // Footer
+    'footer.available': 'متاح لمشاريع جديدة',
+    'footer.whatsapp': 'واتساب',
+    'footer.made': 'صُنع بـ',
   },
 
   fr: {
@@ -68,6 +83,13 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.subtitle': 'Nous créons votre boutique e-commerce professionnelle',
     'hero.cta': 'Lancez votre boutique',
     'hero.secondary': 'Découvrir nos services',
+
+    // Hero
+    'hero.badge': 'E-Commerce Maroc',
+    'hero.stat.delivery': 'Livraison rapide',
+    'hero.stat.stores': 'Boutiques créées',
+    'hero.stat.satisfaction': 'Satisfaction client',
+    'hero.scroll': 'défiler',
 
     'trust.title': 'Pourquoi Brandixo ?',
     'trust.1': 'Boutique prête en 48 heures',
@@ -90,13 +112,19 @@ const translations: Record<Language, Record<string, string>> = {
 
     'contact.whatsapp': 'Contacter via WhatsApp',
     'contact.whatsapp.title': 'Contacter via WhatsApp',
-
     'contact.whatsapp.subtitle': 'Vous préférez un contact direct ? Nous sommes disponibles',
     'contact.whatsapp.message': 'Bonjour, je souhaite créer une boutique en ligne',
+
     'contact.sending': 'Envoi en cours...',
     'contact.success': 'Message envoyé avec succès ✓',
     'contact.error': "Erreur lors de l'envoi",
     'contact.error.network': 'Erreur réseau',
+
+    'faq.related': 'Liens connexes',
+
+    'footer.available': 'Disponible pour de nouveaux projets',
+    'footer.whatsapp': 'WhatsApp',
+    'footer.made': 'Fait avec',
   },
 
   en: {
@@ -112,6 +140,13 @@ const translations: Record<Language, Record<string, string>> = {
     'hero.subtitle': 'We create professional e-commerce stores',
     'hero.cta': 'Start Your Store Now',
     'hero.secondary': 'Discover Our Services',
+
+    // Hero
+    'hero.badge': 'E-Commerce Morocco',
+    'hero.stat.delivery': 'Fast delivery',
+    'hero.stat.stores': 'Stores built',
+    'hero.stat.satisfaction': 'Client satisfaction',
+    'hero.scroll': 'scroll',
 
     'trust.title': 'Why Brandixo?',
     'trust.1': 'Store ready in 48 hours',
@@ -134,13 +169,19 @@ const translations: Record<Language, Record<string, string>> = {
 
     'contact.whatsapp': 'Contact via WhatsApp',
     'contact.whatsapp.title': 'Contact via WhatsApp',
-
     'contact.whatsapp.subtitle': "Prefer direct contact? We're here to answer your questions",
     'contact.whatsapp.message': 'Hello, I want to create an online store',
+
     'contact.sending': 'Sending...',
     'contact.success': 'Message sent successfully ✓',
     'contact.error': 'Error sending message',
     'contact.error.network': 'Network error',
+
+    'faq.related': 'Related links',
+
+    'footer.available': 'Available for new projects',
+    'footer.whatsapp': 'WhatsApp',
+    'footer.made': 'Made with',
   }
 
 };
