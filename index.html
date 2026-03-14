@@ -282,4 +282,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <script type="module" src="/src/main.tsx"></script>
 
 </body>
+<div id="__next"></div>
+<script>
+document.addEventListener("click", function(e) {
+
+  const link = e.target.closest("a,button");
+  if(!link) return;
+
+  const text = link.innerText || link.href || "unknown";
+
+  // واتساب
+  if(link.href && link.href.includes("wa.me")){
+    gtag("event","whatsapp_click",{
+      event_category:"contact",
+      event_label:text
+    });
+  }
+
+  // أزرار CTA
+  if(text.includes("Start") || text.includes("ابدأ")){
+    gtag("event","cta_click",{
+      event_category:"cta",
+      event_label:text
+    });
+  }
+
+  // portfolio links
+  if(text.includes("Visit") || text.includes("زيارة")){
+    gtag("event","portfolio_click",{
+      event_category:"portfolio",
+      event_label:text
+    });
+  }
+
+});
+</script>
 </html>
