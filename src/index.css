@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,49 +6,58 @@
 
 @layer base {
   :root {
-    --background: 30 33% 98%;
-    --foreground: 20 10% 15%;
+    --background: 0 0% 99%;
+    --foreground: 0 0% 6%;
 
     --card: 0 0% 100%;
-    --card-foreground: 20 10% 15%;
+    --card-foreground: 0 0% 6%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 20 10% 15%;
+    --popover-foreground: 0 0% 6%;
 
-    --primary: 350 40% 55%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 0 0% 6%;
+    --primary-foreground: 0 0% 99%;
 
-    --secondary: 25 30% 93%;
-    --secondary-foreground: 20 10% 25%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 6%;
 
-    --muted: 30 20% 95%;
-    --muted-foreground: 20 8% 50%;
+    --muted: 0 0% 94%;
+    --muted-foreground: 0 0% 42%;
 
-    --accent: 350 30% 92%;
-    --accent-foreground: 350 40% 35%;
+    --accent: 42 80% 48%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 30 20% 90%;
-    --input: 30 20% 90%;
-    --ring: 350 40% 55%;
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --ring: 42 80% 48%;
 
     --radius: 0.75rem;
 
-    --rose: 350 40% 55%;
-    --rose-light: 350 50% 95%;
-    --nude: 25 30% 85%;
-    --cream: 35 40% 96%;
-    --gold: 38 60% 55%;
-    --gold-light: 38 50% 90%;
+    /* ═══ GOLD PALETTE ═══ */
+    --gold: 42 80% 48%;
+    --gold-light: 42 85% 62%;
+    --gold-dark: 42 75% 34%;
 
-    --font-display: 'Playfair Display', serif;
-    --font-body: 'Inter', sans-serif;
+    /* ═══ DARK PALETTE ═══ */
+    --dark: 0 0% 6%;
+    --dark-soft: 0 0% 12%;
+    --dark-mid: 0 0% 18%;
 
-    --shadow-soft: 0 2px 20px -4px hsl(350 20% 50% / 0.08);
-    --shadow-card: 0 4px 30px -8px hsl(350 20% 50% / 0.12);
-    --shadow-hover: 0 8px 40px -8px hsl(350 20% 50% / 0.18);
+    /* ═══ GRADIENTS ═══ */
+    --gradient-gold: linear-gradient(135deg, hsl(42 80% 48%), hsl(42 85% 62%));
+    --gradient-gold-sharp: linear-gradient(90deg, hsl(42 75% 34%), hsl(42 85% 62%), hsl(42 75% 34%));
+    --gradient-dark: linear-gradient(180deg, hsl(0 0% 6%), hsl(0 0% 10%));
+    --gradient-dark-rich: linear-gradient(145deg, hsl(0 0% 6%) 0%, hsl(0 0% 9%) 50%, hsl(0 0% 6%) 100%);
+
+    /* ═══ SHADOWS ═══ */
+    --shadow-gold: 0 8px 40px -8px hsl(42 80% 48% / 0.35);
+    --shadow-gold-sm: 0 4px 20px -4px hsl(42 80% 48% / 0.25);
+    --shadow-card: 0 2px 20px -4px hsl(0 0% 0% / 0.06);
+    --shadow-card-hover: 0 8px 40px -8px hsl(0 0% 0% / 0.12);
+    --shadow-dark: 0 24px 60px -12px hsl(0 0% 0% / 0.4);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -59,149 +68,239 @@
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
+    box-sizing: border-box;
+  }
+
+  html {
+    overflow-x: hidden;
   }
 
   body {
     @apply bg-background text-foreground font-body antialiased;
+    background-color: hsl(0 0% 99%);
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-display);
+  html[dir="rtl"] {
+    direction: rtl;
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: hsl(0 0% 96%); }
+  ::-webkit-scrollbar-thumb { background: hsl(42 80% 48%); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: hsl(42 75% 40%); }
+
+  :focus-visible {
+    outline: 2px solid hsl(42 80% 48%);
+    outline-offset: 2px;
   }
 }
 
 @layer components {
+
+  /* ═══ LAYOUT ═══ */
   .section-padding {
-    @apply px-4 sm:px-6 lg:px-8 xl:px-16;
+    @apply py-14 md:py-28 px-4 md:px-8;
   }
 
-  .container-beauty {
-    @apply max-w-7xl mx-auto section-padding;
-  }
-}
-
-@layer utilities {
-  .text-gradient-rose {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(var(--rose)), hsl(var(--gold)));
+  /* ═══ GOLD ═══ */
+  .gold-gradient {
+    background: var(--gradient-gold);
   }
 
-  .bg-gradient-rose {
-    background-image: linear-gradient(135deg, hsl(var(--rose-light)), hsl(var(--cream)));
-  }
-
-  .bg-gradient-gold {
-    background-image: linear-gradient(135deg, hsl(var(--gold-light)), hsl(var(--cream)));
-  }
-}
-/* ============================================
-   MOBILE FIXES — أضف هذا في نهاية index.css
-   ============================================ */
-
-/* 🔴 FIX 1: منع الـ overflow الأفقي على كل الصفحة */
-html,
-body {
-  overflow-x: hidden;
-  max-width: 100vw;
-}
-
-/* 🔴 FIX 2: ضبط container على الموبايل */
-@layer components {
-  .container-beauty {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 xl:px-16;
-  }
-
-  /* 🟡 FIX 3: بطاقات المنتجات — عمودين على الموبايل */
-  .products-grid {
-    @apply grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6;
-  }
-
-  /* 🟡 FIX 4: بطاقة المنتج — padding أصغر على الموبايل */
-  .product-card {
-    @apply rounded-xl overflow-hidden;
-  }
-
-  /* 🟢 FIX 5: section padding موحّد على الموبايل */
-  .section-padding-mobile {
-    @apply py-12 sm:py-16 lg:py-24;
-  }
-}
-
-/* 🔴 FIX 6: عناوين الأقسام — حجم مناسب للموبايل */
-@layer utilities {
-  .section-title {
-    @apply font-display text-2xl sm:text-3xl lg:text-4xl font-semibold text-foreground;
-  }
-
-  /* 🟡 FIX 7: نص gradient لا ينقطع على الموبايل */
-  .text-gradient-rose {
-    @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(var(--rose)), hsl(var(--gold)));
+  .gold-text {
+    background: var(--gradient-gold);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    /* منع الاقتطاع */
-    padding-bottom: 0.1em;
-    display: inline-block;
-  }
-}
-
-/* 🔴 FIX 8: إصلاح الـ Hero على الموبايل */
-@media (max-width: 640px) {
-  /* تقليل padding الـ Hero */
-  .hero-content {
-    padding-top: 5rem;
-    padding-bottom: 3rem;
+    background-clip: text;
   }
 
-  /* أزرار الـ Hero — full width على الموبايل */
-  .hero-buttons a,
-  .hero-buttons button {
-    width: 100%;
-    justify-content: center;
+  .gold-border {
+    border: 1px solid hsl(42 80% 48% / 0.3);
   }
 
-  /* منع النصوص من الخروج */
-  h1, h2, h3 {
-    word-break: break-word;
-    overflow-wrap: break-word;
-  }
-}
-
-/* 🟢 FIX 9: تحسين الـ Navbar عند Scroll على الموبايل */
-@media (max-width: 768px) {
-  /* shadow أوضح عند التمرير */
-  header.scrolled {
-    box-shadow: 0 2px 16px -2px hsl(350 20% 50% / 0.15);
+  .gold-line {
+    width: 3rem;
+    height: 2px;
+    background: var(--gradient-gold);
+    border-radius: 2px;
   }
 
-  /* منع النصوص في الـ Nav من التقطع */
-  nav .font-display {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 160px;
+  /* ═══ DARK SECTIONS ═══ */
+  .dark-section {
+    background: var(--gradient-dark-rich);
+    color: hsl(0 0% 98%);
   }
-}
 
-/* 🟡 FIX 10: تحسين tap targets على الموبايل (44px minimum) */
-@media (max-width: 768px) {
-  nav button,
-  nav a {
-    min-height: 44px;
-    min-width: 44px;
-    display: flex;
+  .dark-section-alt {
+    background: hsl(0 0% 8%);
+    color: hsl(0 0% 98%);
+  }
+
+  /* ═══ CARDS ═══ */
+  .card-shadow {
+    box-shadow: var(--shadow-card);
+  }
+
+  .card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .card-hover:hover {
+    box-shadow: var(--shadow-card-hover);
+    transform: translateY(-2px);
+  }
+
+  /* ═══ GOLD SHADOW ═══ */
+  .gold-shadow {
+    box-shadow: var(--shadow-gold);
+  }
+
+  .gold-shadow-sm {
+    box-shadow: var(--shadow-gold-sm);
+  }
+
+  /* ═══ BUTTONS ═══ */
+  .btn-gold {
+    background: var(--gradient-gold);
+    color: hsl(0 0% 6%);
+    font-weight: 700;
+    box-shadow: var(--shadow-gold-sm);
+    transition: all 0.25s ease;
+    border-radius: var(--radius);
+    padding: 0.875rem 2rem;
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
+    gap: 0.5rem;
   }
 
-  /* إلا روابط القائمة */
-  nav .font-display {
-    min-width: unset;
-    justify-content: flex-start;
+  .btn-gold:hover {
+    box-shadow: var(--shadow-gold);
+    transform: translateY(-1px) scale(1.02);
+  }
+
+  .btn-outline-white {
+    border: 1px solid hsl(0 0% 100% / 0.2);
+    color: hsl(0 0% 100% / 0.85);
+    transition: all 0.25s ease;
+    border-radius: var(--radius);
+    padding: 0.875rem 2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .btn-outline-white:hover {
+    background: hsl(0 0% 100% / 0.07);
+    border-color: hsl(42 80% 48% / 0.5);
+    color: hsl(42 80% 62%);
+  }
+
+  .btn-outline-dark {
+    border: 1.5px solid hsl(0 0% 6%);
+    color: hsl(0 0% 6%);
+    transition: all 0.25s ease;
+    border-radius: var(--radius);
+    padding: 0.875rem 2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .btn-outline-dark:hover {
+    background: hsl(0 0% 6%);
+    color: hsl(0 0% 99%);
+  }
+
+  /* ═══ SECTION HEADERS ═══ */
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.375rem 1rem;
+    border-radius: 999px;
+    border: 1px solid hsl(42 80% 48% / 0.25);
+    background: hsl(42 80% 48% / 0.06);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: hsl(42 70% 42%);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .section-tag-dark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.375rem 1rem;
+    border-radius: 999px;
+    border: 1px solid hsl(42 80% 48% / 0.3);
+    background: hsl(42 80% 48% / 0.08);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: hsl(42 85% 62%);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  /* ═══ DIVIDER ═══ */
+  .gold-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(42 80% 48% / 0.4), transparent);
+    margin: 0;
+  }
+
+  /* ═══ NOISE TEXTURE ═══ */
+  .noise-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.4;
+    mix-blend-mode: overlay;
+  }
+}
+
+/* ═══════════════════════════════════════
+   MOBILE-SPECIFIC FIXES
+   ═══════════════════════════════════════ */
+
+@media (max-width: 767px) {
+
+  .section-padding {
+    padding-top: 3.5rem;
+    padding-bottom: 3.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .md\:scale-105 {
+    transform: none !important;
+  }
+
+  button, a {
+    min-height: 44px;
+  }
+
+  h1 { font-size: clamp(1.75rem, 6vw, 2.5rem); }
+  h2 { font-size: clamp(1.4rem, 5vw, 2rem); }
+  h3 { font-size: clamp(1.1rem, 4vw, 1.5rem); }
+
+  p, span, li {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  .container {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
 }
