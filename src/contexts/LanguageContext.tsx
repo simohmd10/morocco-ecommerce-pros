@@ -18,6 +18,15 @@ ar: {
 'nav.faq': 'أسئلة شائعة',
 'nav.contact': 'تواصل معنا',
 
+'hero.cta': 'ابدأ متجرك الآن',
+'hero.secondary': 'اكتشف خدماتنا',
+
+'trust.title': 'لماذا Brandixo؟',
+'trust.1': 'متجر جاهز خلال 48 ساعة',
+'trust.2': 'تصميم احترافي متوافق مع الهاتف',
+'trust.3': 'ربط الدفع والتوصيل في المغرب',
+'trust.4': 'دعم تقني بعد إطلاق المتجر',
+
 'contact.title': 'تواصل معنا',
 'contact.subtitle': 'هل أنت مستعد لبدء مشروعك؟ تواصل معنا الآن',
 'contact.name': 'الاسم الكامل',
@@ -39,6 +48,15 @@ fr: {
 'nav.faq': 'FAQ',
 'nav.contact': 'Contact',
 
+'hero.cta': 'Lancez votre boutique',
+'hero.secondary': 'Découvrir nos services',
+
+'trust.title': 'Pourquoi Brandixo ?',
+'trust.1': 'Boutique prête en 48 heures',
+'trust.2': 'Design professionnel compatible mobile',
+'trust.3': 'Paiement et livraison intégrés au Maroc',
+'trust.4': 'Support technique après lancement',
+
 'contact.title': 'Contactez-nous',
 'contact.subtitle': 'Prêt à lancer votre projet ? Contactez-nous maintenant',
 'contact.name': 'Nom complet',
@@ -59,6 +77,15 @@ en: {
 'nav.portfolio': 'Portfolio',
 'nav.faq': 'FAQ',
 'nav.contact': 'Contact',
+
+'hero.cta': 'Start Your Store Now',
+'hero.secondary': 'Discover Our Services',
+
+'trust.title': 'Why Brandixo?',
+'trust.1': 'Store ready in 48 hours',
+'trust.2': 'Professional mobile-friendly design',
+'trust.3': 'Payment & delivery integration in Morocco',
+'trust.4': 'Technical support after launch',
 
 'contact.title': 'Contact Us',
 'contact.subtitle': 'Ready to start your project? Contact us now',
