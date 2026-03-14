@@ -60,7 +60,6 @@ content="نصمم متاجر إلكترونية احترافية في المغر
 <!-- Performance -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link rel="dns-prefetch" href="https://www.googletagmanager.com">
 
 <!-- Fonts -->
@@ -119,7 +118,7 @@ height="0" width="0" style="display:none;visibility:hidden">
 <!-- React app -->
 <script type="module" src="/src/main.tsx"></script>
 
-<!-- Click tracking -->
+<!-- Event tracking with dataLayer -->
 <script>
 document.addEventListener("click", function(e) {
 
@@ -128,37 +127,35 @@ document.addEventListener("click", function(e) {
 
   const text = link.innerText?.trim() || link.href || "unknown";
 
-  if(typeof gtag === "undefined") return;
+  window.dataLayer = window.dataLayer || [];
 
   if(link.href && link.href.includes("wa.me")){
-    gtag("event","whatsapp_click",{event_category:"contact",event_label:text});
+    dataLayer.push({
+      event:"whatsapp_click",
+      label:text
+    });
   }
 
   if(text.includes("Start") || text.includes("ابدأ")){
-    gtag("event","cta_click",{event_category:"cta",event_label:text});
+    dataLayer.push({
+      event:"cta_click",
+      label:text
+    });
   }
 
   if(text.includes("Visit") || text.includes("زيارة")){
-    gtag("event","portfolio_click",{event_category:"portfolio",event_label:text});
+    dataLayer.push({
+      event:"portfolio_click",
+      label:text
+    });
   }
 
 });
 </script>
 
-<!-- Advanced analytics -->
+<!-- Engagement tracking -->
 <script>
 (function(){
-
-function sendEvent(name,category,label){
-
-if(typeof gtag === "undefined") return;
-
-gtag("event",name,{
-event_category:category,
-event_label:label
-});
-
-}
 
 let scroll50=false;
 let scroll90=false;
@@ -169,20 +166,22 @@ const scroll=window.scrollY;
 const height=document.body.scrollHeight-window.innerHeight;
 const percent=scroll/height;
 
+window.dataLayer = window.dataLayer || [];
+
 if(percent>0.5 && !scroll50){
 scroll50=true;
-sendEvent("scroll_50","engagement","half_page");
+dataLayer.push({event:"scroll_50"});
 }
 
 if(percent>0.9 && !scroll90){
 scroll90=true;
-sendEvent("scroll_90","engagement","almost_bottom");
+dataLayer.push({event:"scroll_90"});
 }
 
 });
 
 setTimeout(function(){
-sendEvent("engaged_30s","engagement","30_seconds");
+window.dataLayer.push({event:"engaged_30s"});
 },30000);
 
 })();
