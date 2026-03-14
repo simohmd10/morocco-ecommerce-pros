@@ -121,7 +121,10 @@
   "contact.phone": "رقم الهاتف",
   "contact.message": "وصف المشروع",
   "contact.send": "أرسل الطلب",
-
+"contact.whatsapp.title": "تواصل عبر واتساب",
+"contact.whatsapp.subtitle": "هل تفضل التواصل المباشر؟ نحن هنا للرد على استفساراتك",
+"contact.whatsapp": "تواصل عبر واتساب",
+"contact.whatsapp.message": "مرحباً، أريد إنشاء متجر إلكتروني",
   "contact.whatsapp.title": "تواصل عبر واتساب",
   "contact.whatsapp.subtitle": "هل تفضل التواصل المباشر؟ نحن هنا للرد على استفساراتك",
   "contact.whatsapp": "تواصل عبر واتساب",
