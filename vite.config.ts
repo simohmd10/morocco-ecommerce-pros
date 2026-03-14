@@ -12,7 +12,7 @@ export default defineConfig(({ mode }) => ({
 
   plugins: [
     react(),
-    mode === "development" && componentTagger(), // ✅ صحيح بدون await
+    mode === "development" && componentTagger(),
   ].filter(Boolean),
 
   resolve: {
@@ -30,27 +30,71 @@ export default defineConfig(({ mode }) => ({
     rollupOptions: {
       output: {
         manualChunks(id) {
-          // ✅ هذا الأسلوب أكثر أماناً من الـ object الثابت
-          if (id.includes("node_modules/react") || 
-              id.includes("node_modules/react-dom") ||
-              id.includes("node_modules/scheduler")) {
-            return "vendor-react";
-          }
-          if (id.includes("node_modules/react-router")) {
+
+          // ✅ React core — يُحمَّل أولاً دائماً
+          if (
+            id.includes("node_modules/react/") ||
+            id.includes("node_modules/react-dom/") ||
+            id.includes("node_modules/scheduler/")
+          ) return "vendor-react";
+
+          // ✅ Router
+          if (id.includes("node_modules/react-router")) 
             return "vendor-router";
-          }
-          if (id.includes("node_modules/framer-motion")) {
+
+          // ✅ Radix UI — أكبر مصدر للـ bloat
+          if (id.includes("node_modules/@radix-ui/")) 
+            return "vendor-radix";
+
+          // ✅ framer-motion — ثقيلة جداً (~100KB)
+          if (id.includes("node_modules/framer-motion")) 
             return "vendor-animation";
-          }
-          if (id.includes("node_modules/")) {
+
+          // ✅ recharts — ثقيلة ولا تُحتاج في كل صفحة
+          if (id.includes("node_modules/recharts") ||
+              id.includes("node_modules/d3-") ||
+              id.includes("node_modules/victory-")) 
+            return "vendor-charts";
+
+          // ✅ Tanstack Query
+          if (id.includes("node_modules/@tanstack/")) 
+            return "vendor-query";
+
+          // ✅ Form libraries
+          if (
+            id.includes("node_modules/react-hook-form") ||
+            id.includes("node_modules/@hookform/") ||
+            id.includes("node_modules/zod")
+          ) return "vendor-forms";
+
+          // ✅ Date utilities
+          if (
+            id.includes("node_modules/date-fns") ||
+            id.includes("node_modules/react-day-picker")
+          ) return "vendor-dates";
+
+          // ✅ UI utilities
+          if (
+            id.includes("node_modules/lucide-react") ||
+            id.includes("node_modules/class-variance-authority") ||
+            id.includes("node_modules/clsx") ||
+            id.includes("node_modules/tailwind-merge")
+          ) return "vendor-ui-utils";
+
+          // ✅ باقي node_modules
+          if (id.includes("node_modules/")) 
             return "vendor-misc";
-          }
         },
       },
     },
   },
 
   optimizeDeps: {
-    include: ["react", "react-dom", "react-router-dom"],
+    include: [
+      "react",
+      "react-dom",
+      "react-router-dom",
+      "@tanstack/react-query",
+    ],
   },
 }));
