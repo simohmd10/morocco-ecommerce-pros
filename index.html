@@ -106,56 +106,58 @@ font-family:'Tajawal',system-ui,sans-serif;
 
 <body>
 
-<!-- Google Tag Manager noscript -->
-<noscript>
-<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KZCBK2LH"
-height="0" width="0" style="display:none;visibility:hidden">
-</iframe>
-</noscript>
+ 
+  <script>
+(function(){
 
-<!-- React root -->
-<div id="root"></div>
+function sendEvent(name,category,label){
 
-<!-- React app -->
-<script type="module" src="/src/main.tsx"></script>
-
-<!-- Analytics events -->
-<script>
-document.addEventListener("click", function(e) {
-
-  const link = e.target.closest("a, button");
-  if(!link) return;
-
-  const text = link.innerText?.trim() || link.href || "unknown";
-
-  // تأكد أن Google Analytics جاهز
   if(typeof gtag === "undefined") return;
 
-  // WhatsApp
-  if(link.href && link.href.includes("wa.me")){
-    gtag("event","whatsapp_click",{
-      event_category:"contact",
-      event_label:text
-    });
+  gtag("event",name,{
+    event_category:category,
+    event_label:label
+  });
+
+}
+
+// Scroll tracking
+let scroll50=false;
+let scroll90=false;
+
+window.addEventListener("scroll",function(){
+
+  const scroll=window.scrollY;
+  const height=document.body.scrollHeight-window.innerHeight;
+  const percent=scroll/height;
+
+  if(percent>0.5 && !scroll50){
+    scroll50=true;
+    sendEvent("scroll_50","engagement","half_page");
   }
 
-  // CTA buttons
-  if(text.includes("Start") || text.includes("ابدأ")){
-    gtag("event","cta_click",{
-      event_category:"cta",
-      event_label:text
-    });
-  }
-
-  // Portfolio
-  if(text.includes("Visit") || text.includes("زيارة")){
-    gtag("event","portfolio_click",{
-      event_category:"portfolio",
-      event_label:text
-    });
+  if(percent>0.9 && !scroll90){
+    scroll90=true;
+    sendEvent("scroll_90","engagement","almost_bottom");
   }
 
 });
+
+// Time on page
+setTimeout(function(){
+  sendEvent("engaged_30s","engagement","30_seconds");
+},30000);
+
+// Page visibility
+document.addEventListener("visibilitychange",function(){
+
+  if(document.visibilityState==="hidden"){
+    sendEvent("leave_page","engagement","page_hidden");
+  }
+
+});
+
+})();
 </script>
 
 </body>
