@@ -2,17 +2,14 @@
   "redirects": [
     {
       "source": "/(.*)",
-      "has": [{ "type": "host", "value": "www.brandixo.store" }],
-      "destination": "https://brandixo.store/$1",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.brandixo.store"
+        }
+      ],
+      "destination": "https://brandixo.store/:path*",
       "permanent": true
-    }
-  ],
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        { "key": "X-Robots-Tag", "value": "index, follow" }
-      ]
     }
   ]
 }
