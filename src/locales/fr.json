@@ -76,7 +76,16 @@
   "portfolio.subtitle": "Boutiques que nous avons créées pour nos clients",
   "portfolio.preview": "Aperçu de la boutique",
   "portfolio.enter_store": "Entrer dans la boutique",
+"portfolio.electronics": "Boutique électronique",
+"portfolio.electronics.desc": "Boutique professionnelle pour vendre des appareils électroniques",
 
+"portfolio.fashion": "Boutique vêtements",
+"portfolio.fashion.desc": "Boutique de mode moderne",
+
+"portfolio.cosmetics": "Boutique cosmétique",
+"portfolio.cosmetics.desc": "Boutique beauté professionnelle",
+
+"portfolio.visit": "Visiter la boutique",
   "faq.title": "Questions fréquentes",
   "faq.related": "Liens connexes",
   "faq.q1": "Combien de temps prend la création ?",
