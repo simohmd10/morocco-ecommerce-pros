@@ -1,4 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import ar from '@/locales/ar.json';
+import fr from '@/locales/fr.json';
+import en from '@/locales/en.json';
 
 type Language = 'ar' | 'fr' | 'en';
 
@@ -9,170 +12,7 @@ interface LanguageContextType {
   dir: 'rtl' | 'ltr';
 }
 
-const translations: Record<Language, Record<string, string>> = {
-
-  ar: {
-    'nav.home': 'الرئيسية',
-    'nav.services': 'خدماتنا',
-    'nav.pricing': 'الأسعار',
-    'nav.portfolio': 'أعمالنا',
-    'nav.faq': 'أسئلة شائعة',
-    'nav.contact': 'تواصل معنا',
-
-    'hero.badge': 'E-Commerce Morocco',
-    'hero.title': 'أنشئ متجرك الإلكتروني وابدأ البيع في المغرب',
-    'hero.subtitle': 'نصمم لك متجراً إلكترونياً احترافياً يساعدك على بيع منتجاتك أونلاين',
-    'hero.cta': 'ابدأ متجرك الآن',
-    'hero.secondary': 'اكتشف خدماتنا',
-
-    'hero.stat.delivery': 'تسليم سريع',
-    'hero.stat.stores': 'متجر مُنجز',
-    'hero.stat.satisfaction': 'رضا العملاء',
-    'hero.scroll': 'scroll',
-
-    'portfolio.title': 'نماذج من أعمالنا',
-    'portfolio.subtitle': 'متاجر إلكترونية صممناها لعملائنا',
-    'portfolio.preview': 'معاينة المتجر',
-    'portfolio.enter_store': 'دخول المتجر',
-
-    'portfolio.cosmetics': 'متجر مستحضرات التجميل',
-    'portfolio.cosmetics.desc': 'متجر إلكتروني احترافي لبيع منتجات التجميل.',
-    'portfolio.visit': 'زيارة المتجر',
-
-    'portfolio.cta.title': 'هل تريد متجرًا مثل هذا؟',
-    'portfolio.cta.want_store': 'أريد متجري الآن',
-
-    'faq.title': 'أسئلة شائعة',
-    'faq.related': 'روابط ذات صلة',
-
-    'testimonials.tag': 'آراء العملاء',
-    'testimonials.title.part1': 'ماذا يقول',
-    'testimonials.title.part2': 'عملاؤنا',
-    'testimonials.subtitle': '+50 متجر إلكتروني ناجح في المغرب',
-    'testimonials.stat.rating': 'متوسط التقييم',
-    'testimonials.stat.clients': 'عميل سعيد',
-    'testimonials.stat.recommend': 'يوصون بنا',
-    'testimonials.cta': 'ابدأ متجرك اليوم',
-
-    'contact.title': 'تواصل معنا',
-    'contact.subtitle': 'هل أنت مستعد لبدء مشروعك؟',
-    'contact.name': 'الاسم الكامل',
-    'contact.email': 'البريد الإلكتروني',
-    'contact.phone': 'رقم الهاتف',
-    'contact.message': 'وصف المشروع',
-    'contact.send': 'أرسل الطلب',
-
-    'footer.desc': 'نبني متاجر إلكترونية احترافية للتجار المغاربة.',
-    'footer.links': 'روابط سريعة',
-    'footer.privacy': 'سياسة الخصوصية',
-    'footer.terms': 'الشروط والأحكام',
-    'footer.rights': 'جميع الحقوق محفوظة',
-    'footer.available': 'متاح لمشاريع جديدة',
-    'footer.whatsapp': 'واتساب',
-    'footer.made': 'صُنع بـ',
-  },
-
-  fr: {
-    'nav.home': 'Accueil',
-    'nav.services': 'Services',
-    'nav.pricing': 'Tarifs',
-    'nav.portfolio': 'Portfolio',
-    'nav.faq': 'FAQ',
-    'nav.contact': 'Contact',
-
-    'hero.badge': 'E-Commerce Maroc',
-    'hero.title': 'Créez votre boutique en ligne',
-    'hero.subtitle': 'Nous créons votre boutique e-commerce',
-    'hero.cta': 'Lancez votre boutique',
-    'hero.secondary': 'Découvrir nos services',
-
-    'hero.stat.delivery': 'Livraison rapide',
-    'hero.stat.stores': 'Boutiques créées',
-    'hero.stat.satisfaction': 'Satisfaction client',
-
-    'portfolio.title': 'Notre Portfolio',
-    'portfolio.subtitle': 'Boutiques que nous avons créées',
-    'portfolio.preview': 'Aperçu',
-    'portfolio.enter_store': 'Entrer',
-
-    'portfolio.cosmetics': 'Boutique cosmétique',
-    'portfolio.cosmetics.desc': 'Boutique beauté professionnelle',
-    'portfolio.visit': 'Visiter',
-
-    'portfolio.cta.title': 'Vous voulez une boutique comme celle-ci ?',
-    'portfolio.cta.want_store': 'Je veux ma boutique',
-
-    'faq.title': 'Questions fréquentes',
-    'faq.related': 'Liens connexes','testimonials.tag': 'Avis clients',
-    'testimonials.title.part1': 'Ce que disent',
-    'testimonials.title.part2': 'nos clients',
-    'testimonials.subtitle': '+50 boutiques réussies au Maroc',
-    'testimonials.stat.rating': 'Note moyenne',
-    'testimonials.stat.clients': 'Client satisfait',
-    'testimonials.stat.recommend': 'Nous recommandent',
-    'testimonials.cta': 'Lancez votre boutique',
-
-    'contact.title': 'Contactez-nous',
-    'contact.subtitle': 'Prêt à lancer votre projet ?',
-    'contact.name': 'Nom complet',
-    'contact.email': 'Email',
-    'contact.phone': 'Téléphone',
-    'contact.message': 'Description du projet',
-    'contact.send': 'Envoyer',
-  },
-
-  en: {
-    'nav.home': 'Home',
-    'nav.services': 'Services',
-    'nav.pricing': 'Pricing',
-    'nav.portfolio': 'Portfolio',
-    'nav.faq': 'FAQ',
-    'nav.contact': 'Contact',
-
-    'hero.badge': 'E-Commerce Morocco',
-    'hero.title': 'Build Your Online Store',
-    'hero.subtitle': 'We create professional e-commerce stores',
-    'hero.cta': 'Start Your Store Now',
-    'hero.secondary': 'Discover Our Services',
-
-    'hero.stat.delivery': 'Fast delivery',
-    'hero.stat.stores': 'Stores built',
-    'hero.stat.satisfaction': 'Client satisfaction',
-
-    'portfolio.title': 'Our Portfolio',
-    'portfolio.subtitle': 'Online stores we built',
-    'portfolio.preview': 'Preview',
-    'portfolio.enter_store': 'Enter',
-
-    'portfolio.cosmetics': 'Cosmetics Store',
-    'portfolio.cosmetics.desc': 'Professional beauty products store',
-    'portfolio.visit': 'Visit Store',
-
-    'portfolio.cta.title': 'Want a store like this?',
-    'portfolio.cta.want_store': 'I want my store',
-
-    'faq.title': 'Frequently Asked Questions',
-    'faq.related': 'Related links',
-
-    'testimonials.tag': 'Client Reviews',
-    'testimonials.title.part1': 'What our',
-    'testimonials.title.part2': 'clients say',
-    'testimonials.subtitle': '+50 successful online stores',
-    'testimonials.stat.rating': 'Average rating',
-    'testimonials.stat.clients': 'Happy client',
-    'testimonials.stat.recommend': 'Recommend us',
-    'testimonials.cta': 'Start your store today',
-
-    'contact.title': 'Contact Us',
-    'contact.subtitle': 'Ready to start your project?',
-    'contact.name': 'Full Name',
-    'contact.email': 'Email',
-    'contact.phone': 'Phone',
-    'contact.message': 'Project description',
-    'contact.send': 'Send Request',
-  }
-
-};
+const translations: Record<Language, Record<string, string>> = { ar, fr, en };
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
@@ -214,10 +54,8 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
 export const useLanguage = () => {
   const context = useContext(LanguageContext);
-
   if (!context) {
     throw new Error('useLanguage must be used within LanguageProvider');
   }
-
   return context;
 };
