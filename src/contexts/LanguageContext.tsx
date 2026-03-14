@@ -36,14 +36,18 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     html.dir = dir;
   }, [lang, dir]);
 
-  const t = (key: string): string => {
+  const missingKeys = new Set<string>();
+
+const t = (key: string): string => {
   const value =
     translations[lang]?.[key] ||
     translations['ar']?.[key] ||
     translations['en']?.[key];
 
   if (!value) {
-    console.warn("❌ Missing translation key:", key);
+    missingKeys.add(key);
+    console.warn("❌ Missing:", key);
+    console.log("All missing keys:", [...missingKeys]);
     return key;
   }
 
