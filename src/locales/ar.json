@@ -76,6 +76,16 @@
   "portfolio.subtitle": "متاجر إلكترونية صممناها لعملائنا",
   "portfolio.preview": "معاينة المتجر",
   "portfolio.enter_store": "دخول المتجر",
+  "portfolio.electronics": "متجر إلكترونيات",
+  "portfolio.electronics.desc": "نموذج متجر إلكترونيات احترافي",
+  "portfolio.fashion": "متجر ملابس",
+  "portfolio.fashion.desc": "نموذج متجر ملابس احترافي",
+  "portfolio.cosmetics": "متجر مستحضرات تجميل",
+  "portfolio.cosmetics.desc": "نموذج متجر كوزميتيك احترافي",
+  "portfolio.visit": "زيارة المتجر",
+  "portfolio.cta.title": "هل تريد متجراً مثل هذا؟",
+  "portfolio.cta.want_store": "أنشئ متجرك الآن",
+  "portfolio.whatsapp_message": "مرحباً، أريد متجراً إلكترونياً مثل نماذج أعمالكم",
 
   "faq.title": "أسئلة شائعة",
   "faq.related": "روابط ذات صلة",
@@ -147,31 +157,14 @@
   "footer.available": "متاح لمشاريع جديدة",
   "footer.whatsapp": "واتساب",
   "footer.made": "صُنع بـ",
-"why.title": "لماذا تحتاج متجراً إلكترونياً؟",
-"why.stat1": "+30M",
-"why.stat1.desc": "مستخدم إنترنت في المغرب",
-"why.stat2": "+70%",
-"why.stat2.desc": "من المغاربة يتسوقون أونلاين",
-"why.stat3": "48h",
-"why.stat3.desc": "متوسط وقت إنشاء متجرك",
-"why.stat4": "100%",
-"why.stat4.desc": "متوافق مع الهاتف",
 
-"portfolio.electronics": "متجر إلكترونيات",
-"portfolio.electronics.desc": "نموذج متجر إلكترونيات احترافي",
-"portfolio.visit": "زيارة المتجر",
-"portfolio.electronics": "متجر إلكترونيات",
-"portfolio.electronics.desc": "نموذج متجر إلكترونيات احترافي",
-
-"portfolio.fashion": "متجر ملابس",
-"portfolio.fashion.desc": "نموذج متجر ملابس احترافي",
-
-"portfolio.cosmetics": "متجر مستحضرات تجميل",
-"portfolio.cosmetics.desc": "نموذج متجر كوزميتيك احترافي",
-
-"portfolio.visit": "زيارة المتجر",
-"portfolio.cta.title": "هل تريد متجراً مثل هذا؟",
-"portfolio.cta.want_store": "أنشئ متجرك الآن"
-
+  "why.title": "لماذا تحتاج متجراً إلكترونياً؟",
+  "why.stat1": "+30M",
+  "why.stat1.desc": "مستخدم إنترنت في المغرب",
+  "why.stat2": "+70%",
+  "why.stat2.desc": "من المغاربة يتسوقون أونلاين",
+  "why.stat3": "48h",
+  "why.stat3.desc": "متوسط وقت إنشاء متجرك",
+  "why.stat4": "100%",
+  "why.stat4.desc": "متوافق مع الهاتف"
 }
-
