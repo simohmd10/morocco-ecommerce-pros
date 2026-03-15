@@ -1,5 +1,4 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import { motion } from 'framer-motion';
 import { ExternalLink, Eye, MessageCircle } from 'lucide-react';
 import storeCosmetics from '@/assets/store-cosmetics.jpg';
 import storeFashion from '@/assets/store-fashion.jpg';
@@ -47,29 +46,21 @@ const Portfolio = () => {
     <section id="portfolio" className="section-padding bg-background" aria-label="Portfolio">
       <div className="container mx-auto">
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-10 md:mb-16"
-        >
+        <div className="text-center mb-10 md:mb-16 fade-in-up">
           <h2 className="text-2xl md:text-4xl font-bold font-display mb-3 text-foreground">
             {t('portfolio.title')}
           </h2>
           <p className="text-muted-foreground text-base md:text-lg">
             {t('portfolio.subtitle')}
           </p>
-        </motion.div>
+        </div>
 
         <div className="flex flex-col gap-5 md:grid md:grid-cols-3 md:gap-8 max-w-5xl mx-auto">
           {stores.map((store, i) => (
-            <motion.article
+            <article
               key={store.url}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ delay: i * 0.1 }}
-              className="group rounded-2xl overflow-hidden border border-border card-shadow bg-card hover:border-primary/30 transition-all duration-300 md:hover:-translate-y-2"
+              className="group rounded-2xl overflow-hidden border border-border card-shadow bg-card hover:border-primary/30 transition-all duration-300 md:hover:-translate-y-2 fade-in-up"
+              style={{ animationDelay: `${i * 100}ms` }}
             >
               <div
                 className="relative overflow-hidden cursor-pointer"
@@ -105,16 +96,11 @@ const Portfolio = () => {
                   {t('portfolio.visit')}
                 </button>
               </div>
-            </motion.article>
+            </article>
           ))}
         </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mt-12 md:mt-16"
-        >
+        <div className="text-center mt-12 md:mt-16 fade-in-up">
           <h3 className="text-xl md:text-3xl font-bold font-display mb-5 text-foreground">
             {t('portfolio.cta.title')}
           </h3>
@@ -125,7 +111,7 @@ const Portfolio = () => {
             <MessageCircle className="w-5 h-5" />
             {t('portfolio.cta.want_store')}
           </button>
-        </motion.div>
+        </div>
 
       </div>
     </section>
