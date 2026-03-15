@@ -1,18 +1,21 @@
 import { Helmet } from 'react-helmet-async';
+import { lazy, Suspense } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/Hero';
-import TrustSection from '@/components/TrustSection';
-import WhyEcommerce from '@/components/WhyEcommerce';
-import Benefits from '@/components/Benefits';
-import HowItWorks from '@/components/HowItWorks';
-import Services from '@/components/Services';
-import Portfolio from '@/components/Portfolio';
-import Pricing from '@/components/Pricing';
-import Testimonials from '@/components/Testimonials';
-import FAQ from '@/components/FAQ';
-import Contact from '@/components/Contact';
-import Footer from '@/components/Footer';
+
+// ✅ Components أسفل الصفحة تتحمل عند الحاجة فقط
+const TrustSection  = lazy(() => import('@/components/TrustSection'));
+const WhyEcommerce  = lazy(() => import('@/components/WhyEcommerce'));
+const Benefits      = lazy(() => import('@/components/Benefits'));
+const HowItWorks    = lazy(() => import('@/components/HowItWorks'));
+const Services      = lazy(() => import('@/components/Services'));
+const Portfolio     = lazy(() => import('@/components/Portfolio'));
+const Pricing       = lazy(() => import('@/components/Pricing'));
+const Testimonials  = lazy(() => import('@/components/Testimonials'));
+const FAQ           = lazy(() => import('@/components/FAQ'));
+const Contact       = lazy(() => import('@/components/Contact'));
+const Footer        = lazy(() => import('@/components/Footer'));
 
 const Index = () => {
   const { lang } = useLanguage();
@@ -40,21 +43,31 @@ const Index = () => {
         <meta name="twitter:description" content={description} />
         <html lang={lang} dir={lang === 'ar' ? 'rtl' : 'ltr'} />
       </Helmet>
+
       <Navbar />
+
       <main>
+        {/* ✅ Hero يتحمل فوراً — LCP مباشر */}
         <Hero />
-        <TrustSection />
-        <WhyEcommerce />
-        <Benefits />
-        <HowItWorks />
-        <Services />
-        <Portfolio />
-        <Pricing />
-        <Testimonials />
-        <FAQ />
-        <Contact />
+
+        {/* ✅ باقي الصفحة تتحمل بعد Hero */}
+        <Suspense fallback={<div style={{ minHeight: '100vh', background: '#ffffff' }} />}>
+          <TrustSection />
+          <WhyEcommerce />
+          <Benefits />
+          <HowItWorks />
+          <Services />
+          <Portfolio />
+          <Pricing />
+          <Testimonials />
+          <FAQ />
+          <Contact />
+        </Suspense>
       </main>
-      <Footer />
+
+      <Suspense fallback={null}>
+        <Footer />
+      </Suspense>
     </>
   );
 };
