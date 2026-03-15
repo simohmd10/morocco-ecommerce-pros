@@ -1,5 +1,4 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import { motion } from 'framer-motion';
 import { Paintbrush, Package, CreditCard, Truck, Zap, Smartphone, LayoutDashboard } from 'lucide-react';
 
 const Services = () => {
@@ -18,33 +17,26 @@ const Services = () => {
   return (
     <section id="services" className="section-padding bg-background" aria-label="Services">
       <div className="container mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
+
+        <div className="text-center mb-16 fade-in-up">
           <h2 className="text-3xl md:text-4xl font-bold font-display mb-4 text-foreground">
             {t('services.title')}
           </h2>
           <p className="text-muted-foreground text-lg">{t('services.subtitle')}</p>
-        </motion.div>
+        </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 max-w-5xl mx-auto">
           {services.map((service, i) => (
-            <motion.div
+            <div
               key={i}
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
-              className="flex items-center gap-3 p-4 rounded-xl bg-card border border-border hover:border-gold/30 transition-colors card-shadow"
+              className="flex items-center gap-3 p-4 rounded-xl bg-card border border-border hover:border-gold/30 transition-colors card-shadow fade-in-up"
+              style={{ animationDelay: `${i * 50}ms` }}
             >
               <div className="w-10 h-10 rounded-lg gold-gradient flex items-center justify-center flex-shrink-0" aria-hidden="true">
                 <service.icon className="w-5 h-5 text-white" />
               </div>
               <span className="font-medium text-sm text-foreground">{t(service.key)}</span>
-            </motion.div>
+            </div>
           ))}
         </div>
 
