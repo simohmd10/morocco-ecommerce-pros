@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;       /* ✅ أبيض نظيف بدل 99% */
+    --background: 0 0% 100%;
     --foreground: 0 0% 6%;
 
     --card: 0 0% 100%;
@@ -18,7 +18,7 @@
     --primary: 0 0% 6%;
     --primary-foreground: 0 0% 99%;
 
-    --secondary: 0 0% 100%;        /* ✅ أبيض نظيف — يزيل الرمادي */
+    --secondary: 0 0% 100%;
     --secondary-foreground: 0 0% 6%;
 
     --muted: 0 0% 95%;
@@ -80,7 +80,7 @@
 
   body {
     @apply bg-background text-foreground font-body antialiased;
-    background-color: #ffffff;     /* ✅ أبيض نظيف */
+    background-color: #ffffff;
     overflow-x: hidden;
     -webkit-tap-highlight-color: transparent;
   }
@@ -257,13 +257,12 @@
     margin: 0;
   }
 
-  /* ✅ إصلاح Contrast — gold على خلفية فاتحة */
   .text-gold-accessible {
-    color: hsl(42 75% 34%); /* gold-dark — contrast ratio 4.5:1 */
+    color: hsl(42 75% 34%);
   }
 
   a.text-gold {
-    color: hsl(42 70% 36%); /* أغمق قليلاً للـ contrast */
+    color: hsl(42 70% 36%);
   }
 
   a.text-gold:hover {
@@ -315,5 +314,46 @@
   .container {
     padding-left: 1rem !important;
     padding-right: 1rem !important;
+  }
+}
+
+/* ═══════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════ */
+
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-fade-in {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.hero-slide-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 0.7s ease forwards;
+}
+
+.hero-scale-in {
+  opacity: 0;
+  transform: scaleX(0);
+  animation: scaleIn 0.5s ease forwards;
+}
+
+@keyframes scaleIn {
+  to {
+    opacity: 1;
+    transform: scaleX(1);
   }
 }
