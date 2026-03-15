@@ -10,6 +10,8 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 const Index = lazy(() => import("./pages/Index"));
 const Blog = lazy(() => import("./components/Blog"));
 const BlogPost = lazy(() => import("./components/BlogPost"));
+const Privacy = lazy(() => import("./pages/Privacy"));
+const Terms = lazy(() => import("./pages/Terms"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
@@ -30,6 +32,10 @@ const App = () => (
                 {/* المدونة */}
                 <Route path="/blog" element={<Blog />} />
                 <Route path="/blog/:slug" element={<BlogPost />} />
+
+                {/* الصفحات القانونية */}
+                <Route path="/privacy" element={<Privacy />} />
+                <Route path="/terms" element={<Terms />} />
 
                 {/* 404 */}
                 <Route path="*" element={<NotFound />} />
