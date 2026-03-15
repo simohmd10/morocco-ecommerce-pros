@@ -1,3 +1,4 @@
+import { lazy, Suspense } from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -5,14 +6,11 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { HelmetProvider } from "react-helmet-async";
 import { LanguageProvider } from "@/contexts/LanguageContext";
-import Index from "./pages/Index";
-import Blog from "./components/Blog";
-import BlogPost from "./components/BlogPost";
-import NotFound from "./pages/NotFound";
 
-// ✅ إضافة صفحات Privacy و Terms إن وجدت
-// import Privacy from "./pages/Privacy";
-// import Terms from "./pages/Terms";
+const Index = lazy(() => import("./pages/Index"));
+const Blog = lazy(() => import("./components/Blog"));
+const BlogPost = lazy(() => import("./components/BlogPost"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const queryClient = new QueryClient();
 
@@ -24,21 +22,19 @@ const App = () => (
           <Toaster />
           <Sonner />
           <BrowserRouter>
-            <Routes>
-              {/* الصفحة الرئيسية */}
-              <Route path="/" element={<Index />} />
+            <Suspense fallback={<div style={{ minHeight: "100vh", background: "#000" }} />}>
+              <Routes>
+                {/* الصفحة الرئيسية */}
+                <Route path="/" element={<Index />} />
 
-              {/* المدونة */}
-              <Route path="/blog" element={<Blog />} />
-              <Route path="/blog/:slug" element={<BlogPost />} />
+                {/* المدونة */}
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:slug" element={<BlogPost />} />
 
-              {/* صفحات قانونية */}
-              {/* <Route path="/privacy" element={<Privacy />} /> */}
-              {/* <Route path="/terms" element={<Terms />} /> */}
-
-              {/* 404 */}
-              <Route path="*" element={<NotFound />} />
-            </Routes>
+                {/* 404 */}
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
           </BrowserRouter>
         </TooltipProvider>
       </LanguageProvider>
