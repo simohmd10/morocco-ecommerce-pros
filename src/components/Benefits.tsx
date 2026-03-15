@@ -1,4 +1,4 @@
-7import { useLanguage } from '@/contexts/LanguageContext';
+
 import { Globe, Wallet, BarChart3, Rocket } from 'lucide-react';
 
 const Benefits = () => {
