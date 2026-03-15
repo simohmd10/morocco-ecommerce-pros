@@ -97,6 +97,32 @@ const Navbar = () => {
             </Link>
           </div>
 
+          {/* Desktop Language Switcher */}
+          <div className="hidden md:flex items-center gap-0.5 rounded-lg border p-0.5 border-white/20"
+            style={scrolled ? { borderColor: 'hsl(0 0% 0% / 0.08)' } : {}}>
+            {([
+              { code: "ar", label: "ع" },
+              { code: "fr", label: "Fr" },
+              { code: "en", label: "En" },
+            ] as const).map(({ code, label }) => (
+              <button
+                key={code}
+                onClick={() => setLang(code)}
+                className={`px-2.5 py-1 rounded-md text-xs font-semibold transition-all ${
+                  lang === code
+                    ? "text-dark"
+                    : scrolled
+                    ? "text-muted-foreground hover:text-foreground hover:bg-black/5"
+                    : "text-white/65 hover:text-white hover:bg-white/10"
+                }`}
+                style={lang === code ? { background: 'linear-gradient(135deg, hsl(42 80% 48%), hsl(42 85% 62%))' } : {}}
+                aria-label={code.toUpperCase()}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+
           {/* Right side: CTA + Hamburger */}
           <div className="flex items-center gap-2 flex-1 md:flex-none justify-end">
             <a
